@@ -1,16 +1,19 @@
 package com.acelerazg.pessoas
 
 import groovy.transform.ToString
-@ToString
+@ToString(includeNames = true)
 
 class Pessoa {
 
     String nome
     String email
     String estado
-    List<String> descricao
-    String competencias
+    String descricao
+    List<String> competencias
     def cep
 
+    @Override
+    String toString() {
+        return super.toString()
+    }
 }
-
