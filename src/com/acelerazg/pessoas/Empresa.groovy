@@ -10,7 +10,7 @@ class Empresa extends Pessoa {
 
     String toString() {
         "Empresa(" +
-                "nome=${nome}," +
+                " nome=${nome}," +
                 " email=${email}," +
                 " estado=${estado}," +
                 " descricao=${descricao}," +

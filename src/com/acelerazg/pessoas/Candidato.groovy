@@ -11,7 +11,7 @@ class Candidato extends Pessoa{
     @Override
     String toString() {
         "Candidato(" +
-                "nome=${nome}," +
+                " nome=${nome}," +
                 " email=${email}," +
                 " estado=${estado}," +
                 " descricao=${descricao}," +

@@ -5,7 +5,7 @@ import com.acelerazg.pessoas.Empresa
 
 class ListaPessoa {
 
-    static List<Candidato> candidatos = [
+    public static List<Candidato> candidatos = [
 
             new Candidato(
                     nome:"Jose das Couves",
@@ -60,7 +60,7 @@ class ListaPessoa {
 
     ]
 
-    static List<Empresa> empresas = [
+    public static List<Empresa> empresas = [
 
             new Empresa(
                     nome:"AMENDOIM LTDA",
