@@ -10,9 +10,11 @@ Assim caso seja estabelecido um "Match" entre a empresa recrutadora e o candidat
 
 No atual estado do programa existe as seguintes funcionalidades:
 
+    Encerrar aplicação.
     Listar Candidatos.
     Listar Empresas.
-    Encerrar aplicação.
+    Cadastrar Candidato
+    Cadastrar Empresa
 
 ### Como executar
 
