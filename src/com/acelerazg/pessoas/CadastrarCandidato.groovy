@@ -4,7 +4,8 @@ import com.acelerazg.dados.ListaPessoa
 
 class CadastrarCandidato {
 
-    void cadastrarCandidato(Candidato) {
+    static cadastrarCandidato(Candidato) {
+        ListaPessoa.candidatos.add(Candidato)
     }
 
 }

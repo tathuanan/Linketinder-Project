@@ -4,17 +4,17 @@ import com.acelerazg.dados.ListaPessoa;
 import com.acelerazg.pessoas.CadastrarCandidato;
 import com.acelerazg.pessoas.Candidato;
 import org.junit.jupiter.api.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Assertions;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class TesteCadastrarCandidato {
     @Test
-    public void testeCadastrarCantidato(){
+    public void testeCadastrarCantidato() {
 
         Candidato candidato = new Candidato();
-        CadastrarCandidato cc = new CadastrarCandidato();
 
         String nome = "Ze das Quantas";
         String email = "ze.quantas@acelerazg.com.br";
@@ -39,11 +39,11 @@ public class TesteCadastrarCandidato {
         candidato.setCpf(cpf);
         candidato.setIdade(idade);
 
-        cc.cadastrarCandidato(candidato);
+        CadastrarCandidato.cadastrarCandidato(candidato);
 
-        Candidato resultadoEsperado = ListaPessoa.candidatos.get(ListaPessoa.candidatos.size() -1);
+        Candidato resultadoEsperado = ListaPessoa.candidatos.get(ListaPessoa.candidatos.size() - 1);
 
-        assertEquals(candidato, resultadoEsperado);
+        Assertions.assertEquals(candidato, resultadoEsperado);
 
-        };
+    }
 }
