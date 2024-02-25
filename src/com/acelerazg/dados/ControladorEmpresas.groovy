@@ -51,6 +51,8 @@ class ControladorEmpresas {
         empresa.cnpj = Ferramentas.ler.nextLine()
 
         ListaPessoa.empresas.add(empresa)
+
+        println "Empresa cadastrada com sucesso!!!"
     }
 
 }

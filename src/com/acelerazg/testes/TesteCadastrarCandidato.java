@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TesteCadastrarCandidato {
 
-    static class CadastrarCandidato extends com.acelerazg.pessoas.CadastrarCandidato{
+    static class ControladorCandidatos extends com.acelerazg.dados.ControladorCandidatos{
         static void cadastrarCandidato(Candidato candidato) {
             ListaPessoa.candidatos.add(candidato);
         }
@@ -45,7 +45,7 @@ public class TesteCadastrarCandidato {
         candidato.setCpf(cpf);
         candidato.setIdade(idade);
 
-        CadastrarCandidato.cadastrarCandidato(candidato);
+        ControladorCandidatos.cadastrarCandidato(candidato);
 
         Candidato resultadoEsperado = ListaPessoa.candidatos.get(ListaPessoa.candidatos.size() - 1);
 

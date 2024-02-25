@@ -2,8 +2,6 @@ package com.acelerazg.aplicacao
 
 import com.acelerazg.dados.ControladorCandidatos
 import com.acelerazg.dados.ControladorEmpresas
-import com.acelerazg.pessoas.CadastrarCandidato
-import com.acelerazg.testes.TesteCadastrarEmpresa
 
 class Menu {
 
@@ -40,7 +38,7 @@ class Menu {
                         ControladorEmpresas.listarEmpresas()
                         break
                     case 3:
-                        CadastrarCandidato.cadastrarCandidato()
+                        ControladorCandidatos.cadastrarCandidato()
                         break
                     case 4:
                         ControladorEmpresas.cadastrarEmpresa()
