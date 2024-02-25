@@ -1,5 +1,8 @@
 package com.acelerazg.testes;
 
+import com.acelerazg.dados.ControladorCandidatos;
+import com.acelerazg.dados.IControladorCandidatos;
+import com.acelerazg.dados.IControladorEmpresas;
 import com.acelerazg.dados.ListaPessoa;
 import com.acelerazg.pessoas.Candidato;
 import org.junit.jupiter.api.Test;
@@ -11,16 +14,11 @@ import java.util.List;
 
 public class TesteCadastrarCandidato {
 
-    static class ControladorCandidatos extends com.acelerazg.dados.ControladorCandidatos{
-        static void cadastrarCandidato(Candidato candidato) {
-            ListaPessoa.candidatos.add(candidato);
-        }
-    }
-
     @Test
     public void testeCadastrarCantidato() {
 
         Candidato candidato = new Candidato();
+        IControladorCandidatos iControladorCandidatos = iCandidato -> ListaPessoa.candidatos.add(candidato);
 
         String nome = "Ze das Quantas";
         String email = "ze.quantas@acelerazg.com.br";
@@ -45,7 +43,7 @@ public class TesteCadastrarCandidato {
         candidato.setCpf(cpf);
         candidato.setIdade(idade);
 
-        ControladorCandidatos.cadastrarCandidato(candidato);
+        iControladorCandidatos.iCadastrarCandidato(candidato);
 
         Candidato resultadoEsperado = ListaPessoa.candidatos.get(ListaPessoa.candidatos.size() - 1);
 

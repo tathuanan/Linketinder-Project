@@ -1,5 +1,6 @@
 package com.acelerazg.testes;
 
+import com.acelerazg.dados.IControladorEmpresas;
 import com.acelerazg.dados.ListaPessoa;
 import com.acelerazg.pessoas.Empresa;
 import org.junit.jupiter.api.Test;
@@ -8,24 +9,18 @@ import org.junit.jupiter.api.Assertions;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class TesteCadastrarEmpresa {
-
-    static class ControladorEmpresas extends com.acelerazg.dados.ControladorEmpresas{
-        static void cadastrarEmpresa(Empresa empresa) {
-            ListaPessoa.empresas.add(empresa);
-        }
-    }
 
     @Test
     public void testeCadastrarEmpresa() {
 
         Empresa empresa = new Empresa();
+        IControladorEmpresas iControladorEmpresas = iEmpresa -> ListaPessoa.empresas.add(empresa);
 
         String nome = "PAÇOCA LTDA";
         String email = "contato@pacoca.com.br";
         String estado = "DF";
-        String descricao = "Empresa de médio porte com foco em clientes do ramo alimentício";
+        String descricao = "Empresa de médio porte com foco em clientes do ramo alimentício.";
         List<String> competencias = new ArrayList<>();
         String cep = "72000000";
         String pais = "Brasil";
@@ -45,7 +40,7 @@ public class TesteCadastrarEmpresa {
         empresa.setPais(pais);
         empresa.setCnpj(cnpj);
 
-        ControladorEmpresas.cadastrarEmpresa(empresa);
+        iControladorEmpresas.iCadastrarEmpresa(empresa);
 
         Empresa resultadoEsperado = ListaPessoa.empresas.get(ListaPessoa.empresas.size() - 1);
 

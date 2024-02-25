@@ -3,7 +3,7 @@ package com.acelerazg.dados
 import com.acelerazg.aplicacao.Ferramentas
 import com.acelerazg.pessoas.Empresa
 
-class ControladorEmpresas {
+class ControladorEmpresas implements IControladorEmpresas {
 
     static listarEmpresas() {
 
@@ -13,9 +13,9 @@ class ControladorEmpresas {
 
     }
 
-    static void cadastrarEmpresa() {
+    static cadastrarEmpresa() {
 
-        def empresa = new Empresa();
+        def empresa = new Empresa()
 
         empresa.competencias = []
         int qtdCompetencias
@@ -55,4 +55,8 @@ class ControladorEmpresas {
         println "Empresa cadastrada com sucesso!!!"
     }
 
+    @Override
+    def iCadastrarEmpresa(Object empresa) {
+        return null
+    }
 }

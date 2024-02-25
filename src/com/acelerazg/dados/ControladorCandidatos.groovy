@@ -3,7 +3,7 @@ package com.acelerazg.dados
 import com.acelerazg.aplicacao.Ferramentas
 import com.acelerazg.pessoas.Candidato
 
-class ControladorCandidatos{
+class ControladorCandidatos implements IControladorCandidatos{
 
     static listarCandidatos(){
 
@@ -53,6 +53,11 @@ class ControladorCandidatos{
         ListaPessoa.candidatos.add(candidato)
 
         println "Candidato cadastrado com sucesso!!!"
+    }
+
+    @Override
+    def iCadastrarCandidato(Object candidato) {
+        return null
     }
 }
 
