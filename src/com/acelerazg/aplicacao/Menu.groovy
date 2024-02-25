@@ -3,6 +3,7 @@ package com.acelerazg.aplicacao
 import com.acelerazg.dados.ControladorCandidatos
 import com.acelerazg.dados.ControladorEmpresas
 import com.acelerazg.pessoas.CadastrarCandidato
+import com.acelerazg.testes.TesteCadastrarEmpresa
 
 class Menu {
 
@@ -15,7 +16,8 @@ class Menu {
                        "0. Encerrar aplicação\n" +
                        "1. Listar Candidatos.\n" +
                        "2. Listar Empresas.\n" +
-                       "3. Cadastrar Candidato."
+                       "3. Cadastrar Candidato.\n" +
+                       "4. Cadastrar Empresa."
 
         println "Bem-vindo ao Menu Principal do LinkeTinder"
 
@@ -39,6 +41,9 @@ class Menu {
                         break
                     case 3:
                         CadastrarCandidato.cadastrarCandidato()
+                        break
+                    case 4:
+                        ControladorEmpresas.cadastrarEmpresa()
                         break
                     default:
                         println("\nOpção inválida!!")

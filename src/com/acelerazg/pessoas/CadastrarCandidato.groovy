@@ -7,7 +7,7 @@ class CadastrarCandidato {
 
     static cadastrarCandidato() {
 
-        def candidato = new Candidato();
+        def candidato = new Candidato()
 
         candidato.competencias = []
         int qtdCompetencias

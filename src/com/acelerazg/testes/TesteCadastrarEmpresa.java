@@ -22,10 +22,10 @@ public class TesteCadastrarEmpresa {
 
         Empresa empresa = new Empresa();
 
-        String nome = "";
-        String email = "ze.quantas@acelerazg.com.br";
+        String nome = "PAÇOCA LTDA";
+        String email = "contato@pacoca.com.br";
         String estado = "DF";
-        String descricao = "Excelente programador com experiência";
+        String descricao = "Empresa de médio porte com foco em clientes do ramo alimentício";
         List<String> competencias = new ArrayList<>();
         String cep = "72000000";
         String pais = "Brasil";
