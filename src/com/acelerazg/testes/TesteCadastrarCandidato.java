@@ -1,7 +1,6 @@
 package com.acelerazg.testes;
 
 import com.acelerazg.dados.ListaPessoa;
-import com.acelerazg.pessoas.CadastrarCandidato;
 import com.acelerazg.pessoas.Candidato;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -11,6 +10,13 @@ import java.util.List;
 
 
 public class TesteCadastrarCandidato {
+
+    static class CadastrarCandidato extends com.acelerazg.pessoas.CadastrarCandidato{
+        static void cadastrarCandidato(Candidato candidato) {
+            ListaPessoa.candidatos.add(candidato);
+        }
+    }
+
     @Test
     public void testeCadastrarCantidato() {
 
