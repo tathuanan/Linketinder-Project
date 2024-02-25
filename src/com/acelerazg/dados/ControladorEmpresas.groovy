@@ -10,4 +10,8 @@ class ControladorEmpresas{
 
     }
 
+    static void cadastrarEmpresa(){
+
+    }
+
 }
