@@ -13,6 +13,7 @@ public class TesteCadastrarEmpresa {
 
     static class ControladorEmpresas extends com.acelerazg.dados.ControladorEmpresas{
         static void cadastrarEmpresa(Empresa empresa) {
+            ListaPessoa.empresas.add(empresa);
         }
     }
 
