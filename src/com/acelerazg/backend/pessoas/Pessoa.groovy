@@ -1,4 +1,4 @@
-package com.acelerazg.pessoas
+package com.acelerazg.backend.pessoas
 
 import groovy.transform.ToString
 @ToString(includeNames = true)

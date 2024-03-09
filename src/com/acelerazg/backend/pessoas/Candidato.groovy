@@ -1,23 +1,23 @@
-package com.acelerazg.pessoas
+package com.acelerazg.backend.pessoas
 
 import groovy.transform.ToString
-@ToString
+@ToString(includeNames = true)
 
-class Empresa extends Pessoa {
+class Candidato extends Pessoa{
 
-    String pais
-    String cnpj
+    String cpf
+    int idade
 
+    @Override
     String toString() {
-        "Empresa(" +
+        "Candidato(" +
                 " nome=${nome}," +
                 " email=${email}," +
                 " estado=${estado}," +
                 " descricao=${descricao}," +
                 " competencias=${competencias}," +
                 " cep=${cep}," +
-                " pais=${pais}," +
-                " cnpj=${cnpj})"
+                " cpf=${cpf}," +
+                " idade=${idade})"
     }
-
 }

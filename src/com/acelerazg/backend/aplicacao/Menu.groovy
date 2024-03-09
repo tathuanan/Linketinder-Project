@@ -1,7 +1,7 @@
-package com.acelerazg.aplicacao
+package com.acelerazg.backend.aplicacao
 
-import com.acelerazg.dados.ControladorCandidatos
-import com.acelerazg.dados.ControladorEmpresas
+import com.acelerazg.backend.dados.ControladorCandidatos
+import com.acelerazg.backend.dados.ControladorEmpresas
 
 class Menu {
 

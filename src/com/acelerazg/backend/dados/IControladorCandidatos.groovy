@@ -1,4 +1,4 @@
-package com.acelerazg.dados
+package com.acelerazg.backend.dados
 
 interface IControladorCandidatos{
 

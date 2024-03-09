@@ -1,4 +1,4 @@
-package com.acelerazg.aplicacao
+package com.acelerazg.backend.aplicacao
 
 class Ferramentas {
 

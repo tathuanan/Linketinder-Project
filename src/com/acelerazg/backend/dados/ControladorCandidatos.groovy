@@ -1,7 +1,7 @@
-package com.acelerazg.dados
+package com.acelerazg.backend.dados
 
-import com.acelerazg.aplicacao.Ferramentas
-import com.acelerazg.pessoas.Candidato
+import com.acelerazg.backend.aplicacao.Ferramentas
+import com.acelerazg.backend.pessoas.Candidato
 
 class ControladorCandidatos implements IControladorCandidatos{
 

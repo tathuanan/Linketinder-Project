@@ -1,8 +1,7 @@
-package com.acelerazg.testes;
+package com.acelerazg.backend.testes;
 
-import com.acelerazg.dados.ListaPessoa;
-import com.acelerazg.pessoas.Candidato;
-import com.acelerazg.pessoas.Empresa;
+import com.acelerazg.backend.pessoas.Candidato;
+import com.acelerazg.backend.pessoas.Empresa;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
