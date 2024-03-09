@@ -3,6 +3,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea/
+src/com/acelerazg/frontend/dist/
+src/com/acelerazg/frontend/node_modules/
 
 ### Eclipse ###
 .apt_generated
