@@ -20,10 +20,14 @@ body{
     border-radius: 10px;
 }
 
-#form-task{
-    padding: 2rem 15rem 2rem 15rem;
+.btn-custom {
+    width: 7rem;
+ }
+
+#form-empresa, #form-candidato{
+    margin: 2px 15px 2px 15px;
 }
 
-#createTask{
-    margin-top: 3rem;
+#empresaCompetencias .form-check, #candidatoCompetencias .form-check{
+    padding-top: 3px;
 }

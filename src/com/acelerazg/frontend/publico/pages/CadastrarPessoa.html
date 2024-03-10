@@ -1,10 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LinkeTinder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <h1>Pagina de Cadastro</h1>
+
+<div id="header">
+    <h1>Cradastrar Usuário</h1>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid" style="border-radius: 25px">
+        <a class="navbar-brand" href="../Inicio.html">LinkeTinder</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="CadastrarPessoa.html">Cadastrar Usuário</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="text-center mt-4">
+    <button type="button" id="mostrarFormularioEmpresa" class="btn btn-secondary mx-2 btn-custom">Empresa</button>
+    <button type="button" id="mostrarFormularioCandidato" class="btn btn-secondary mx-2 btn-custom">Candidato</button>
+</div>
+<form class="row g-3" id="form-empresa">
+    <div class="col-md-5">
+        <label for="empresaNome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="empresaNome" required>
+    </div>
+    <div class="col-md-2">
+        <label for="pais" class="form-label">País</label>
+        <input type="text" class="form-control" id="pais" required>
+    </div>
+    <div class="col-md-1">
+        <label for="empresaEstado" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="empresaEstado" required>
+    </div>
+    <div class="col-md-1">
+        <label for="empresaCep" class="form-label">CEP</label>
+        <input type="text" class="form-control" id="empresaCep" required>
+    </div>
+    <div class="col-md-3">
+        <label for="cnpj" class="form-label">CNPJ</label>
+        <input type="text" class="form-control" id="cnpj" required>
+    </div>
+    <div class="col-md-4">
+        <label for="empresaEmail" class="form-label">Email</label>
+        <input type="text" class="form-control" id="empresaEmail" required>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-4" id="empresaCompetencias">
+        <label class="form-label">Competências</label><br>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Java" id="empresaJava">
+            <label class="form-check-label" for="empresaJava">
+                Java
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Groovy" id="empresaGroovy">
+            <label class="form-check-label" for="empresaGroovy">
+                Groovy
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Python" id="empresaPython">
+            <label class="form-check-label" for="empresaPython">
+                Python
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="JavaScript" id="empresaJavaScript">
+            <label class="form-check-label" for="empresaJavaScript">
+                JavaScript
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="TypeScript" id="empresaTypeScript">
+            <label class="form-check-label" for="empresaTypeScript">
+                TypeScript
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Scrumban" id="empresaScrumban">
+            <label class="form-check-label" for="empresaScrumban">
+                Scrumban
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Angular" id="empresaAngular">
+            <label class="form-check-label" for="empresaAngular">
+                Angular
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Web Crawler" id="empresaWebCrawler">
+            <label class="form-check-label" for="empresaWebCrawler">
+                Web Crawler
+            </label>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <label for="empresaDescricao" class="form-label">Descrição</label>
+        <textarea class="form-control" id="empresaDescricao" rows="3" placeholder="Faça uma breve descrição"
+                  required></textarea>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success" id="criarEmpresa">Criar Empresa</button>
+    </div>
+</form>
+<form class="row g-3" id="form-candidato">
+    <div class="col-md-5">
+        <label for="candidatoNome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="candidatoNome" required>
+    </div>
+    <div class="col-md-2">
+        <label for="cpf" class="form-label">CPF</label>
+        <input type="text" class="form-control" id="cpf" required>
+    </div>
+    <div class="col-md-1">
+        <label for="idade" class="form-label">Idade</label>
+        <input type="text" class="form-control" id="idade" required>
+    </div>
+    <div class="col-md-4">
+        <label for="candidatoEmail" class="form-label">Email</label>
+        <input type="text" class="form-control" id="candidatoEmail" required>
+    </div>
+    <div class="col-md-2">
+        <label for="candidatoEstado" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="candidatoEstado" required>
+    </div>
+    <div class="col-md-2">
+        <label for="candidatoCep" class="form-label">CEP</label>
+        <input type="text" class="form-control" id="candidatoCep" required>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-4" id="candidatoCompetencias">
+        <label class="form-label">Competências</label><br>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Java" id="candidatoJava">
+            <label class="form-check-label" for="candidatoJava">
+                Java
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Groovy" id="candidatoGroovy">
+            <label class="form-check-label" for="candidatoGroovy">
+                Groovy
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Python" id="candidatoPython">
+            <label class="form-check-label" for="candidatoPython">
+                Python
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="JavaScript" id="candidatoJavaScript">
+            <label class="form-check-label" for="candidatoJavaScript">
+                JavaScript
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="TypeScript" id="candidatoTypeScript">
+            <label class="form-check-label" for="candidatoTypeScript">
+                TypeScript
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Scrumban" id="candidatoScrumban">
+            <label class="form-check-label" for="candidatoScrumban">
+                Scrumban
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Angular" id="candidatoAngular">
+            <label class="form-check-label" for="candidatoAngular">
+                Angular
+            </label>
+        </div>
+        <div class="col-md-3 form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="Web Crawler" id="candidatoWebCrawler">
+            <label class="form-check-label" for="candidatoWebCrawler">
+                Web Crawler
+            </label>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <label for="candidatoDescricao" class="form-label">Descrição</label>
+        <textarea class="form-control" id="candidatoDescricao" rows="3" placeholder="Faça uma breve descrição"
+                  required></textarea>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success" id="criarCandidato">Criar Candidato</button>
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous">
+</script>
+<script src="../../recursos/Main.js"></script>
+<script>
+    document.getElementById('form-usuario').addEventListener('submit', function (event) {
+        const competencias = document.querySelectorAll('#competencias input[type="checkbox"]:checked');
+
+        if (competencias.length === 0) {
+            event.preventDefault();
+            alert('Selecione pelo menos uma competência.');
+        }
+    });
+</script>
+<script>
+    document.getElementById('mostrarFormularioEmpresa').addEventListener('click', function () {
+        document.getElementById('form-empresa').removeAttribute('hidden');
+        document.getElementById('mostrarFormularioEmpresa').setAttribute('hidden', 'true');
+        document.getElementById('mostrarFormularioCandidato').setAttribute('hidden', 'true');
+    });
+    document.getElementById('mostrarFormularioCandidato').addEventListener('click', function () {
+        document.getElementById('form-candidato').removeAttribute('hidden');
+        document.getElementById('mostrarFormularioEmpresa').setAttribute('hidden', 'true');
+        document.getElementById('mostrarFormularioCandidato').setAttribute('hidden', 'true');
+    });
+</script>
 </body>
 </html>
