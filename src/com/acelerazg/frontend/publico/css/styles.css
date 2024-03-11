@@ -31,3 +31,14 @@ body{
 #empresaCompetencias .form-check, #candidatoCompetencias .form-check{
     padding-top: 3px;
 }
+
+#myChartContainer {
+    margin: 0 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+#myChart {
+    max-height: 400px;
+    max-width: 800px;
+}

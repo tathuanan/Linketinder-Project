@@ -13,7 +13,7 @@
     <h1>Cradastrar Usuário</h1>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid" style="border-radius: 25px">
+    <div class="container-fluid">
         <a class="navbar-brand" href="../Inicio.html">LinkeTinder</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
     <button type="button" id="mostrarFormularioEmpresa" class="btn btn-secondary mx-2 btn-custom">Empresa</button>
     <button type="button" id="mostrarFormularioCandidato" class="btn btn-secondary mx-2 btn-custom">Candidato</button>
 </div>
-<form class="row g-3" id="form-empresa" hidden="hidden">
+<form class="row g-3 row-custom" id="form-empresa" hidden="hidden">
     <div class="col-md-5">
         <label for="empresaNome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="empresaNome" required>
@@ -208,28 +208,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous">
 </script>
-<script src="../../recursos/Main.js"></script>
-<script>
-    document.getElementById('form-usuario').addEventListener('submit', function (event) {
-        const competencias = document.querySelectorAll('#competencias input[type="checkbox"]:checked');
-
-        if (competencias.length === 0) {
-            event.preventDefault();
-            alert('Selecione pelo menos uma competência.');
-        }
-    });
-</script>
-<script>
-    document.getElementById('mostrarFormularioEmpresa').addEventListener('click', function () {
-        document.getElementById('form-empresa').removeAttribute('hidden');
-        document.getElementById('mostrarFormularioEmpresa').setAttribute('hidden', 'true');
-        document.getElementById('mostrarFormularioCandidato').setAttribute('hidden', 'true');
-    });
-    document.getElementById('mostrarFormularioCandidato').addEventListener('click', function () {
-        document.getElementById('form-candidato').removeAttribute('hidden');
-        document.getElementById('mostrarFormularioEmpresa').setAttribute('hidden', 'true');
-        document.getElementById('mostrarFormularioCandidato').setAttribute('hidden', 'true');
-    });
-</script>
+<script src="../app.min.js"></script>
 </body>
 </html>
