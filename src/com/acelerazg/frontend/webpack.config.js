@@ -14,7 +14,6 @@ module.exports = {
     output: {
         filename: 'app.min.js',
         path: path.join(__dirname, 'dist'),
-        publicPath: '/'
     },
     plugins: [
       new CopyPlugin({
