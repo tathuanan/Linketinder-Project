@@ -9,24 +9,24 @@ export class Empresa extends Pessoa {
         descricao: string,
         competencias: string[],
         cep: string,
-        private _pais: string,
-        private _cnpj: string) {
+        pais: string,
+        cnpj: string) {
         super(nome, email, estado, descricao, competencias, cep);
     }
 
     get pais(): string {
-        return this._pais;
+        return this.pais;
     }
 
     set pais(value: string) {
-        this._pais = value;
+        this.pais = value;
     }
 
     get cnpj(): string {
-        return this._cnpj;
+        return this.cnpj;
     }
 
     set cnpj(value: string) {
-        this._cnpj = value;
+        this.cnpj = value;
     }
 }

@@ -6,22 +6,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Candidato = void 0;
 const Pessoa_1 = __importDefault(require("./Pessoa"));
 class Candidato extends Pessoa_1.default {
-    constructor(nome, email, estado, descricao, competencias, cep, _cpf, _idade) {
+    constructor(nome, email, estado, descricao, competencias, cep, cpf, idade) {
         super(nome, email, estado, descricao, competencias, cep);
-        this._cpf = _cpf;
-        this._idade = _idade;
     }
     get cpf() {
-        return this._cpf;
+        return this.cpf;
     }
     set cpf(value) {
-        this._cpf = value;
+        this.cpf = value;
     }
     get idade() {
-        return this._idade;
+        return this.idade;
     }
     set idade(value) {
-        this._idade = value;
+        this.idade = value;
     }
 }
 exports.Candidato = Candidato;

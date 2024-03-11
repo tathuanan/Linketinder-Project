@@ -1,58 +1,58 @@
 export default class Pessoa {
     constructor(
-        protected _nome: string,
-        protected _email: string,
-        protected _estado: string,
-        protected _descricao: string,
-        protected _competencias: string[],
-        protected _cep: string) {
+        nome: string,
+        email: string,
+        estado: string,
+        descricao: string,
+        competencias: string[],
+        cep: string) {
     }
 
     get nome(): string {
-        return this._nome;
+        return this.nome;
     }
 
     set nome(value: string) {
-        this._nome = value;
+        this.nome = value;
     }
 
     get email(): string {
-        return this._email;
+        return this.email;
     }
 
     set email(value: string) {
-        this._email = value;
+        this.email = value;
     }
 
     get estado(): string {
-        return this._estado;
+        return this.estado;
     }
 
     set estado(value: string) {
-        this._estado = value;
+        this.estado = value;
     }
 
     get descricao(): string {
-        return this._descricao;
+        return this.descricao;
     }
 
     set descricao(value: string) {
-        this._descricao = value;
+        this.descricao = value;
     }
 
     get competencias(): string[] {
-        return this._competencias;
+        return this.competencias;
     }
 
     set competencias(value: string[]) {
-        this._competencias = value;
+        this.competencias = value;
     }
 
     get cep(): string {
-        return this._cep;
+        return this.cep;
     }
 
     set cep(value: string) {
-        this._cep = value;
+        this.cep = value;
     }
 }

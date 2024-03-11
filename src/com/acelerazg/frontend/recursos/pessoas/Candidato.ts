@@ -9,24 +9,24 @@ export class Candidato extends Pessoa {
         descricao: string,
         competencias: string[],
         cep: string,
-        private _cpf: string,
-        private _idade: string) {
+        cpf: string,
+        idade: string) {
         super(nome, email, estado, descricao, competencias, cep);
     }
 
     get cpf(): string {
-        return this._cpf;
+        return this.cpf;
     }
 
     set cpf(value: string) {
-        this._cpf = value;
+        this.cpf = value;
     }
 
     get idade(): string {
-        return this._idade;
+        return this.idade;
     }
 
     set idade(value: string) {
-        this._idade = value;
+        this.idade = value;
     }
 }

@@ -1,49 +1,43 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Pessoa {
-    constructor(_nome, _email, _estado, _descricao, _competencias, _cep) {
-        this._nome = _nome;
-        this._email = _email;
-        this._estado = _estado;
-        this._descricao = _descricao;
-        this._competencias = _competencias;
-        this._cep = _cep;
+    constructor(nome, email, estado, descricao, competencias, cep) {
     }
     get nome() {
-        return this._nome;
+        return this.nome;
     }
     set nome(value) {
-        this._nome = value;
+        this.nome = value;
     }
     get email() {
-        return this._email;
+        return this.email;
     }
     set email(value) {
-        this._email = value;
+        this.email = value;
     }
     get estado() {
-        return this._estado;
+        return this.estado;
     }
     set estado(value) {
-        this._estado = value;
+        this.estado = value;
     }
     get descricao() {
-        return this._descricao;
+        return this.descricao;
     }
     set descricao(value) {
-        this._descricao = value;
+        this.descricao = value;
     }
     get competencias() {
-        return this._competencias;
+        return this.competencias;
     }
     set competencias(value) {
-        this._competencias = value;
+        this.competencias = value;
     }
     get cep() {
-        return this._cep;
+        return this.cep;
     }
     set cep(value) {
-        this._cep = value;
+        this.cep = value;
     }
 }
 exports.default = Pessoa;

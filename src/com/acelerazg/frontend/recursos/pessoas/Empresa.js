@@ -6,22 +6,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Empresa = void 0;
 const Pessoa_1 = __importDefault(require("./Pessoa"));
 class Empresa extends Pessoa_1.default {
-    constructor(nome, email, estado, descricao, competencias, cep, _pais, _cnpj) {
+    constructor(nome, email, estado, descricao, competencias, cep, pais, cnpj) {
         super(nome, email, estado, descricao, competencias, cep);
-        this._pais = _pais;
-        this._cnpj = _cnpj;
     }
     get pais() {
-        return this._pais;
+        return this.pais;
     }
     set pais(value) {
-        this._pais = value;
+        this.pais = value;
     }
     get cnpj() {
-        return this._cnpj;
+        return this.cnpj;
     }
     set cnpj(value) {
-        this._cnpj = value;
+        this.cnpj = value;
     }
 }
 exports.Empresa = Empresa;
