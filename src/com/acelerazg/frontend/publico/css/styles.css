@@ -38,7 +38,8 @@ body{
     justify-content: center;
 }
 
-#myChart {
+#competenciasChart {
+    background-color: #111b21;
     max-height: 400px;
     max-width: 800px;
 }
