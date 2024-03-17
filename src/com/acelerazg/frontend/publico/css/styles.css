@@ -24,7 +24,7 @@ body{
     width: 7rem;
  }
 
-#form-empresa, #form-candidato{
+#formEmpresa, #formCandidato{
     margin: 2px 15px 2px 15px;
 }
 
@@ -32,8 +32,43 @@ body{
     padding-top: 3px;
 }
 
+#listaCandidatos{
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#tabela{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#tabelaCandidatos{
+    max-height: 100vw;
+    max-width: 1200px;
+}
+
+#tabelaCandidatos th:nth-child(1), #tabelaCandidatos td:nth-child(1){
+    width: 20%;
+}
+
+#tabelaCandidatos th:nth-child(2), #tabelaCandidatos td:nth-child(2),
+#tabelaCandidatos th:nth-child(3), #tabelaCandidatos td:nth-child(3) {
+    width: 10%;
+}
+
+#tabelaCandidatos th, td {
+    width: 30%;
+}
+
+#tabelaCandidatos td:nth-child(4), #tabelaCandidatos td:nth-child(5) {
+    text-align: justify-all;
+}
+
 #myChartContainer {
-    margin: 0 0 0 0;
+    margin: 1rem 0 0 0;
     display: flex;
     justify-content: center;
 }

@@ -29,7 +29,7 @@ export class GraficosCandidatos {
             data: {
                 labels: competencias,
                 datasets: [{
-                    label: 'Número de Candidatos por Competência',
+                    label: 'Quantidade de Candidatos por Competência',
                     data: dados,
                     backgroundColor: 'rgba(75, 192, 192, 0.6)',
                     borderColor: 'rgba(75, 192, 192, 1)',
