@@ -32,7 +32,7 @@ body{
     padding-top: 3px;
 }
 
-#listaCandidatos{
+#listaCandidatos, #listaVagas {
     margin-top: 1rem;
     text-align: center;
     font-size: 20px;
@@ -45,25 +45,32 @@ body{
     justify-content: center;
 }
 
-#tabelaCandidatos{
+#tabelaCandidatos, #tabelaVagas {
     max-height: 100vw;
     max-width: 1200px;
 }
 
-#tabelaCandidatos th:nth-child(1), #tabelaCandidatos td:nth-child(1){
+#tabelaCandidatos th:nth-child(1), #tabelaCandidatos td:nth-child(1),
+#tabelaVagas th:nth-child(1), #tabelaVagas td:nth-child(1){
     width: 20%;
 }
 
 #tabelaCandidatos th:nth-child(2), #tabelaCandidatos td:nth-child(2),
+#tabelaVagas th:nth-child(2), #tabelaVagas td:nth-child(2),
 #tabelaCandidatos th:nth-child(3), #tabelaCandidatos td:nth-child(3) {
     width: 10%;
 }
 
-#tabelaCandidatos th, td {
+#tabelaCandidatos th, #tabelaCandidatos td{
     width: 30%;
 }
 
-#tabelaCandidatos td:nth-child(4), #tabelaCandidatos td:nth-child(5) {
+#tabelaVagas th, #tabelaVagas td{
+    width: 35%;
+}
+
+#tabelaCandidatos td:nth-child(4), #tabelaCandidatos td:nth-child(5),
+#tabelaVagas td:nth-child(3), #tabelaVagas td:nth-child(4){
     text-align: justify-all;
 }
 
