@@ -20,13 +20,97 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-<!--                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./CadastrarPessoa.html">Cadastrar Usuário</a>
-                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#cadastrarVagaModal">Cadastrar Vaga</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="cadastrarVagaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header bg-dark text-light">
+                <h5 class="modal-title" id="staticBackdropLabel">Cadastrar Vaga</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-dark text-light">
+                <form class="row g-3" id="formVaga">
+                    <div class="col-md-10">
+                        <label for="vagaNome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="vagaNome" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="vagaEstado" class="form-label">Estado</label>
+                        <input type="text" class="form-control" id="vagaEstado" required>
+                    </div>
+                    <div class="col-md-12" id="vagaCompetencias">
+                        <label class="form-label">Competências</label><br>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="Java" id="vagaJava">
+                            <label class="form-check-label" for="vagaJava">
+                                Java
+                            </label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="Groovy" id="vagaGroovy">
+                            <label class="form-check-label" for="vagaGroovy">
+                                Groovy
+                            </label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="Python" id="vagaPython">
+                            <label class="form-check-label" for="vagaPython">
+                                Python
+                            </label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="JavaScript" id="vagaJavaScript">
+                            <label class="form-check-label" for="vagaJavaScript">
+                                JavaScript
+                            </label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="TypeScript" id="vagaTypeScript">
+                            <label class="form-check-label" for="vagaTypeScript">
+                                TypeScript
+                            </label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="Scrumban" id="vagaScrumban">
+                            <label class="form-check-label" for="vagaScrumban">
+                                Scrumban
+                            </label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="Angular" id="vagaAngular">
+                            <label class="form-check-label" for="vagaAngular">
+                                Angular
+                            </label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="Web Crawler" id="vagaWebCrawler">
+                            <label class="form-check-label" for="vagaWebCrawler">
+                                Web Crawler
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="vagaDescricao" class="form-label">Descrição</label>
+                        <textarea class="form-control" id="vagaDescricao" rows="3" placeholder="Faça uma breve descrição da vaga"
+                                  required></textarea>
+                    </div>
+                    <div class="modal-footer bg-dark text-light">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-success" id="cadastrarVaga">Cadastrar Vaga</button>
+            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="listaCandidatos">
     <p>Lista de Candidatos</p>
 </div>

@@ -28,7 +28,7 @@ body{
     margin: 2px 15px 2px 15px;
 }
 
-#empresaCompetencias .form-check, #candidatoCompetencias .form-check{
+#empresaCompetencias .form-check, #candidatoCompetencias .form-check, #vagaCompetencias .form-check{
     padding-top: 3px;
 }
 
