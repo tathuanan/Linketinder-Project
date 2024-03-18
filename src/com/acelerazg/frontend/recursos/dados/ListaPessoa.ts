@@ -4,62 +4,62 @@ import {Empresa} from "../pessoas/Empresa";
 export class ListaPessoa {
 
     public static candidatos: Candidato[] = [
-        {
-            nome: "Jose das Couves",
-            email: "jose.couves@acelerazg.com.br",
-            estado: "DF",
-            descricao: "Descolado, responsavel e gosto de estudar",
-            competencias: ["Java", "Groovy", "Python", "Scrumban"],
-            cep: "72000000",
-            cpf: "11122233344",
-            idade: "20",
-        },
-        {
-            nome: "Maria das Orquideas",
-            email: "maria.orquideas@acelerazg.com.br",
-            estado: "GO",
-            descricao: "Bem correta e organizada",
-            competencias: ["Scrumban", "TypeScript", "JavaScript", "Web Crawler"],
-            cep: "72000000",
-            cpf: "22233344455",
-            idade: "23",
-        },
+            {
+                nome: "Jose das Couves",
+                email: "jose.couves@acelerazg.com.br",
+                estado: "DF",
+                descricao: "Descolado, responsavel e gosto de estudar",
+                competencias: ["Java", "Groovy", "Python", "Scrumban"],
+                cep: "72000000",
+                cpf: "11122233344",
+                idade: "20",
+            },
+            {
+                nome: "Maria das Orquideas",
+                email: "maria.orquideas@acelerazg.com.br",
+                estado: "GO",
+                descricao: "Bem correta e organizada",
+                competencias: ["Scrumban", "TypeScript", "JavaScript", "Web Crawler"],
+                cep: "72000000",
+                cpf: "22233344455",
+                idade: "23",
+            },
 
-        {
-            nome: "Francisco das Abobrinhas",
-            email: "francisco.abobrinhas@acelerazg.com.br",
-            estado: "MG",
-            descricao: "Bastante comunicativo, cativante",
-            competencias: ["JavaScript", "TypeScript", "Angular", "Scrumban"],
-            cep: "72000000",
-            cpf: "33344455566",
-            idade: "18",
-        },
+            {
+                nome: "Francisco das Abobrinhas",
+                email: "francisco.abobrinhas@acelerazg.com.br",
+                estado: "MG",
+                descricao: "Bastante comunicativo, cativante",
+                competencias: ["JavaScript", "TypeScript", "Angular", "Scrumban"],
+                cep: "72000000",
+                cpf: "33344455566",
+                idade: "18",
+            },
 
-        {
-            nome: "Marcia das Flores",
-            email: "marcia.flores@acelerazg.com.br",
-            estado: "MA",
-            descricao: "Apaixonada por desafios, focada em superar barreiras",
-            competencias: ["Java", "TypeScript", "Angular", "Scrumban"],
-            cep: "72000000",
-            cpf: "44455566677",
-            idade: "29",
-        },
+            {
+                nome: "Marcia das Flores",
+                email: "marcia.flores@acelerazg.com.br",
+                estado: "MA",
+                descricao: "Apaixonada por desafios, focada em superar barreiras",
+                competencias: ["Java", "TypeScript", "Angular", "Scrumban"],
+                cep: "72000000",
+                cpf: "44455566677",
+                idade: "29",
+            },
 
-        {
-            nome: "Joao do Feijao",
-            email: "joao.feijao@acelerazg.com.br",
-            estado: "MT",
-            descricao: "Antenado em lançamentos tecnologicos, super entusiasmado",
-            competencias: ["Angular", "Python", "TypeScript", "Scrumban"],
-            cep: "72000000",
-            cpf: "55566677788",
-            idade: "35"
-        },
-    ];
+            {
+                nome: "Joao do Feijao",
+                email: "joao.feijao@acelerazg.com.br",
+                estado: "MT",
+                descricao: "Antenado em lançamentos tecnologicos, super entusiasmado",
+                competencias: ["Angular", "Python", "TypeScript", "Scrumban"],
+                cep: "72000000",
+                cpf: "55566677788",
+                idade: "35"
+            },
+        ];
 
-    public static empresas: Empresa[] = [
+public static empresas: Empresa[] = [
         {
             nome: "AMENDOIM LTDA",
             email: "contato@amendoim.com.br",
@@ -113,6 +113,5 @@ export class ListaPessoa {
             pais: "Brasil",
             cnpj: "55666777000188",
         },
-
     ];
 }

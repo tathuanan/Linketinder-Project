@@ -32,7 +32,7 @@
     <button type="button" id="mostrarFormularioEmpresa" class="btn btn-secondary mx-2 btn-custom">Empresa</button>
     <button type="button" id="mostrarFormularioCandidato" class="btn btn-secondary mx-2 btn-custom">Candidato</button>
 </div>
-<form class="row g-3 row-custom" id="form-empresa" hidden="hidden">
+<form class="row g-3 row-custom" id="formEmpresa" hidden="hidden">
     <div class="col-md-5">
         <label for="empresaNome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="empresaNome" required>
@@ -118,7 +118,7 @@
         <button type="submit" class="btn btn-success" id="criarEmpresa">Criar Empresa</button>
     </div>
 </form>
-<form class="row g-3" id="form-candidato" hidden="hidden">
+<form class="row g-3" id="formCandidato" hidden="hidden">
     <div class="col-md-5">
         <label for="candidatoNome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="candidatoNome" required>
@@ -208,6 +208,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous">
 </script>
-<script src="../app.min.js"></script>
+<script src="../app.min.js" type="module"></script>
 </body>
 </html>
