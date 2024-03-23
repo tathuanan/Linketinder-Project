@@ -35,4 +35,9 @@ export class Regex {
         return regex.test(cnpj)
     }
 
+    static validarPais(pais: string): boolean {
+        const regex = /^[\ba-zA-Z]+( [\ba-zA-Z]+)*$/
+        return regex.test(pais)
+    }
+
 }

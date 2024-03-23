@@ -30,5 +30,9 @@ class Regex {
         const regex = /^\d{2}\.?\d{3}\.?\d{3}\/\d{4}-?\d{2}$/;
         return regex.test(cnpj);
     }
+    static validarPais(pais) {
+        const regex = /^[\ba-zA-Z]+( [\ba-zA-Z]+)*$/;
+        return regex.test(pais);
+    }
 }
 exports.Regex = Regex;
