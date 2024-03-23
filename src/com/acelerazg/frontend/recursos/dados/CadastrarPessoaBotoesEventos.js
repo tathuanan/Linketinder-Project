@@ -95,6 +95,7 @@ class CadastrarPessoaBotoesEventos {
                 let cep = document.getElementById('empresaCep');
                 let descricao = document.getElementById('empresaDescricao');
                 let competenciasSelecionadas;
+                let validacao;
                 if (competencias.length === 0) {
                     event.preventDefault();
                     alert('Selecione pelo menos uma competência.');
@@ -111,24 +112,30 @@ class CadastrarPessoaBotoesEventos {
                     competenciasSelecionadas = obterCompetenciasSelecionadas();
                     competenciasSelecionadas.join(', ');
                     competenciasSelecionadas.toString();
-                    localStorage.setItem('empresaNome', empresaNome.value);
-                    localStorage.setItem('cnpj', cnpj.value);
-                    localStorage.setItem('pais', pais.value);
-                    localStorage.setItem('empresaEmail', email.value);
-                    localStorage.setItem('empresaEstado', estado.value);
-                    localStorage.setItem('empresaCep', cep.value);
-                    localStorage.setItem('empresaDescricao', descricao.value);
-                    localStorage.setItem('empresaCompetencias', competenciasSelecionadas.toString());
-                    empresaNome = localStorage.getItem('empresaNome');
-                    email = localStorage.getItem('empresaEmail');
-                    estado = localStorage.getItem('empresaEstado');
-                    descricao = localStorage.getItem('empresaDescricao');
-                    competencias = localStorage.getItem('empresaCompetencias');
-                    cep = localStorage.getItem('empresaCep');
-                    cnpj = localStorage.getItem('cnpj');
-                    pais = localStorage.getItem('pais');
-                    ListaPessoa_1.ListaPessoa.empresas.push(new Empresa_1.Empresa(empresaNome, email, estado, descricao, competencias, cep, pais, cnpj));
-                    alert("Empresa cadastrada com sucesso!!");
+                    validacao = Regex_1.Regex.validarFormEmpresa(empresaNome.value, pais.value, estado.value, cep.value, cnpj.value, email.value, descricao.value);
+                    if (validacao == false) {
+                        event.preventDefault();
+                    }
+                    else {
+                        localStorage.setItem('empresaNome', empresaNome.value);
+                        localStorage.setItem('cnpj', cnpj.value);
+                        localStorage.setItem('pais', pais.value);
+                        localStorage.setItem('empresaEmail', email.value);
+                        localStorage.setItem('empresaEstado', estado.value);
+                        localStorage.setItem('empresaCep', cep.value);
+                        localStorage.setItem('empresaDescricao', descricao.value);
+                        localStorage.setItem('empresaCompetencias', competenciasSelecionadas.toString());
+                        empresaNome = localStorage.getItem('empresaNome');
+                        email = localStorage.getItem('empresaEmail');
+                        estado = localStorage.getItem('empresaEstado');
+                        descricao = localStorage.getItem('empresaDescricao');
+                        competencias = localStorage.getItem('empresaCompetencias');
+                        cep = localStorage.getItem('empresaCep');
+                        cnpj = localStorage.getItem('cnpj');
+                        pais = localStorage.getItem('pais');
+                        ListaPessoa_1.ListaPessoa.empresas.push(new Empresa_1.Empresa(empresaNome, email, estado, descricao, competencias, cep, pais, cnpj));
+                        alert("Empresa cadastrada com sucesso!!");
+                    }
                 }
             });
         }

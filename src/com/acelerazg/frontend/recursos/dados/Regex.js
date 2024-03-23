@@ -44,6 +44,13 @@ class Regex {
         }
         return regex.test(cep);
     }
+    static validarNomeEmpresa(nome) {
+        const regex = /^[\ba-zA-ZÀ-ÿ0-9]+( [\ba-zA-ZÀ-ÿ0-9]+)*$/g;
+        if (!regex.test(nome)) {
+            alert("Nome fantasia fora do padrão,\nDigite um nome que não contenha caracteres especiais");
+        }
+        return regex.test(nome);
+    }
     static validarCNPJ(cnpj) {
         const regex = /^\d{2}\.?\d{3}\.?\d{3}\/\d{4}-?\d{2}$/;
         if (!regex.test(cnpj)) {
@@ -73,6 +80,18 @@ class Regex {
             this.validarEmail(email),
             this.validarEstado(estado),
             this.validarCEP(cep),
+            this.validarDescricao(descricao),
+        ];
+        return validacoes.every((validacao) => validacao === true);
+    }
+    static validarFormEmpresa(nome, pais, estado, cep, cnpj, email, descricao) {
+        const validacoes = [
+            this.validarNomeEmpresa(nome),
+            this.validarPais(pais),
+            this.validarEstado(estado),
+            this.validarCEP(cep),
+            this.validarCNPJ(cnpj),
+            this.validarEmail(email),
             this.validarDescricao(descricao),
         ];
         return validacoes.every((validacao) => validacao === true);

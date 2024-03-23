@@ -75,7 +75,7 @@ export class CadastrarPessoaBotoesEventos {
                             estado.value,
                             cep.value,
                             descricao.value
-                            )
+                        )
 
                         if (validacao == false) {
                             event.preventDefault();
@@ -134,6 +134,7 @@ export class CadastrarPessoaBotoesEventos {
                     let cep: any = document.getElementById('empresaCep');
                     let descricao: any = document.getElementById('empresaDescricao');
                     let competenciasSelecionadas: any[];
+                    let validacao: any;
 
                     if (competencias.length === 0) {
                         event.preventDefault();
@@ -154,35 +155,50 @@ export class CadastrarPessoaBotoesEventos {
                         competenciasSelecionadas.join(', ');
                         competenciasSelecionadas.toString();
 
-                        localStorage.setItem('empresaNome', empresaNome.value);
-                        localStorage.setItem('cnpj', cnpj.value);
-                        localStorage.setItem('pais', pais.value);
-                        localStorage.setItem('empresaEmail', email.value);
-                        localStorage.setItem('empresaEstado', estado.value);
-                        localStorage.setItem('empresaCep', cep.value);
-                        localStorage.setItem('empresaDescricao', descricao.value);
-                        localStorage.setItem('empresaCompetencias', competenciasSelecionadas.toString());
+                        validacao = Regex.validarFormEmpresa(
+                            empresaNome.value,
+                            pais.value,
+                            estado.value,
+                            cep.value,
+                            cnpj.value,
+                            email.value,
+                            descricao.value
+                        )
 
-                        empresaNome = localStorage.getItem('empresaNome');
-                        email = localStorage.getItem('empresaEmail');
-                        estado = localStorage.getItem('empresaEstado');
-                        descricao = localStorage.getItem('empresaDescricao');
-                        competencias = localStorage.getItem('empresaCompetencias');
-                        cep = localStorage.getItem('empresaCep');
-                        cnpj = localStorage.getItem('cnpj');
-                        pais = localStorage.getItem('pais');
+                        if (validacao == false) {
+                            event.preventDefault();
+                        } else {
 
-                        ListaPessoa.empresas.push(new Empresa(
-                            empresaNome,
-                            email,
-                            estado,
-                            descricao,
-                            competencias,
-                            cep,
-                            pais,
-                            cnpj))
+                            localStorage.setItem('empresaNome', empresaNome.value);
+                            localStorage.setItem('cnpj', cnpj.value);
+                            localStorage.setItem('pais', pais.value);
+                            localStorage.setItem('empresaEmail', email.value);
+                            localStorage.setItem('empresaEstado', estado.value);
+                            localStorage.setItem('empresaCep', cep.value);
+                            localStorage.setItem('empresaDescricao', descricao.value);
+                            localStorage.setItem('empresaCompetencias', competenciasSelecionadas.toString());
 
-                        alert("Empresa cadastrada com sucesso!!");
+                            empresaNome = localStorage.getItem('empresaNome');
+                            email = localStorage.getItem('empresaEmail');
+                            estado = localStorage.getItem('empresaEstado');
+                            descricao = localStorage.getItem('empresaDescricao');
+                            competencias = localStorage.getItem('empresaCompetencias');
+                            cep = localStorage.getItem('empresaCep');
+                            cnpj = localStorage.getItem('cnpj');
+                            pais = localStorage.getItem('pais');
+
+                            ListaPessoa.empresas.push(new Empresa(
+                                empresaNome,
+                                email,
+                                estado,
+                                descricao,
+                                competencias,
+                                cep,
+                                pais,
+                                cnpj))
+
+                            alert("Empresa cadastrada com sucesso!!");
+                        }
                     }
                 }
             )
