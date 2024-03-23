@@ -15,4 +15,9 @@ export class Regex {
         return regex.test(idade)
     }
 
+    static validarEmail(email: string): boolean {
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z]+[^@?%&#$]\.[a-zA-Z]+(\.[a-zA-Z]+)?$/
+        return regex.test(email)
+    }
+
 }
