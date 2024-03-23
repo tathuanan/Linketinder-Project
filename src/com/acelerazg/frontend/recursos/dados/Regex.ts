@@ -20,4 +20,9 @@ export class Regex {
         return regex.test(email)
     }
 
+    static validarEstado(estado: string): boolean {
+        const regex = /^[A-Z]{2}$/
+        return regex.test(estado)
+    }
+
 }

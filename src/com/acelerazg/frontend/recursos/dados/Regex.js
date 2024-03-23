@@ -18,5 +18,9 @@ class Regex {
         const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z]+[^@?%&#$]\.[a-zA-Z]+(\.[a-zA-Z]+)?$/;
         return regex.test(email);
     }
+    static validarEstado(estado) {
+        const regex = /^[A-Z]{2}$/;
+        return regex.test(estado);
+    }
 }
 exports.Regex = Regex;
