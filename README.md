@@ -32,6 +32,7 @@ A aplicação inicia com a execução da classe "Main.groovy"
     Página de Cadastro (Empresa e Candidato)
     Página de Visão Empresa
     Página de Visão Candidato
+    Validação dos formulários de cadastro (Empresa e Candidato) com RegEx
 
 ### Como executar o Front-End:
 
@@ -43,5 +44,8 @@ Seu computador deverá ter os ambientes:
 * O gerenciador de pacotes NPM
 
 Pelo terminal navegue até a pasta "frontend" e execute o comando "npm start"
+
+No seu navegador, digite a URL `http://localhost:9000/Inicio.html`
+
 
 Por [Murillo Santos](https://br.linkedin.com/in/murillo-santos-6a179a1b8)
