@@ -4,6 +4,7 @@ exports.CadastrarPessoaBotoesEventos = void 0;
 const ListaPessoa_1 = require("./ListaPessoa");
 const Candidato_1 = require("../pessoas/Candidato");
 const Empresa_1 = require("../pessoas/Empresa");
+const Regex_1 = require("./Regex");
 class CadastrarPessoaBotoesEventos {
     static botoesCadastroPessoa() {
         const mostrarFormularioEmpresa = document.getElementById('mostrarFormularioEmpresa');
@@ -36,6 +37,7 @@ class CadastrarPessoaBotoesEventos {
                 let cep = document.getElementById('candidatoCep');
                 let descricao = document.getElementById('candidatoDescricao');
                 let competenciasSelecionadas;
+                let validacao;
                 if (competencias.length === 0) {
                     event.preventDefault();
                     alert('Selecione pelo menos uma competência.');
@@ -52,24 +54,30 @@ class CadastrarPessoaBotoesEventos {
                     competenciasSelecionadas = obterCompetenciasSelecionadas();
                     competenciasSelecionadas.join(', ');
                     competenciasSelecionadas.toString();
-                    localStorage.setItem('candidatoNome', candidatoNome.value);
-                    localStorage.setItem('cpf', cpf.value);
-                    localStorage.setItem('idade', idade.value);
-                    localStorage.setItem('email', email.value);
-                    localStorage.setItem('estado', estado.value);
-                    localStorage.setItem('cep', cep.value);
-                    localStorage.setItem('descricao', descricao.value);
-                    localStorage.setItem('competencias', competenciasSelecionadas.toString());
-                    candidatoNome = localStorage.getItem('candidatoNome');
-                    email = localStorage.getItem('email');
-                    estado = localStorage.getItem('estado');
-                    descricao = localStorage.getItem('descricao');
-                    competencias = localStorage.getItem('competencias');
-                    cep = localStorage.getItem('cep');
-                    cpf = localStorage.getItem('cpf');
-                    idade = localStorage.getItem('idade');
-                    ListaPessoa_1.ListaPessoa.candidatos.push(new Candidato_1.Candidato(candidatoNome, email, estado, descricao, competencias, cep, cpf, idade));
-                    alert("Candidato cadastrado com sucesso!!");
+                    validacao = Regex_1.Regex.validarFormCandidato(candidatoNome.value, cpf.value, idade.value, email.value, estado.value, cep.value, descricao.value);
+                    if (validacao == false) {
+                        event.preventDefault();
+                    }
+                    else {
+                        localStorage.setItem('candidatoNome', candidatoNome.value);
+                        localStorage.setItem('cpf', cpf.value);
+                        localStorage.setItem('idade', idade.value);
+                        localStorage.setItem('email', email.value);
+                        localStorage.setItem('estado', estado.value);
+                        localStorage.setItem('cep', cep.value);
+                        localStorage.setItem('descricao', descricao.value);
+                        localStorage.setItem('competencias', competenciasSelecionadas.toString());
+                        candidatoNome = localStorage.getItem('candidatoNome');
+                        email = localStorage.getItem('email');
+                        estado = localStorage.getItem('estado');
+                        descricao = localStorage.getItem('descricao');
+                        competencias = localStorage.getItem('competencias');
+                        cep = localStorage.getItem('cep');
+                        cpf = localStorage.getItem('cpf');
+                        idade = localStorage.getItem('idade');
+                        ListaPessoa_1.ListaPessoa.candidatos.push(new Candidato_1.Candidato(candidatoNome, email, estado, descricao, competencias, cep, cpf, idade));
+                        alert("Candidato cadastrado com sucesso!!");
+                    }
                 }
             });
         }

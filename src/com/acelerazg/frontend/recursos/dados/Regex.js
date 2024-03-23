@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Regex = void 0;
 class Regex {
-    static validarNome(nome) {
+    static validarNomeCandidato(nome) {
         const regex = /^[\ba-zA-ZÀ-ÿ]+( [\ba-zA-ZÀ-ÿ]+)+$/g;
         if (!regex.test(nome)) {
             alert("Nome fora do padrão,\nDigite ao menos um nome e um sobrenome");
@@ -64,6 +64,18 @@ class Regex {
             alert("Descrição fora do padrão,\nDigite ao menos uma descrição com 30 caracteres");
         }
         return regex.test(descricao);
+    }
+    static validarFormCandidato(nome, cpf, idade, email, estado, cep, descricao) {
+        const validacoes = [
+            this.validarNomeCandidato(nome),
+            this.validarCPF(cpf),
+            this.validarIdade(idade),
+            this.validarEmail(email),
+            this.validarEstado(estado),
+            this.validarCEP(cep),
+            this.validarDescricao(descricao),
+        ];
+        return validacoes.every((validacao) => validacao === true);
     }
 }
 exports.Regex = Regex;

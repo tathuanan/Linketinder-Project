@@ -1,6 +1,7 @@
 import {ListaPessoa} from "./ListaPessoa";
 import {Candidato} from "../pessoas/Candidato";
 import {Empresa} from "../pessoas/Empresa";
+import {Regex} from "./Regex";
 
 export class CadastrarPessoaBotoesEventos {
 
@@ -45,6 +46,7 @@ export class CadastrarPessoaBotoesEventos {
                     let cep: any = document.getElementById('candidatoCep');
                     let descricao: any = document.getElementById('candidatoDescricao');
                     let competenciasSelecionadas: any[];
+                    let validacao: any;
 
                     if (competencias.length === 0) {
                         event.preventDefault();
@@ -65,35 +67,50 @@ export class CadastrarPessoaBotoesEventos {
                         competenciasSelecionadas.join(', ');
                         competenciasSelecionadas.toString();
 
-                        localStorage.setItem('candidatoNome', candidatoNome.value);
-                        localStorage.setItem('cpf', cpf.value);
-                        localStorage.setItem('idade', idade.value);
-                        localStorage.setItem('email', email.value);
-                        localStorage.setItem('estado', estado.value);
-                        localStorage.setItem('cep', cep.value);
-                        localStorage.setItem('descricao', descricao.value);
-                        localStorage.setItem('competencias', competenciasSelecionadas.toString());
+                        validacao = Regex.validarFormCandidato(
+                            candidatoNome.value,
+                            cpf.value,
+                            idade.value,
+                            email.value,
+                            estado.value,
+                            cep.value,
+                            descricao.value
+                            )
 
-                        candidatoNome = localStorage.getItem('candidatoNome');
-                        email = localStorage.getItem('email');
-                        estado = localStorage.getItem('estado');
-                        descricao = localStorage.getItem('descricao');
-                        competencias = localStorage.getItem('competencias');
-                        cep = localStorage.getItem('cep');
-                        cpf = localStorage.getItem('cpf');
-                        idade = localStorage.getItem('idade');
+                        if (validacao == false) {
+                            event.preventDefault();
+                        } else {
 
-                        ListaPessoa.candidatos.push(new Candidato(
-                            candidatoNome,
-                            email,
-                            estado,
-                            descricao,
-                            competencias,
-                            cep,
-                            cpf,
-                            idade))
+                            localStorage.setItem('candidatoNome', candidatoNome.value);
+                            localStorage.setItem('cpf', cpf.value);
+                            localStorage.setItem('idade', idade.value);
+                            localStorage.setItem('email', email.value);
+                            localStorage.setItem('estado', estado.value);
+                            localStorage.setItem('cep', cep.value);
+                            localStorage.setItem('descricao', descricao.value);
+                            localStorage.setItem('competencias', competenciasSelecionadas.toString());
 
-                        alert("Candidato cadastrado com sucesso!!");
+                            candidatoNome = localStorage.getItem('candidatoNome');
+                            email = localStorage.getItem('email');
+                            estado = localStorage.getItem('estado');
+                            descricao = localStorage.getItem('descricao');
+                            competencias = localStorage.getItem('competencias');
+                            cep = localStorage.getItem('cep');
+                            cpf = localStorage.getItem('cpf');
+                            idade = localStorage.getItem('idade');
+
+                            ListaPessoa.candidatos.push(new Candidato(
+                                candidatoNome,
+                                email,
+                                estado,
+                                descricao,
+                                competencias,
+                                cep,
+                                cpf,
+                                idade))
+
+                            alert("Candidato cadastrado com sucesso!!");
+                        }
                     }
                 }
             )

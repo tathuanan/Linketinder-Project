@@ -1,6 +1,6 @@
 export class Regex {
 
-    static validarNome(nome: string): boolean {
+    static validarNomeCandidato(nome: string): boolean {
         const regex = /^[\ba-zA-ZÀ-ÿ]+( [\ba-zA-ZÀ-ÿ]+)+$/g;
         if (!regex.test(nome)){
             alert("Nome fora do padrão,\nDigite ao menos um nome e um sobrenome")
@@ -72,4 +72,25 @@ export class Regex {
         return regex.test(descricao)
     }
 
+    static validarFormCandidato(
+        nome: string,
+        cpf: string,
+        idade: string,
+        email: string,
+        estado: string,
+        cep: string,
+        descricao: string,
+    ): boolean {
+        const validacoes = [
+            this.validarNomeCandidato(nome),
+            this.validarCPF(cpf),
+            this.validarIdade(idade),
+            this.validarEmail(email),
+            this.validarEstado(estado),
+            this.validarCEP(cep),
+            this.validarDescricao(descricao),
+        ];
+
+        return validacoes.every((validacao) => validacao === true);
+    }
 }
