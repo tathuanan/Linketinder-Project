@@ -40,4 +40,9 @@ export class Regex {
         return regex.test(pais)
     }
 
+    static validarDescricao(descricao: string): boolean {
+        const regex = /^[a-zA-ZÀ-ÿ0-9,.; ]{30,}$/
+        return regex.test(descricao)
+    }
+
 }

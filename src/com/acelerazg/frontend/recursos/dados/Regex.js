@@ -34,5 +34,9 @@ class Regex {
         const regex = /^[\ba-zA-Z]+( [\ba-zA-Z]+)*$/;
         return regex.test(pais);
     }
+    static validarDescricao(descricao) {
+        const regex = /^[a-zA-ZÀ-ÿ0-9,.; ]{30,}$/;
+        return regex.test(descricao);
+    }
 }
 exports.Regex = Regex;
