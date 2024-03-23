@@ -22,5 +22,9 @@ class Regex {
         const regex = /^[A-Z]{2}$/;
         return regex.test(estado);
     }
+    static validarCEP(cep) {
+        const regex = /^\d{5}-?\d{3}$/;
+        return regex.test(cep);
+    }
 }
 exports.Regex = Regex;

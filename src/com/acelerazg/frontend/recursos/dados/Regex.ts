@@ -25,4 +25,9 @@ export class Regex {
         return regex.test(estado)
     }
 
+    static validarCEP(cep: string): boolean {
+        const regex = /^\d{5}-?\d{3}$/
+        return regex.test(cep)
+    }
+
 }
