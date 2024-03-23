@@ -10,5 +10,9 @@ class Regex {
         const regex = /^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/;
         return regex.test(cpf);
     }
+    static validarIdade(idade) {
+        const regex = /^\d+$/;
+        return regex.test(idade);
+    }
 }
 exports.Regex = Regex;

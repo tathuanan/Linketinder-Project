@@ -10,4 +10,9 @@ export class Regex {
         return regex.test(cpf)
     }
 
+    static validarIdade(idade: string): boolean {
+        const regex = /^\d+$/
+        return regex.test(idade)
+    }
+
 }
