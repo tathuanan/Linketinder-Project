@@ -47,5 +47,14 @@ Pelo terminal navegue até a pasta "frontend" e execute o comando "npm start"
 
 No seu navegador, digite a URL `http://localhost:9000/Inicio.html`
 
+### Arquivos relacionados ao Banco de dados:
+
+Acesse o DER (Diagrama de Entidade-Relacionameto) [aqui](https://github.com/tathuanan/Linketinder-Project/blob/main/src/com/acelerazg/db/der_linketinder.png)
+
+Acesse o arquivo SQL [aqui](https://github.com/tathuanan/Linketinder-Project/blob/main/src/com/acelerazg/db/linketinder.sql)
+
+SGDB escolhido para rodar a aplicação:
+
+* PostgreSQL
 
 Por [Murillo Santos](https://br.linkedin.com/in/murillo-santos-6a179a1b8)
