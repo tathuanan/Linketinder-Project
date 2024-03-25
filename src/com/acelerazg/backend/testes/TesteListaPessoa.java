@@ -1,7 +1,7 @@
 package com.acelerazg.backend.testes;
 
-import com.acelerazg.backend.pessoas.Candidato;
-import com.acelerazg.backend.pessoas.Empresa;
+import com.acelerazg.backend.model.Candidato;
+import com.acelerazg.backend.model.Empresa;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -23,7 +23,7 @@ public class TesteListaPessoa {
         List<String> competencias = new ArrayList<>();
         String cep = "72000000";
         String cpf = "11122233344";
-        int idade = 18;
+        // int idade = 18;
         int resultadoEsperado = candidatos.size()+1;
 
         competencias.add("Java");
@@ -38,7 +38,7 @@ public class TesteListaPessoa {
         candidato.setCompetencias(competencias);
         candidato.setCep(cep);
         candidato.setCpf(cpf);
-        candidato.setIdade(idade);
+        //candidato.setIdade(idade);
 
         candidatos.add(candidato);
 
@@ -58,22 +58,22 @@ public class TesteListaPessoa {
         String email = "contato@pacoca.com.br";
         String estado = "DF";
         String descricao = "Empresa de médio porte com foco em clientes do ramo alimentício";
-        List<String> competencias = new ArrayList<>();
+        //List<String> competencias = new ArrayList<>();
         String cep = "72000000";
         String pais = "Brasil";
         String cnpj = "00000111000100";
         int resultadoEsperado = empresas.size()+1;
 
-        competencias.add("Java");
-        competencias.add("Groovy");
-        competencias.add("JUnit");
-        competencias.add("Scrumban");
+//        competencias.add("Java");
+//        competencias.add("Groovy");
+//        competencias.add("JUnit");
+//        competencias.add("Scrumban");
 
         empresa.setNome(nome);
         empresa.setEmail(email);
         empresa.setEstado(estado);
         empresa.setDescricao(descricao);
-        empresa.setCompetencias(competencias);
+        //empresa.setCompetencias(competencias);
         empresa.setCep(cep);
         empresa.setPais(pais);
         empresa.setCnpj(cnpj);

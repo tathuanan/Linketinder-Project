@@ -2,7 +2,7 @@ package com.acelerazg.backend.testes;
 
 import com.acelerazg.backend.dados.IControladorCandidatos;
 import com.acelerazg.backend.dados.ListaPessoa;
-import com.acelerazg.backend.pessoas.Candidato;
+import com.acelerazg.backend.model.Candidato;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -25,7 +25,7 @@ public class TesteCadastrarCandidato {
         List<String> competencias = new ArrayList<>();
         String cep = "72000000";
         String cpf = "11122233344";
-        int idade = 18;
+//        int idade = 18;
 
         competencias.add("Java");
         competencias.add("Groovy");
@@ -39,7 +39,7 @@ public class TesteCadastrarCandidato {
         candidato.setCompetencias(competencias);
         candidato.setCep(cep);
         candidato.setCpf(cpf);
-        candidato.setIdade(idade);
+//        candidato.setIdade(idade);
 
         iControladorCandidatos.iCadastrarCandidato(candidato);
 

@@ -2,7 +2,7 @@ package com.acelerazg.backend.testes;
 
 import com.acelerazg.backend.dados.IControladorEmpresas;
 import com.acelerazg.backend.dados.ListaPessoa;
-import com.acelerazg.backend.pessoas.Empresa;
+import com.acelerazg.backend.model.Empresa;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -21,21 +21,21 @@ public class TesteCadastrarEmpresa {
         String email = "contato@pacoca.com.br";
         String estado = "DF";
         String descricao = "Empresa de médio porte com foco em clientes do ramo alimentício.";
-        List<String> competencias = new ArrayList<>();
+//        List<String> competencias = new ArrayList<>();
         String cep = "72000000";
         String pais = "Brasil";
         String cnpj = "00000111000100";
 
-        competencias.add("Java");
-        competencias.add("Groovy");
-        competencias.add("JUnit");
-        competencias.add("Scrumban");
+//        competencias.add("Java");
+//        competencias.add("Groovy");
+//        competencias.add("JUnit");
+//        competencias.add("Scrumban");
 
         empresa.setNome(nome);
         empresa.setEmail(email);
         empresa.setEstado(estado);
         empresa.setDescricao(descricao);
-        empresa.setCompetencias(competencias);
+        //empresa.setCompetencias(competencias);
         empresa.setCep(cep);
         empresa.setPais(pais);
         empresa.setCnpj(cnpj);
