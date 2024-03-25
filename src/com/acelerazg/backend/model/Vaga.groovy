@@ -14,7 +14,7 @@ class Vaga {
             " nome=${nome}," +
             " descricao=${descricao}," +
             " cidade=${cidade}," +
-            " empresa=${empresa}"
+            " empresa=${empresa} )"
     }
 
 }

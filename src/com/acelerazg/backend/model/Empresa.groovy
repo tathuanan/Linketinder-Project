@@ -13,13 +13,13 @@ class Empresa extends Pessoa {
         "Empresa(" +
                 " id=${id},"+
                 " nome=${nome}," +
-                " cnpj=${cnpj})," +
+                " cnpj=${cnpj}," +
                 " email=${email}," +
                 " senha=${senha}," +
                 " pais=${pais}," +
                 " estado=${estado}," +
                 " cep=${cep}," +
-                " descricao=${descricao}"
+                " descricao=${descricao} )"
 
     }
 

@@ -26,6 +26,6 @@ class Candidato extends Pessoa{
                 " pais=${pais}," +
                 " estado=${estado}," +
                 " cep=${cep}," +
-                " descricao=${descricao}"
+                " descricao=${descricao} )"
     }
 }

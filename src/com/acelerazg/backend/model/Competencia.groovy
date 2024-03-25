@@ -8,7 +8,7 @@ class Competencia {
     String toString() {
         "Competencia(" +
                 " id=${id},"+
-                " competencia=${competencia}"
+                " competencia=${competencia} )"
     }
 
 }
