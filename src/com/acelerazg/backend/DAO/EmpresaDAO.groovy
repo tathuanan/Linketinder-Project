@@ -33,7 +33,7 @@ class EmpresaDAO {
     }
 
     List<Empresa> listar(){
-        String sql = "SELECT * FROM empresas"
+        String sql = "SELECT * FROM empresas ORDER BY id"
         List<Empresa> retorno = new ArrayList<>()
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
