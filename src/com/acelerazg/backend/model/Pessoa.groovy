@@ -1,16 +1,16 @@
-package com.acelerazg.backend.pessoas
+package com.acelerazg.backend.model
 
 import groovy.transform.ToString
 @ToString(includeNames = true)
 
 class Pessoa {
 
+    int id
     String nome
     String email
     String estado
     String descricao
-    List<String> competencias
-    def cep
+    String cep
 
     @Override
     String toString() {

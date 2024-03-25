@@ -1,7 +1,7 @@
 package com.acelerazg.backend.dados
 
-import com.acelerazg.backend.pessoas.Candidato
-import com.acelerazg.backend.pessoas.Empresa
+import com.acelerazg.backend.model.Candidato
+import com.acelerazg.backend.model.Empresa
 
 class ListaPessoa {
 

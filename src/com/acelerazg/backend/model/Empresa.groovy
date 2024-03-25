@@ -1,4 +1,4 @@
-package com.acelerazg.backend.pessoas
+package com.acelerazg.backend.model
 
 import groovy.transform.ToString
 @ToString
@@ -7,17 +7,20 @@ class Empresa extends Pessoa {
 
     String pais
     String cnpj
+    String senha
 
     String toString() {
         "Empresa(" +
+                " id=${id},"+
                 " nome=${nome}," +
+                " cnpj=${cnpj})," +
                 " email=${email}," +
-                " estado=${estado}," +
-                " descricao=${descricao}," +
-                " competencias=${competencias}," +
-                " cep=${cep}," +
+                " senha=${senha}," +
                 " pais=${pais}," +
-                " cnpj=${cnpj})"
+                " estado=${estado}," +
+                " cep=${cep}," +
+                " descricao=${descricao}"
+
     }
 
 }

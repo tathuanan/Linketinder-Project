@@ -1,7 +1,7 @@
 package com.acelerazg.backend.dados
 
 import com.acelerazg.backend.aplicacao.Ferramentas
-import com.acelerazg.backend.pessoas.Empresa
+import com.acelerazg.backend.model.Empresa
 
 class ControladorEmpresas implements IControladorEmpresas {
 
