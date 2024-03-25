@@ -165,3 +165,25 @@ VALUES
     ('PAO DE QUEIJO LTDA', '33444555000166', 'contado@pdq.com.br', 'Empresa homogenia no setor de tecnologia, mistura solucoes de infraestrutura e desenvolvimento', '123456', 1, 1, 13),
     ('BRIGADEIRO LTDA', '44555666000177', 'contato@brigadeiro.com.br', 'Empresa de pequeno porte, mas trazendo grandes solucoes para seus clientes', '123456', 1, 1, 25),
     ('MATE LTDA', '55666777000188', 'contato@mate.com.br', 'Empresa em expansao, buscando fluidez no mercado', '123456', 1, 1, 21);
+
+INSERT INTO competencias_candidatos (candidato_id, competencia_id)
+VALUES 	(1,1),
+        (1,2),
+        (1,3),
+        (1,6),
+        (2,6),
+        (2,5),
+        (2,4),
+        (2,8),
+        (3,4),
+        (3,5),
+        (3,7),
+        (3,6),
+        (4,1),
+        (4,5),
+        (4,7),
+        (4,6),
+        (5,7),
+        (5,3),
+        (5,5),
+        (5,6);
