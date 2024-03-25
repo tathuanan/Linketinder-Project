@@ -36,9 +36,12 @@ class CandidatoDAO {
         String sql = "SELECT * FROM candidatos ORDER BY id"
         List<Candidato> retorno = new ArrayList<>()
         try {
+
             PreparedStatement stmt = connection.prepareStatement(sql)
             ResultSet resultado = stmt.executeQuery()
+
             while(resultado.next()){
+
                 Candidato candidato = new Candidato()
                 candidato.setId(resultado.getInt("id"))
                 candidato.setNome(resultado.getString("nome"))
@@ -51,6 +54,21 @@ class CandidatoDAO {
                 candidato.setPais(resultado.getString("pais_id"))
                 candidato.setCep(resultado.getString("cep_id"))
                 candidato.setEstado(resultado.getString("estado_id"))
+
+                List<String> competencias = new ArrayList<>();
+                String sqlCompetencias = "SELECT comp.competencia " +
+                        "FROM competencias_candidatos AS comp_c " +
+                        "JOIN competencias AS comp ON comp.id = comp_c.competencia_id " +
+                        "WHERE comp_c.candidato_id = ?";
+                PreparedStatement stmtCompetencias = connection.prepareStatement(sqlCompetencias);
+                stmtCompetencias.setInt(1, candidato.getId());
+                ResultSet resultadoCompetencias = stmtCompetencias.executeQuery();
+                while (resultadoCompetencias.next()) {
+                    competencias.add(resultadoCompetencias.getString("competencia"));
+                }
+
+                candidato.setCompetencias(competencias);
+
                 retorno.add(candidato)
             }
         } catch (Exception e) {
