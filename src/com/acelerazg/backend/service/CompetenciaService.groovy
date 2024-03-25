@@ -5,7 +5,7 @@ import com.acelerazg.backend.model.Competencia
 
 class CompetenciaService {
 
-    static listarCompetencia() {
+    static listarCompetencias() {
 
         CompetenciaDAO competenciaDAO = new CompetenciaDAO()
         competenciaDAO.listar().each { competencia ->

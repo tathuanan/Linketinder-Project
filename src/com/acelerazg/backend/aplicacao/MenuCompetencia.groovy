@@ -17,7 +17,7 @@ class MenuCompetencia {
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
                         "1. Listar Competências.\n" +
-                        "2. Inserir Competência.\n" +
+                        "2. Cadastrar Competência.\n" +
                         "3. Alterar Competência.\n" +
                         "4. Excluir Competência.\n"
 
@@ -31,7 +31,7 @@ class MenuCompetencia {
                     case 0:
                         break
                     case 1:
-                        competencias.listarCompetencia()
+                        competencias.listarCompetencias()
                         break
                     case 2:
                         println("Digite a nova competência:")
@@ -40,8 +40,8 @@ class MenuCompetencia {
                         CompetenciaService.cadastrarCompetencia(novaCompetencia)
                         break
                     case 3:
-                        competencias.listarCompetencia()
-                        println("\nEscolha qual a competência que você deseja alterar:")
+                        competencias.listarCompetencias()
+                        println("\nEscolha qual competência você deseja alterar:")
                         opcao = Integer.parseInt(Ferramentas.ler.nextLine())
                         println("Digite a nova competência:")
                         nomeNovaCompetencia = Ferramentas.ler.nextLine()
@@ -50,8 +50,8 @@ class MenuCompetencia {
                         CompetenciaService.alterarCompetencia(novaCompetencia)
                         break
                     case 4:
-                        competencias.listarCompetencia()
-                        println("\nEscolha qual a competência que você deseja deletar:")
+                        competencias.listarCompetencias()
+                        println("\nEscolha qual competência você deseja deletar:")
                         opcao = Integer.parseInt(Ferramentas.ler.nextLine())
                         CompetenciaService.deletarCompetencia(opcao)
                         break
