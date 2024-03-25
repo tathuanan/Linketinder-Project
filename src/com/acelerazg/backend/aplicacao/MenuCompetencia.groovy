@@ -1,7 +1,6 @@
 package com.acelerazg.backend.aplicacao
 
 import com.acelerazg.backend.controller.ControllerCompetencia
-import com.acelerazg.backend.service.CompetenciaService
 
 class MenuCompetencia {
 
