@@ -1,8 +1,6 @@
 package com.acelerazg.backend.aplicacao
 
-import com.acelerazg.backend.dados.ControladorCandidatos
-import com.acelerazg.backend.dados.ControladorEmpresas
-import com.acelerazg.backend.model.Competencia
+import com.acelerazg.backend.controller.ControllerCompetencia
 import com.acelerazg.backend.service.CompetenciaService
 
 class MenuCompetencia {
@@ -10,9 +8,7 @@ class MenuCompetencia {
     static menuCompetencia() {
 
         int opcao
-        CompetenciaService competencias = new CompetenciaService()
-        Competencia novaCompetencia = new Competencia()
-        String nomeNovaCompetencia
+        ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
         String menuCompetencia =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
@@ -31,29 +27,16 @@ class MenuCompetencia {
                     case 0:
                         break
                     case 1:
-                        competencias.listarCompetencias()
+                        controllerCompetencia.listarCompetencias()
                         break
                     case 2:
-                        println("Digite a nova competência:")
-                        nomeNovaCompetencia = Ferramentas.ler.nextLine()
-                        novaCompetencia.setCompetencia(nomeNovaCompetencia)
-                        CompetenciaService.cadastrarCompetencia(novaCompetencia)
+                        controllerCompetencia.cadastrarCompetencia()
                         break
                     case 3:
-                        competencias.listarCompetencias()
-                        println("\nEscolha qual competência você deseja alterar:")
-                        opcao = Integer.parseInt(Ferramentas.ler.nextLine())
-                        println("Digite a nova competência:")
-                        nomeNovaCompetencia = Ferramentas.ler.nextLine()
-                        novaCompetencia.setId(opcao)
-                        novaCompetencia.setCompetencia(nomeNovaCompetencia)
-                        CompetenciaService.alterarCompetencia(novaCompetencia)
+                        controllerCompetencia.alterarCompetencia()
                         break
                     case 4:
-                        competencias.listarCompetencias()
-                        println("\nEscolha qual competência você deseja deletar:")
-                        opcao = Integer.parseInt(Ferramentas.ler.nextLine())
-                        CompetenciaService.deletarCompetencia(opcao)
+                        controllerCompetencia.deletarCompetencia()
                         break
                     default:
                         println("\nOpção inválida!!")
