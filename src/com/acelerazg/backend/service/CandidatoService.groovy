@@ -5,16 +5,26 @@ import com.acelerazg.backend.model.Candidato
 
 class CandidatoService {
 
-    static listarCandidatos(){
+    listarCandidatos(){
 
         CandidatoDAO candidatoDAO = new CandidatoDAO()
-        candidatoDAO.listar().each { candidato ->
-            println candidato.toString()
+        candidatoDAO.listar().each {candidato ->
+            println candidato
         }
 
     }
 
-    static cadastrarCandidato(Candidato candidato) {
+    List<Candidato> candidatosCadastrados (){
+
+        List<Candidato> listaCandidatos
+        CandidatoDAO candidatoDAO = new CandidatoDAO()
+
+        listaCandidatos = candidatoDAO.listar()
+        return listaCandidatos
+
+    }
+
+    cadastrarCandidato(Candidato candidato) {
 
         boolean retornoDB
 
@@ -29,7 +39,7 @@ class CandidatoService {
 
     }
 
-    static alterarCandidato(Candidato candidato) {
+    alterarCandidato(Candidato candidato) {
 
         boolean retornoDB
 
@@ -44,7 +54,7 @@ class CandidatoService {
 
     }
 
-    static deletarCandidato(Integer id) {
+    deletarCandidato(Integer id) {
 
         boolean retornoDB
 

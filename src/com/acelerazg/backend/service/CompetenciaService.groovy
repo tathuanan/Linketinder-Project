@@ -5,15 +5,25 @@ import com.acelerazg.backend.model.Competencia
 
 class CompetenciaService {
 
-    static listarCompetencias() {
+    listarCompetencias() {
 
         CompetenciaDAO competenciaDAO = new CompetenciaDAO()
         competenciaDAO.listar().each { competencia ->
-            println competencia.toString()
+            println competencia
         }
     }
 
-    static cadastrarCompetencia(Competencia competencia) {
+    List<Competencia> competenciasCadastradas() {
+
+        List<Competencia> listaCompetencias
+        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
+
+        listaCompetencias = competenciaDAO.listar()
+        return listaCompetencias
+
+    }
+
+    cadastrarCompetencia(Competencia competencia) {
 
         boolean retornoDB
 
@@ -28,7 +38,7 @@ class CompetenciaService {
 
     }
 
-    static alterarCompetencia(Competencia competencia) {
+    alterarCompetencia(Competencia competencia) {
 
         boolean retornoDB
 
@@ -43,7 +53,7 @@ class CompetenciaService {
 
     }
 
-    static deletarCompetencia(Integer id) {
+    deletarCompetencia(Integer id) {
 
         boolean retornoDB
 
