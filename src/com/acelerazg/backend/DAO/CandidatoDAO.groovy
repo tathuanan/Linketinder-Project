@@ -91,9 +91,25 @@ class CandidatoDAO {
             stmt.setString(5, candidato.getEmail())
             stmt.setString(6, candidato.getDescricao())
             stmt.setString(7, candidato.getSenha())
-            stmt.setString(8, candidato.getPais())
-            stmt.setString(9, candidato.getCep())
-            stmt.setString(10, candidato.getEstado())
+            stmt.setInt(8, Integer.parseInt(candidato.getPais()))
+            stmt.setInt(9, Integer.parseInt(candidato.getCep()))
+            stmt.setInt(10, Integer.parseInt(candidato.getEstado()))
+            stmt.execute()
+            return true
+        } catch (Exception e) {
+            e.printStackTrace()
+            return false
+        } finally {
+            connection.close()
+        }
+    }
+
+    boolean inserirCompetenciaCandidato(int candidato_id, int competencia_id) {
+        String sql = "INSERT INTO competencias_vaga(candidato_id, competencia_id) VALUES (?,?)"
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql)
+            stmt.setInt(1, candidato_id)
+            stmt.setInt(2, competencia_id)
             stmt.execute()
             return true
         } catch (Exception e) {
@@ -116,9 +132,9 @@ class CandidatoDAO {
             stmt.setString(5, candidato.getEmail())
             stmt.setString(6, candidato.getDescricao())
             stmt.setString(7, candidato.getSenha())
-            stmt.setString(8, candidato.getPais())
-            stmt.setString(9, candidato.getCep())
-            stmt.setString(10, candidato.getEstado())
+            stmt.setInt(8, Integer.parseInt(candidato.getPais()))
+            stmt.setInt(9, Integer.parseInt(candidato.getCep()))
+            stmt.setInt(10, Integer.parseInt(candidato.getEstado()))
             stmt.setInt(11, candidato.getId())
             stmt.execute()
             return true
