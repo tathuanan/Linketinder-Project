@@ -45,14 +45,14 @@ class VagaDAO {
                 vaga.setId(resultado.getInt("id"))
                 vaga.setNome(resultado.getString("nome"))
                 vaga.setDescricao(resultado.getString("descricao"))
-                vaga.setCidade(resultado.getString("cidade_id"))
+                vaga.setCidade(resultado.getString("cidade"))
                 vaga.setEmpresa(resultado.getString("empresa_id"))
 
                 List<String> competencias = new ArrayList<>();
                 String sqlCompetencias = "SELECT comp.competencia " +
                         "FROM competencias_vaga AS comp_v " +
                         "JOIN competencias AS comp ON comp.id = comp_v.competencia_id " +
-                        "WHERE comp_c.vaga_id = ?";
+                        "WHERE comp_v.vaga_id = ?;"
                 PreparedStatement stmtCompetencias = connection.prepareStatement(sqlCompetencias);
                 stmtCompetencias.setInt(1, vaga.getId());
                 ResultSet resultadoCompetencias = stmtCompetencias.executeQuery();
@@ -74,12 +74,12 @@ class VagaDAO {
     }
 
     boolean inserir(Vaga vaga) {
-        String sql = "INSERT INTO vagas(nome, descricao, cidade_id, empresa_id) VALUES (?,?,?,?)"
+        String sql = "INSERT INTO vagas(nome, descricao, cidade, empresa_id) VALUES (?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
             stmt.setString(1, vaga.getNome())
             stmt.setString(2, vaga.getDescricao())
-            stmt.setInt(3, Integer.parseInt(vaga.getCidade()))
+            stmt.setString(3, (vaga.getCidade()))
             stmt.setInt(4, Integer.parseInt(vaga.getEmpresa()))
             stmt.execute()
             return true
@@ -108,7 +108,7 @@ class VagaDAO {
     }
 
     boolean alterar(Vaga vaga) {
-        String sql = "UPDATE vagas SET nome=?, descricao=?, cidade_id=?, empresa_id=? WHERE id=?"
+        String sql = "UPDATE vagas SET nome=?, descricao=?, cidade=?, empresa_id=? WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
             stmt.setString(1, vaga.getNome())

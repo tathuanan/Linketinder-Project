@@ -52,7 +52,7 @@ class CandidatoDAO {
                 candidato.setDescricao(resultado.getString("descricao"))
                 candidato.setSenha(resultado.getString("senha"))
                 candidato.setPais(resultado.getString("pais_id"))
-                candidato.setCep(resultado.getString("cep_id"))
+                candidato.setCep(resultado.getString("cep"))
                 candidato.setEstado(resultado.getString("estado_id"))
 
                 List<String> competencias = new ArrayList<>();
@@ -80,7 +80,7 @@ class CandidatoDAO {
     }
 
     boolean inserir(Candidato candidato){
-        String sql = "INSERT INTO candidatos(nome, sobrenome, cpf, dt_nascimento, email, descricao, senha, pais_id, cep_id, estado_id)" +
+        String sql = "INSERT INTO candidatos(nome, sobrenome, cpf, dt_nascimento, email, descricao, senha, pais_id, cep, estado_id)" +
                 "VALUES (?,?,?,?,?,?,?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
@@ -92,7 +92,7 @@ class CandidatoDAO {
             stmt.setString(6, candidato.getDescricao())
             stmt.setString(7, candidato.getSenha())
             stmt.setInt(8, Integer.parseInt(candidato.getPais()))
-            stmt.setInt(9, Integer.parseInt(candidato.getCep()))
+            stmt.setString(9, candidato.getCep())
             stmt.setInt(10, Integer.parseInt(candidato.getEstado()))
             stmt.execute()
             return true
@@ -121,7 +121,7 @@ class CandidatoDAO {
     }
 
     boolean alterar(Candidato candidato){
-        String sql = "UPDATE candidatos SET nome=?, sobrenome=?, cpf=?, dt_nascimento=?, email=?, descricao=?, senha=?, pais_id=?, cep_id=?, estado_id=?"+
+        String sql = "UPDATE candidatos SET nome=?, sobrenome=?, cpf=?, dt_nascimento=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=?"+
                 "WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
@@ -133,7 +133,7 @@ class CandidatoDAO {
             stmt.setString(6, candidato.getDescricao())
             stmt.setString(7, candidato.getSenha())
             stmt.setInt(8, Integer.parseInt(candidato.getPais()))
-            stmt.setInt(9, Integer.parseInt(candidato.getCep()))
+            stmt.setString(9, candidato.getCep())
             stmt.setInt(10, Integer.parseInt(candidato.getEstado()))
             stmt.setInt(11, candidato.getId())
             stmt.execute()

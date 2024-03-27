@@ -47,7 +47,7 @@ class EmpresaDAO {
                 empresa.setDescricao(resultado.getString("descricao"))
                 empresa.setSenha(resultado.getString("senha"))
                 empresa.setPais(resultado.getString("pais_id"))
-                empresa.setCep(resultado.getString("cep_id"))
+                empresa.setCep(resultado.getString("cep"))
                 empresa.setEstado(resultado.getString("estado_id"))
                 retorno.add(empresa)
             }
@@ -60,7 +60,7 @@ class EmpresaDAO {
     }
 
     boolean inserir(Empresa empresa){
-        String sql = "INSERT INTO empresas(nome, cnpj, email, descricao, senha, pais_id, cep_id, estado_id)" +
+        String sql = "INSERT INTO empresas(nome, cnpj, email, descricao, senha, pais_id, cep, estado_id)" +
                 "VALUES (?,?,?,?,?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
@@ -83,7 +83,7 @@ class EmpresaDAO {
     }
 
     boolean alterar(Empresa empresa){
-        String sql = "UPDATE empresas SET nome=?, cnpj=?, email=?, descricao=?, senha=?, pais_id=?, cep_id=?, estado_id=?"+
+        String sql = "UPDATE empresas SET nome=?, cnpj=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=?"+
                 "WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
