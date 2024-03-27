@@ -5,7 +5,7 @@ import com.acelerazg.backend.model.Competencia
 
 class CompetenciaService {
 
-    listarCompetencias() {
+    static listarCompetencias() {
 
         CompetenciaDAO competenciaDAO = new CompetenciaDAO()
         competenciaDAO.listar().each { competencia ->
@@ -23,7 +23,7 @@ class CompetenciaService {
 
     }
 
-    cadastrarCompetencia(Competencia competencia) {
+    static cadastrarCompetencia(Competencia competencia) {
 
         boolean retornoDB
 
@@ -38,7 +38,7 @@ class CompetenciaService {
 
     }
 
-    alterarCompetencia(Competencia competencia) {
+    static alterarCompetencia(Competencia competencia) {
 
         boolean retornoDB
 
@@ -53,7 +53,7 @@ class CompetenciaService {
 
     }
 
-    deletarCompetencia(Integer id) {
+    static deletarCompetencia(Integer id) {
 
         boolean retornoDB
 

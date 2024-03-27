@@ -5,7 +5,7 @@ import com.acelerazg.backend.model.Vaga
 
 class VagaService {
 
-    listarVagas(){
+    static listarVagas(){
 
         VagaDAO vagaDAO = new VagaDAO()
         vagaDAO.listar().each { vaga ->
@@ -23,7 +23,7 @@ class VagaService {
         return listaVagas
     }
 
-    cadastrarVaga(Vaga vaga) {
+    static cadastrarVaga(Vaga vaga) {
 
         boolean retornoDB
 
@@ -38,7 +38,22 @@ class VagaService {
 
     }
 
-    alterarVaga(Vaga vaga) {
+    static cadastrarCompetenciaVaga(int vaga_id, int competencia_id) {
+
+        boolean retornoDB
+
+        VagaDAO vagaDAO = new VagaDAO()
+        retornoDB = vagaDAO.inserirCompetenciaVaga(vaga_id, competencia_id)
+
+        if (retornoDB){
+            println("\nCompetência cadastrada com sucesso!!!")
+        } else {
+            println("\nOcorreu um erro no cadastro")
+        }
+
+    }
+
+    static alterarVaga(Vaga vaga) {
 
         boolean retornoDB
 
@@ -53,7 +68,7 @@ class VagaService {
 
     }
 
-    deletarVaga(Integer id) {
+    static deletarVaga(Integer id) {
 
         boolean retornoDB
 

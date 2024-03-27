@@ -6,7 +6,7 @@ import com.acelerazg.backend.model.Empresa
 
 class EmpresaService {
 
-    listarEmpresas(){
+    static listarEmpresas(){
 
         EmpresaDAO empresaDAO = new EmpresaDAO()
         empresaDAO.listar().each { empresa ->
@@ -25,7 +25,7 @@ class EmpresaService {
 
     }
 
-    cadastrarEmpresa(Empresa empresa) {
+    static cadastrarEmpresa(Empresa empresa) {
 
         boolean retornoDB
 
@@ -40,7 +40,7 @@ class EmpresaService {
 
     }
 
-    alterarEmpresa(Empresa empresa) {
+    static alterarEmpresa(Empresa empresa) {
 
         boolean retornoDB
 
@@ -55,7 +55,7 @@ class EmpresaService {
 
     }
 
-    deletarEmpresa(Integer id) {
+    static deletarEmpresa(Integer id) {
 
         boolean retornoDB
 
