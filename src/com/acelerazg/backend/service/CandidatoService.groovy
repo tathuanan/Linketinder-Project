@@ -39,6 +39,21 @@ class CandidatoService {
 
     }
 
+    static cadastrarCompetenciaCandidato(int candidato_id, int competencia_id) {
+
+        boolean retornoDB
+
+        CandidatoDAO candidatoDAO = new CandidatoDAO()
+        retornoDB = candidatoDAO.inserirCompetenciaCandidato(candidato_id, competencia_id)
+
+        if (retornoDB){
+            println("\nCompetência cadastrada com sucesso!!!")
+        } else {
+            println("\nOcorreu um erro no cadastro")
+        }
+
+    }
+
     static alterarCandidato(Candidato candidato) {
 
         boolean retornoDB

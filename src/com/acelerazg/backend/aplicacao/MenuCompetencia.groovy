@@ -14,7 +14,7 @@ class MenuCompetencia {
                         "1. Listar Competências.\n" +
                         "2. Cadastrar Competência.\n" +
                         "3. Alterar Competência.\n" +
-                        "4. Excluir Competência.\n"
+                        "4. Excluir Competência."
 
         while (true) {
             println menuCompetencia

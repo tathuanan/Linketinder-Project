@@ -14,7 +14,7 @@ class MenuVaga {
                         "1. Listar Vagas.\n" +
                         "2. Cadastrar Vaga.\n" +
                         "3. Alterar Vaga.\n" +
-                        "4. Excluir Vaga.\n"
+                        "4. Excluir Vaga."
 
         while (true) {
             println menuVaga

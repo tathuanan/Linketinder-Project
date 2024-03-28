@@ -106,6 +106,7 @@ class ControllerVaga {
         println("\nAltere a empresa que ofertou a vaga:")
         this.empresa = Integer.parseInt(Ferramentas.ler.nextLine())
 
+        this.novaVaga.setId(opcao)
         this.novaVaga.setNome(this.nomeVaga)
         this.novaVaga.setDescricao(this.descricao)
         this.novaVaga.setCidade(this.cidade)

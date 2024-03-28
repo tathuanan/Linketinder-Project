@@ -113,7 +113,7 @@ class VagaDAO {
             PreparedStatement stmt = connection.prepareStatement(sql)
             stmt.setString(1, vaga.getNome())
             stmt.setString(2, vaga.getDescricao())
-            stmt.setInt(3, Integer.parseInt(vaga.getCidade()))
+            stmt.setString(3, vaga.getCidade())
             stmt.setInt(4, Integer.parseInt(vaga.getEmpresa()))
             stmt.setInt(5, vaga.getId())
             stmt.execute()
@@ -127,9 +127,14 @@ class VagaDAO {
     }
 
     boolean remover(Integer id) {
+        String sqlCompetencias = "DELETE FROM competencias_vaga WHERE vaga_id=?"
         String sql = "DELETE FROM vagas WHERE id=?"
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = connection.prepareStatement(sqlCompetencias)
+            stmt.setInt(1, id)
+            stmt.execute()
+
+            stmt = connection.prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
             return true

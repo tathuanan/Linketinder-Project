@@ -14,7 +14,7 @@ class MenuCandidato {
                         "1. Listar Candidatos.\n" +
                         "2. Cadastrar Candidato.\n" +
                         "3. Alterar Candidato.\n" +
-                        "4. Excluir Candidato.\n"
+                        "4. Excluir Candidato."
 
         while (true) {
             println menuCandidato

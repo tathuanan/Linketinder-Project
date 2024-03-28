@@ -14,7 +14,7 @@ class MenuEmpresa {
                         "1. Listar Empresas.\n" +
                         "2. Cadastrar Empresa.\n" +
                         "3. Alterar Empresa.\n" +
-                        "4. Excluir Empresa.\n"
+                        "4. Excluir Empresa."
 
         while (true) {
             println menuEmpresa

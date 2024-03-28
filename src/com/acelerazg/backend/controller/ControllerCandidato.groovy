@@ -1,15 +1,11 @@
 package com.acelerazg.backend.controller
 
 import com.acelerazg.backend.aplicacao.Ferramentas
-import com.acelerazg.backend.model.Candidato
 import com.acelerazg.backend.model.Competencia
-import com.acelerazg.backend.model.Vaga
-import com.acelerazg.backend.service.CandidatoService
+import com.acelerazg.backend.model.Candidato
 import com.acelerazg.backend.service.CompetenciaService
-import com.acelerazg.backend.service.VagaService
+import com.acelerazg.backend.service.CandidatoService
 
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class ControllerCandidato {
 
@@ -51,11 +47,6 @@ class ControllerCandidato {
         println("Digite a data de nascimento do candidato no formato dd/mm/aaaa:")
         this.dataNascimento = Ferramentas.ler.nextLine()
 
-        DateTimeFormatter formatoAtual = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-        LocalDate data = LocalDate.parse(this.dataNascimento, formatoAtual)
-        DateTimeFormatter novoFormato = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        String novaDataNascimento = data.format(novoFormato)
-
         println("Digite o email do candidato:")
         this.email = Ferramentas.ler.nextLine()
 
@@ -65,8 +56,7 @@ class ControllerCandidato {
         println("Faça uma descrição do candidato:")
         this.descricao = Ferramentas.ler.nextLine()
 
-        println("Selecione o pais:\n") +
-                "1. Brasil"
+        println("Selecione o pais:\n1. Brasil")
         this.pais = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Selecione o estado:")
@@ -79,7 +69,7 @@ class ControllerCandidato {
         this.novoCandidato.setNome(this.nomeCandidato)
         this.novoCandidato.setSobrenome(this.sobreNomeCandidato)
         this.novoCandidato.setCpf(this.cpf)
-        this.novoCandidato.setDataNascimento(novaDataNascimento)
+        this.novoCandidato.setDataNascimento(this.dataNascimento)
         this.novoCandidato.setEmail(this.email)
         this.novoCandidato.setCep(this.cep)
         this.novoCandidato.setDescricao(this.descricao)
@@ -107,7 +97,7 @@ class ControllerCandidato {
                     competenciaService.listarCompetencias()
                     println "Selecione o id da competência ${i+1}:"
                     idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
-                    VagaService.cadastrarCompetenciaVaga(candidatos[-1].getId(), idCompetencia)
+                    CandidatoService.cadastrarCompetenciaCandidato(candidatos[-1].getId(), idCompetencia)
                     break
                 case 2:
                     println "Digite a competência:"
@@ -116,7 +106,7 @@ class ControllerCandidato {
                     novaCompetencia.setCompetencia(competencia)
                     competenciaService.cadastrarCompetencia(novaCompetencia)
                     competenciasDB = competenciaService.competenciasCadastradas()
-                    VagaService.cadastrarCompetenciaVaga(candidatos[-1].getId(), competenciasDB[-1].getId())
+                    CandidatoService.cadastrarCompetenciaCandidato(candidatos[-1].getId(), competenciasDB[-1].getId())
                     break
                 default:
                     println "Opção inválida!!!"
@@ -130,6 +120,9 @@ class ControllerCandidato {
 
         CandidatoService.listarCandidatos()
 
+        println ("\nEscolha qual candidato você deseja alterar:")
+        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+
         println("Altere o nome do candidato:")
         this.nomeCandidato = Ferramentas.ler.nextLine()
 
@@ -142,11 +135,6 @@ class ControllerCandidato {
         println("Altere a data de nascimento do candidato no formato dd/mm/aaaa:")
         this.dataNascimento = Ferramentas.ler.nextLine()
 
-        DateTimeFormatter formatoAtual = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-        LocalDate data = LocalDate.parse(this.dataNascimento, formatoAtual)
-        DateTimeFormatter novoFormato = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        String novaDataNascimento = data.format(novoFormato)
-
         println("Altere o email do candidato:")
         this.email = Ferramentas.ler.nextLine()
 
@@ -156,8 +144,7 @@ class ControllerCandidato {
         println("Altere a descrição do candidato:")
         this.descricao = Ferramentas.ler.nextLine()
 
-        println("Selecione o pais:\n") +
-                "1. Brasil"
+        println("Altere o pais:\n1. Brasil")
         this.pais = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Altere o estado:")
@@ -167,10 +154,11 @@ class ControllerCandidato {
         println("Altere a senha:")
         this.senha = Ferramentas.ler.nextLine()
 
+        this.novoCandidato.setId(this.opcao)
         this.novoCandidato.setNome(this.nomeCandidato)
         this.novoCandidato.setSobrenome(this.sobreNomeCandidato)
         this.novoCandidato.setCpf(this.cpf)
-        this.novoCandidato.setDataNascimento(novaDataNascimento)
+        this.novoCandidato.setDataNascimento(this.dataNascimento)
         this.novoCandidato.setEmail(this.email)
         this.novoCandidato.setCep(this.cep)
         this.novoCandidato.setDescricao(this.descricao)
@@ -178,7 +166,7 @@ class ControllerCandidato {
         this.novoCandidato.setEstado(this.estado)
         this.novoCandidato.setSenha(this.senha)
 
-        CandidatoService.cadastrarCandidato(this.novoCandidato)
+        CandidatoService.alterarCandidato(this.novoCandidato)
 
     }
 

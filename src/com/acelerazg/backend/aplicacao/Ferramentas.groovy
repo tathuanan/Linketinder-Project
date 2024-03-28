@@ -4,35 +4,34 @@ class Ferramentas {
 
     static Scanner ler = new Scanner(System.in)
 
-    static String estados = {
-                (" 1. AC")+
-                (" 2. AL")+
-                (" 3. AP")+
-                (" 4. AM")+
-                (" 5. BA")+
-                (" 6. CE")+
-                (" 7. DF")+
-                (" 8. ES")+
-                (" 9. GO")+
-                ("10. MA")+
-                ("11. MT")+
-                ("12. MS")+
-                ("13. MG")+
-                ("14. PA")+
-                ("15. PB")+
-                ("16. PR")+
-                ("17. PE")+
-                ("18. PI")+
-                ("19. RJ")+
-                ("20. RN")+
-                ("21. RS")+
-                ("22. RO")+
-                ("23. RR")+
-                ("24. SC")+
-                ("25. SP")+
-                ("26. SE")+
+    static String estados =
+                (" 1. AC\n")+
+                (" 2. AL\n")+
+                (" 3. AP\n")+
+                (" 4. AM\n")+
+                (" 5. BA\n")+
+                (" 6. CE\n")+
+                (" 7. DF\n")+
+                (" 8. ES\n")+
+                (" 9. GO\n")+
+                ("10. MA\n")+
+                ("11. MT\n")+
+                ("12. MS\n")+
+                ("13. MG\n")+
+                ("14. PA\n")+
+                ("15. PB\n")+
+                ("16. PR\n")+
+                ("17. PE\n")+
+                ("18. PI\n")+
+                ("19. RJ\n")+
+                ("20. RN\n")+
+                ("21. RS\n")+
+                ("22. RO\n")+
+                ("23. RR\n")+
+                ("24. SC\n")+
+                ("25. SP\n")+
+                ("26. SE\n")+
                 ("27. TO")
-    }
 
 }
 

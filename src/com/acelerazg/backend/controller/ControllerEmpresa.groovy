@@ -38,8 +38,7 @@ class ControllerEmpresa {
         println("Faça uma descrição da empresa:")
         this.descricao = Ferramentas.ler.nextLine()
 
-        println("Selecione o pais:\n") +
-                "1. Brasil"
+        println("Selecione o pais:\n1. Brasil")
         this.pais = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Selecione o estado:")
@@ -84,8 +83,7 @@ class ControllerEmpresa {
         println("Altere a descrição da empresa:")
         this.descricao = Ferramentas.ler.nextLine()
 
-        println("Altere o pais:\n") +
-                "1. Brasil"
+        println("Altere o pais:\n1. Brasil")
         this.pais = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Altere o estado:")
@@ -95,6 +93,7 @@ class ControllerEmpresa {
         println("Altere a senha:")
         this.senha = Ferramentas.ler.nextLine()
 
+        this.novaEmpresa.setId(opcao)
         this.novaEmpresa.setNome(this.nomeEmpresa)
         this.novaEmpresa.setCnpj(this.cnpj)
         this.novaEmpresa.setEmail(this.email)
@@ -104,7 +103,7 @@ class ControllerEmpresa {
         this.novaEmpresa.setEstado(this.estado)
         this.novaEmpresa.setSenha(this.senha)
 
-        EmpresaService.cadastrarEmpresa(this.novaEmpresa)
+        EmpresaService.alterarEmpresa(this.novaEmpresa)
 
     }
 

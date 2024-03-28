@@ -3,9 +3,11 @@ package com.acelerazg.backend.DAO
 import com.acelerazg.backend.model.Candidato
 
 import java.sql.Connection
+import java.sql.Date
 import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
+import java.text.SimpleDateFormat
 
 class CandidatoDAO {
 
@@ -83,11 +85,16 @@ class CandidatoDAO {
         String sql = "INSERT INTO candidatos(nome, sobrenome, cpf, dt_nascimento, email, descricao, senha, pais_id, cep, estado_id)" +
                 "VALUES (?,?,?,?,?,?,?,?,?,?)"
         try {
+
+            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy")
+            java.util.Date dataUtil = formatador.parse(candidato.getDataNascimento())
+            Date dataSQL = new Date(dataUtil.getTime())
+
             PreparedStatement stmt = connection.prepareStatement(sql)
             stmt.setString(1, candidato.getNome())
             stmt.setString(2, candidato.getSobrenome())
             stmt.setString(3, candidato.getCpf())
-            stmt.setString(4, candidato.getDataNascimento())
+            stmt.setDate(4, dataSQL)
             stmt.setString(5, candidato.getEmail())
             stmt.setString(6, candidato.getDescricao())
             stmt.setString(7, candidato.getSenha())
@@ -105,7 +112,7 @@ class CandidatoDAO {
     }
 
     boolean inserirCompetenciaCandidato(int candidato_id, int competencia_id) {
-        String sql = "INSERT INTO competencias_vaga(candidato_id, competencia_id) VALUES (?,?)"
+        String sql = "INSERT INTO competencias_candidatos(candidato_id, competencia_id) VALUES (?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
             stmt.setInt(1, candidato_id)
@@ -121,14 +128,19 @@ class CandidatoDAO {
     }
 
     boolean alterar(Candidato candidato){
-        String sql = "UPDATE candidatos SET nome=?, sobrenome=?, cpf=?, dt_nascimento=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=?"+
+        String sql = "UPDATE candidatos SET nome=?, sobrenome=?, cpf=?, dt_nascimento=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=? "+
                 "WHERE id=?"
         try {
+
+            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy")
+            java.util.Date dataUtil = formatador.parse(candidato.getDataNascimento())
+            Date dataSQL = new Date(dataUtil.getTime())
+
             PreparedStatement stmt = connection.prepareStatement(sql)
             stmt.setString(1, candidato.getNome())
             stmt.setString(2, candidato.getSobrenome())
             stmt.setString(3, candidato.getCpf())
-            stmt.setString(4, candidato.getDataNascimento())
+            stmt.setDate(4, dataSQL)
             stmt.setString(5, candidato.getEmail())
             stmt.setString(6, candidato.getDescricao())
             stmt.setString(7, candidato.getSenha())
@@ -147,9 +159,14 @@ class CandidatoDAO {
     }
 
     boolean remover(Integer id){
+        String sqlCompetencias = "DELETE FROM competencias_candidatos WHERE candidato_id=?"
         String sql = "DELETE FROM candidatos WHERE id=?"
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = connection.prepareStatement(sqlCompetencias)
+            stmt.setInt(1, id)
+            stmt.execute()
+
+            stmt = connection.prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
             return true

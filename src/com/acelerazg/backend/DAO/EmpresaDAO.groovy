@@ -69,9 +69,9 @@ class EmpresaDAO {
             stmt.setString(3, empresa.getEmail())
             stmt.setString(4, empresa.getDescricao())
             stmt.setString(5, empresa.getSenha())
-            stmt.setString(6, empresa.getPais())
+            stmt.setInt(6, Integer.parseInt(empresa.getPais()))
             stmt.setString(7, empresa.getCep())
-            stmt.setString(8, empresa.getEstado())
+            stmt.setInt(8, Integer.parseInt(empresa.getEstado()))
             stmt.execute()
             return true
         } catch (Exception e) {
@@ -83,7 +83,7 @@ class EmpresaDAO {
     }
 
     boolean alterar(Empresa empresa){
-        String sql = "UPDATE empresas SET nome=?, cnpj=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=?"+
+        String sql = "UPDATE empresas SET nome=?, cnpj=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=? "+
                 "WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(sql)
@@ -92,9 +92,9 @@ class EmpresaDAO {
             stmt.setString(3, empresa.getEmail())
             stmt.setString(4, empresa.getDescricao())
             stmt.setString(5, empresa.getSenha())
-            stmt.setString(6, empresa.getPais())
+            stmt.setInt(6, Integer.parseInt(empresa.getPais()))
             stmt.setString(7, empresa.getCep())
-            stmt.setString(8, empresa.getEstado())
+            stmt.setInt(8, Integer.parseInt(empresa.getEstado()))
             stmt.setInt(9, empresa.getId())
             stmt.execute()
             return true
