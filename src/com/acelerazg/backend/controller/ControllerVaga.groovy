@@ -16,7 +16,7 @@ class ControllerVaga {
     private String descricao
     private String cidade
     private String empresa
-    private int qtd_competencias
+    private int qtdCompetencias
 
     void listarVagas(){
         VagaService.listarVagas()
@@ -51,11 +51,11 @@ class ControllerVaga {
         VagaService.cadastrarVaga(this.novaVaga)
 
         println "Digite a quantidade de competências a vaga exigirá:"
-        this.qtd_competencias = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.qtdCompetencias = Integer.parseInt(Ferramentas.ler.nextLine())
 
         List<Vaga> vagas = vagaService.vagasCadastradas()
 
-        for (int i = 0; i < qtd_competencias; i++){
+        for (int i = 0; i < qtdCompetencias; i++){
 
             competenciasDB = competenciaService.competenciasCadastradas()
 
@@ -106,7 +106,7 @@ class ControllerVaga {
         println("\nAltere a empresa que ofertou a vaga:")
         this.empresa = Integer.parseInt(Ferramentas.ler.nextLine())
 
-        this.novaVaga.setNome(this.nomeNovaVaga)
+        this.novaVaga.setNome(this.nomeVaga)
         this.novaVaga.setDescricao(this.descricao)
         this.novaVaga.setCidade(this.cidade)
         this.novaVaga.setEmpresa(this.empresa)

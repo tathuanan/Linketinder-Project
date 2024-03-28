@@ -6,7 +6,7 @@ import groovy.transform.ToString
 class Candidato extends Pessoa{
 
     String sobrenome
-    String dt_nascimento
+    String dataNascimento
     String cpf
     String pais
     List<String> competencias
@@ -19,7 +19,7 @@ class Candidato extends Pessoa{
                 " nome=${nome}," +
                 " sobrenome=${sobrenome},"+
                 " cpf=${cpf}," +
-                " dt_nascimento=${dt_nascimento},"+
+                " dt_nascimento=${dataNascimento},"+
                 " email=${email}," +
                 " competencias=${competencias}," +
                 " senha=${senha}," +
