@@ -8,14 +8,13 @@ class Menu {
     static menu() {
 
         int opcao
-        String bl = "\n"
         String menuPrincipal =
                "\nPor favor escolha uma opção:\n" +
                        "0. Encerrar aplicação\n" +
-                       "1. Listar Candidatos.\n" +
-                       "2. Listar Empresas.\n" +
-                       "3. Cadastrar Candidato.\n" +
-                       "4. Cadastrar Empresa."
+                       "1. Menu Candidatos.\n" +
+                       "2. Menu Empresas.\n" +
+                       "3. Menu Vagas.\n" +
+                       "4. Menu Competências."
 
         println "Bem-vindo ao Menu Principal do LinkeTinder"
 
@@ -30,18 +29,16 @@ class Menu {
                         println "\nEncerrando a aplicação"
                         break
                     case 1:
-                        println bl
-                        ControladorCandidatos.listarCandidatos()
+                        MenuCandidato.menuCandidato()
                         break
                     case 2:
-                        println bl
-                        ControladorEmpresas.listarEmpresas()
+                        MenuEmpresa.menuEmpresa()
                         break
                     case 3:
-                        ControladorCandidatos.cadastrarCandidato()
+                        MenuVaga.menuVaga()
                         break
                     case 4:
-                        ControladorEmpresas.cadastrarEmpresa()
+                        MenuCompetencia.menuCompetencia()
                         break
                     default:
                         println("\nOpção inválida!!")
