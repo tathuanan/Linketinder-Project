@@ -15,16 +15,24 @@ Assim caso seja estabelecido um "Match" entre a empresa recrutadora e o candidat
 ### Versão Back-End em GROOVY:
 
     Encerrar aplicação.
-    Listar Candidatos.
-    Listar Empresas.
-    Cadastrar Candidato
-    Cadastrar Empresa
+    CRUD Candidatos
+    CRUD Empresas
+    CRUD Vagas
+    CRUD Competências
 
 ### Como executar o Back-End:
 
-Seu computador deverá ter o ambiente Groovy.
+Seu computador deverá ter os ambientes 
+
+    Groovy.
+    PostgreSQL
 
 A aplicação inicia com a execução da classe "Main.groovy"
+
+## Observação:
+
+O ambiente PostgreSQL deverá ser configurado antes de rodar a aplicação, bem como deverá ser alterado as informações de
+Login e Nome do Banco utilizadas nas classes DAO para que reflita com as configurações do ambiente
 
 ### Versão Front-End (HTML, CSS, Bootstrap e TS):
 
