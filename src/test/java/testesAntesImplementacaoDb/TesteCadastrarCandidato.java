@@ -1,4 +1,4 @@
-package com.acelerazg.backend.testes;
+package testesAntesImplementacaoDb;
 
 import com.acelerazg.backend.dados.IControladorCandidatos;
 import com.acelerazg.backend.dados.ListaPessoa;
