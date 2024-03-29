@@ -2,11 +2,11 @@
 
 ### Introdução
 
-Projeto Linketinder que está sendo desenvolvido no programa de capacitação AceleraZG
+Projeto Linketinder que está sendo desenvolvido no programa de capacitação AceleraZG.
 
 O projeto consiste em combinar o sistema de "double opt-in" (Match do Tinder) com o sistema de rede social do LinkedIn.
 
-Assim caso seja estabelecido um "Match" entre a empresa recrutadora e o candidato, eles poderiam iniciar uma intereção.
+Assim caso seja estabelecido um "Match" entre a empresa recrutadora e o candidato, eles poderiam iniciar uma interação.
 
 ### No atual estado do programa existe as seguintes funcionalidades:
 
@@ -14,7 +14,7 @@ Assim caso seja estabelecido um "Match" entre a empresa recrutadora e o candidat
 
 ### Versão Back-End em GROOVY:
 
-    Encerrar aplicação.
+    Encerrar aplicação
     CRUD Candidatos
     CRUD Empresas
     CRUD Vagas
@@ -34,9 +34,11 @@ A aplicação inicia com a execução da classe "Main.groovy"
 O ambiente PostgreSQL deverá ser configurado antes de rodar a aplicação, bem como deverá ser alterado as informações de
 Login e Nome do Banco utilizadas nas classes DAO para que reflita com as configurações do ambiente
 
+O projeto conta com o build tool gradle
+
 ### Versão Front-End (HTML, CSS, Bootstrap e TS):
 
-    Página inicial.
+    Página inicial
     Página de Cadastro (Empresa e Candidato)
     Página de Visão Empresa
     Página de Visão Candidato
