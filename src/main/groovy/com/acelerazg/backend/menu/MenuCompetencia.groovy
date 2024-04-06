@@ -1,23 +1,24 @@
-package com.acelerazg.backend.aplicacao
+package com.acelerazg.backend.menu
 
-import com.acelerazg.backend.controller.ControllerEmpresa
+import com.acelerazg.backend.controller.ControllerCompetencia
+import com.acelerazg.backend.utilities.Ferramentas
 
-class MenuEmpresa {
+class MenuCompetencia {
 
-    static menuEmpresa(){
+    static menuCompetencia() {
 
         int opcao
-        ControllerEmpresa controllerEmpresa = new ControllerEmpresa()
-        String menuEmpresa =
+        ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
+        String menuCompetencia =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
-                        "1. Listar Empresas.\n" +
-                        "2. Cadastrar Empresa.\n" +
-                        "3. Alterar Empresa.\n" +
-                        "4. Excluir Empresa."
+                        "1. Listar Competências.\n" +
+                        "2. Cadastrar Competência.\n" +
+                        "3. Alterar Competência.\n" +
+                        "4. Excluir Competência."
 
         while (true) {
-            println menuEmpresa
+            println menuCompetencia
             opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
             try {
@@ -26,16 +27,16 @@ class MenuEmpresa {
                     case 0:
                         break
                     case 1:
-                        controllerEmpresa.listarEmpresas()
+                        controllerCompetencia.listarCompetencias()
                         break
                     case 2:
-                        controllerEmpresa.cadastrarEmpresa()
+                        controllerCompetencia.cadastrarCompetencia()
                         break
                     case 3:
-                        controllerEmpresa.alterarEmpresa()
+                        controllerCompetencia.alterarCompetencia()
                         break
                     case 4:
-                        controllerEmpresa.deletarEmpresa()
+                        controllerCompetencia.deletarCompetencia()
                         break
                     default:
                         println("\nOpção inválida!!")
@@ -54,5 +55,4 @@ class MenuEmpresa {
         }
 
     }
-
 }

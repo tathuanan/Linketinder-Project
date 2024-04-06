@@ -1,23 +1,24 @@
-package com.acelerazg.backend.aplicacao
+package com.acelerazg.backend.menu
 
-import com.acelerazg.backend.controller.ControllerCandidato
+import com.acelerazg.backend.controller.ControllerVaga
+import com.acelerazg.backend.utilities.Ferramentas
 
-class MenuCandidato {
+class MenuVaga {
 
-    static menuCandidato(){
+    static menuVaga(){
 
         int opcao
-        ControllerCandidato controllerCandidato = new ControllerCandidato()
-        String menuCandidato =
+        ControllerVaga controllerVaga = new ControllerVaga()
+        String menuVaga =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
-                        "1. Listar Candidatos.\n" +
-                        "2. Cadastrar Candidato.\n" +
-                        "3. Alterar Candidato.\n" +
-                        "4. Excluir Candidato."
+                        "1. Listar Vagas.\n" +
+                        "2. Cadastrar Vaga.\n" +
+                        "3. Alterar Vaga.\n" +
+                        "4. Excluir Vaga."
 
         while (true) {
-            println menuCandidato
+            println menuVaga
             opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
             try {
@@ -26,17 +27,16 @@ class MenuCandidato {
                     case 0:
                         break
                     case 1:
-                        controllerCandidato.listarCandidatos()
+                        controllerVaga.listarVagas()
                         break
                     case 2:
-                        controllerCandidato.cadastrarCandidato()
+                        controllerVaga.cadastrarVaga()
                         break
                     case 3:
-                        controllerCandidato.alterarCandidato()
+                        controllerVaga.alterarVaga()
                         break
                     case 4:
-                        controllerCandidato.deletarCandidato()
-                        break
+                        controllerVaga.deletarVaga()
                     default:
                         println("\nOpção inválida!!")
                         break
@@ -54,5 +54,5 @@ class MenuCandidato {
         }
 
     }
-    
+
 }

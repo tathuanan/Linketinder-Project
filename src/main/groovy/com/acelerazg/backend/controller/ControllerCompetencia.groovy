@@ -1,6 +1,6 @@
 package com.acelerazg.backend.controller
 
-import com.acelerazg.backend.aplicacao.Ferramentas
+import com.acelerazg.backend.utilities.Ferramentas
 import com.acelerazg.backend.model.Competencia
 import com.acelerazg.backend.service.CompetenciaService
 

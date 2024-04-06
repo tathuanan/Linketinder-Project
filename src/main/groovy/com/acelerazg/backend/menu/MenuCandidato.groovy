@@ -1,23 +1,24 @@
-package com.acelerazg.backend.aplicacao
+package com.acelerazg.backend.menu
 
-import com.acelerazg.backend.controller.ControllerCompetencia
+import com.acelerazg.backend.controller.ControllerCandidato
+import com.acelerazg.backend.utilities.Ferramentas
 
-class MenuCompetencia {
+class MenuCandidato {
 
-    static menuCompetencia() {
+    static menuCandidato(){
 
         int opcao
-        ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
-        String menuCompetencia =
+        ControllerCandidato controllerCandidato = new ControllerCandidato()
+        String menuCandidato =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
-                        "1. Listar Competências.\n" +
-                        "2. Cadastrar Competência.\n" +
-                        "3. Alterar Competência.\n" +
-                        "4. Excluir Competência."
+                        "1. Listar Candidatos.\n" +
+                        "2. Cadastrar Candidato.\n" +
+                        "3. Alterar Candidato.\n" +
+                        "4. Excluir Candidato."
 
         while (true) {
-            println menuCompetencia
+            println menuCandidato
             opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
             try {
@@ -26,16 +27,16 @@ class MenuCompetencia {
                     case 0:
                         break
                     case 1:
-                        controllerCompetencia.listarCompetencias()
+                        controllerCandidato.listarCandidatos()
                         break
                     case 2:
-                        controllerCompetencia.cadastrarCompetencia()
+                        controllerCandidato.cadastrarCandidato()
                         break
                     case 3:
-                        controllerCompetencia.alterarCompetencia()
+                        controllerCandidato.alterarCandidato()
                         break
                     case 4:
-                        controllerCompetencia.deletarCompetencia()
+                        controllerCandidato.deletarCandidato()
                         break
                     default:
                         println("\nOpção inválida!!")
@@ -54,4 +55,5 @@ class MenuCompetencia {
         }
 
     }
+    
 }
