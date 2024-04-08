@@ -16,6 +16,10 @@ class Candidato extends Pessoa{
     List<String> competencias
     String senha
 
+    Candidato(){
+
+    }
+
     Candidato(
             int id,
             String nome,

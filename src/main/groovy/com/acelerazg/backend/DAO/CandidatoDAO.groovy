@@ -36,7 +36,7 @@ class CandidatoDAO {
 
     List<Candidato> listar(){
         String sql = "SELECT * FROM candidatos ORDER BY id"
-        List<Candidato> retorno = new ArrayList<>()
+        List<Candidato> listaDeCandidatos = new ArrayList<>()
         try {
 
             PreparedStatement stmt = connection.prepareStatement(sql)
@@ -57,28 +57,28 @@ class CandidatoDAO {
                 candidato.setCep(resultado.getString("cep"))
                 candidato.setEstado(resultado.getString("estado_id"))
 
-                List<String> competencias = new ArrayList<>();
+                List<String> competencias = new ArrayList<>()
                 String sqlCompetencias = "SELECT comp.competencia " +
                         "FROM competencias_candidatos AS comp_c " +
                         "JOIN competencias AS comp ON comp.id = comp_c.competencia_id " +
                         "WHERE comp_c.candidato_id = ?";
-                PreparedStatement stmtCompetencias = connection.prepareStatement(sqlCompetencias);
-                stmtCompetencias.setInt(1, candidato.getId());
-                ResultSet resultadoCompetencias = stmtCompetencias.executeQuery();
+                PreparedStatement stmtCompetencias = connection.prepareStatement(sqlCompetencias)
+                stmtCompetencias.setInt(1, candidato.getId())
+                ResultSet resultadoCompetencias = stmtCompetencias.executeQuery()
                 while (resultadoCompetencias.next()) {
-                    competencias.add(resultadoCompetencias.getString("competencia"));
+                    competencias.add(resultadoCompetencias.getString("competencia"))
                 }
 
-                candidato.setCompetencias(competencias);
+                candidato.setCompetencias(competencias)
 
-                retorno.add(candidato)
+                listaDeCandidatos.add(candidato)
             }
         } catch (Exception e) {
             e.printStackTrace()
         } finally {
             connection.close()
         }
-        return retorno
+        return listaDeCandidatos
     }
 
     boolean inserir(Candidato candidato){
@@ -86,15 +86,11 @@ class CandidatoDAO {
                 "VALUES (?,?,?,?,?,?,?,?,?,?)"
         try {
 
-            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy")
-            java.util.Date dataUtil = formatador.parse(candidato.getDataNascimento())
-            Date dataSQL = new Date(dataUtil.getTime())
-
             PreparedStatement stmt = connection.prepareStatement(sql)
             stmt.setString(1, candidato.getNome())
             stmt.setString(2, candidato.getSobrenome())
             stmt.setString(3, candidato.getCpf())
-            stmt.setDate(4, dataSQL)
+            stmt.setDate(4, candidato.getDataNascimento())
             stmt.setString(5, candidato.getEmail())
             stmt.setString(6, candidato.getDescricao())
             stmt.setString(7, candidato.getSenha())
@@ -132,15 +128,11 @@ class CandidatoDAO {
                 "WHERE id=?"
         try {
 
-            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy")
-            java.util.Date dataUtil = formatador.parse(candidato.getDataNascimento())
-            Date dataSQL = new Date(dataUtil.getTime())
-
             PreparedStatement stmt = connection.prepareStatement(sql)
             stmt.setString(1, candidato.getNome())
             stmt.setString(2, candidato.getSobrenome())
             stmt.setString(3, candidato.getCpf())
-            stmt.setDate(4, dataSQL)
+            stmt.setDate(4, candidato.getDataNascimento())
             stmt.setString(5, candidato.getEmail())
             stmt.setString(6, candidato.getDescricao())
             stmt.setString(7, candidato.getSenha())
