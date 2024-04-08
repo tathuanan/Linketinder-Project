@@ -1,55 +1,54 @@
 package com.acelerazg.backend.controller
 
-import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.DAO.CompetenciaDAO
 import com.acelerazg.backend.model.Competencia
-import com.acelerazg.backend.service.CompetenciaService
 
 class ControllerCompetencia {
 
-    private Competencia novaCompetencia = new Competencia()
-    private int opcao
-    private String nomeNovaCompetencia
+    boolean retornoDB
 
-    void listarCompetencias(){
-        CompetenciaService.listarCompetencias()
+    void listarCompetencias() {
+
+        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
+
+        competenciaDAO.listar().each { competencia ->
+            println competencia
+        }
     }
 
-    void cadastrarCompetencia(){
+    List<Competencia> competenciasCadastradas() {
 
-        println("Digite a nova competência:")
-        this.nomeNovaCompetencia = Ferramentas.ler.nextLine()
+        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
 
-        this.novaCompetencia.setCompetencia(this.nomeNovaCompetencia)
-        CompetenciaService.cadastrarCompetencia(this.novaCompetencia)
+        List<Competencia> listaCompetencias = competenciaDAO.listar()
 
+        return listaCompetencias
     }
 
-    void alterarCompetencia(){
+    boolean cadastrarCompetencia(Competencia competencia) {
 
-        CompetenciaService.listarCompetencias()
+        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
 
-        println("\nEscolha qual competência você deseja alterar:")
-        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        retornoDB = competenciaDAO.inserir(competencia)
 
-        println("Digite a nova competência:")
-        this.nomeNovaCompetencia = Ferramentas.ler.nextLine()
-
-        this.novaCompetencia.setId(this.opcao)
-        this.novaCompetencia.setCompetencia(this.nomeNovaCompetencia)
-
-        CompetenciaService.alterarCompetencia(this.novaCompetencia)
-
+        return retornoDB
     }
 
-    void deletarCompetencia(){
+    boolean alterarCompetencia(Competencia competencia) {
 
-        CompetenciaService.listarCompetencias()
+        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
 
-        println("\nEscolha qual competência você deseja deletar:")
-        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        retornoDB = competenciaDAO.alterar(competencia)
 
-        CompetenciaService.deletarCompetencia(this.opcao)
-
+        return retornoDB
     }
 
+    boolean deletarCompetencia(Integer id) {
+
+        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
+
+        retornoDB = competenciaDAO.remover(id)
+
+        return retornoDB
+    }
 }
