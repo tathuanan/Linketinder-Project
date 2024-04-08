@@ -4,7 +4,6 @@ package com.acelerazg.backend.controller
 import com.acelerazg.backend.utilities.Ferramentas
 import com.acelerazg.backend.model.Competencia
 import com.acelerazg.backend.model.Vaga
-import com.acelerazg.backend.service.CompetenciaService
 import com.acelerazg.backend.service.EmpresaService
 import com.acelerazg.backend.service.VagaService
 
@@ -24,7 +23,7 @@ class ControllerVaga {
 
     void cadastrarVaga(){
 
-        CompetenciaService competenciaService = new CompetenciaService()
+        ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
         VagaService vagaService = new VagaService()
         List<Competencia> competenciasDB
         Competencia novaCompetencia = new Competencia()
@@ -57,15 +56,13 @@ class ControllerVaga {
 
         for (int i = 0; i < qtdCompetencias; i++){
 
-            competenciasDB = competenciaService.competenciasCadastradas()
-
             println "1. Utilizar competências cadastradas.\n"+
                     "2. Cadastrar nova competência"
             this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
             switch (opcao){
                 case 1:
-                    competenciaService.listarCompetencias()
+                    controllerCompetencia.listarCompetencias()
                     println "Selecione o id da competência ${i+1}:"
                     idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
                     VagaService.cadastrarCompetenciaVaga(vagas[-1].getId(), idCompetencia)
@@ -75,8 +72,8 @@ class ControllerVaga {
                     String competencia = Ferramentas.ler.nextLine()
                     competencia.capitalize()
                     novaCompetencia.setCompetencia(competencia)
-                    competenciaService.cadastrarCompetencia(novaCompetencia)
-                    competenciasDB = competenciaService.competenciasCadastradas()
+                    controllerCompetencia.cadastrarCompetencia(novaCompetencia)
+                    competenciasDB = controllerCompetencia.competenciasCadastradas()
                     VagaService.cadastrarCompetenciaVaga(vagas[-1].getId(), competenciasDB[-1].getId())
                     break
                 default:
