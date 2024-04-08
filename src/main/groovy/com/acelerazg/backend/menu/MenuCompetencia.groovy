@@ -2,13 +2,14 @@ package com.acelerazg.backend.menu
 
 import com.acelerazg.backend.controller.ControllerCompetencia
 import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.viewer.CompetenciaViewer
 
 class MenuCompetencia {
 
     static menuCompetencia() {
 
         int opcao
-        ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
+        CompetenciaViewer competenciaViewer = new CompetenciaViewer()
         String menuCompetencia =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
@@ -27,16 +28,16 @@ class MenuCompetencia {
                     case 0:
                         break
                     case 1:
-                        controllerCompetencia.listarCompetencias()
+                        competenciaViewer.listarCompetencias()
                         break
                     case 2:
-                        controllerCompetencia.cadastrarCompetencia()
+                        competenciaViewer.cadastrarCompetencia()
                         break
                     case 3:
-                        controllerCompetencia.alterarCompetencia()
+                        competenciaViewer.alterarCompetencia()
                         break
                     case 4:
-                        controllerCompetencia.deletarCompetencia()
+                        competenciaViewer.deletarCompetencia()
                         break
                     default:
                         println("\nOpção inválida!!")
