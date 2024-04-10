@@ -6,68 +6,38 @@ import com.acelerazg.backend.model.Empresa
 
 class EmpresaService {
 
-    static listarEmpresas(){
+    EmpresaDAO empresaDAO = new EmpresaDAO()
+    boolean retornoDB
 
-        EmpresaDAO empresaDAO = new EmpresaDAO()
-        empresaDAO.listar().each { empresa ->
+    void listarEmpresas(){
+
+        this.empresaDAO.listar().each { empresa ->
             println empresa.toString()
         }
-
     }
 
     List<Empresa> empresasCadastradas(){
 
-        List<Empresa> listaEmpresa
-        EmpresaDAO empresaDAO = new EmpresaDAO()
-
-        listaEmpresa = empresaDAO.listar()
+        List<Empresa> listaEmpresa = this.empresaDAO.listar()
         return listaEmpresa
-
     }
 
-    static cadastrarEmpresa(Empresa empresa) {
+    boolean cadastrarEmpresa(Empresa empresa) {
 
-        boolean retornoDB
-
-        EmpresaDAO empresaDAO = new EmpresaDAO()
-        retornoDB = empresaDAO.inserir(empresa)
-
-        if (retornoDB){
-            println("\nEmpresa cadastrada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro no cadastro")
-        }
-
+        this.retornoDB = this.empresaDAO.inserir(empresa)
+        return this.retornoDB
     }
 
-    static alterarEmpresa(Empresa empresa) {
+    boolean alterarEmpresa(Empresa empresa) {
 
-        boolean retornoDB
-
-        EmpresaDAO empresaDAO = new EmpresaDAO()
-        retornoDB = empresaDAO.alterar(empresa)
-
-        if (retornoDB){
-            println("\nEmpresa alterada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro na alteração")
-        }
-
+        this.retornoDB = this.empresaDAO.alterar(empresa)
+        return this.retornoDB
     }
 
-    static deletarEmpresa(Integer id) {
+    boolean deletarEmpresa(Integer id) {
 
-        boolean retornoDB
-
-        EmpresaDAO empresaDAO = new EmpresaDAO()
-        retornoDB = empresaDAO.remover(id)
-
-        if (retornoDB){
-            println("\nEmpresa deletada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro ao tentar deletar")
-        }
-
+        this.retornoDB = this.empresaDAO.remover(id)
+        return this.retornoDB
     }
     
 }
