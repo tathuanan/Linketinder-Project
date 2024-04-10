@@ -5,82 +5,44 @@ import com.acelerazg.backend.model.Vaga
 
 class VagaService {
 
-    static listarVagas(){
+    VagaDAO vagaDAO = new VagaDAO()
+    boolean retornoDB
 
-        VagaDAO vagaDAO = new VagaDAO()
-        vagaDAO.listar().each { vaga ->
+    void listarVagas(){
+
+        this.vagaDAO.listar().each { vaga ->
             println vaga.toString()
         }
-
     }
 
     List<Vaga> vagasCadastradas(){
 
-        List<Vaga> listaVagas
-        VagaDAO vagaDAO = new VagaDAO()
-
-        listaVagas = vagaDAO.listar()
+        List<Vaga> listaVagas = this.vagaDAO.listar()
         return listaVagas
     }
 
-    static cadastrarVaga(Vaga vaga) {
+    boolean cadastrarVaga(Vaga vaga) {
 
-        boolean retornoDB
-
-        VagaDAO vagaDAO = new VagaDAO()
-        retornoDB = vagaDAO.inserir(vaga)
-
-        if (retornoDB){
-            println("\nVaga cadastrada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro no cadastro")
-        }
-
+        this.retornoDB = this.vagaDAO.inserir(vaga)
+        return this.retornoDB
     }
 
-    static cadastrarCompetenciaVaga(int vaga_id, int competencia_id) {
+    boolean cadastrarCompetenciaVaga(int vaga_id, int competencia_id) {
 
-        boolean retornoDB
-
-        VagaDAO vagaDAO = new VagaDAO()
-        retornoDB = vagaDAO.inserirCompetenciaVaga(vaga_id, competencia_id)
-
-        if (retornoDB){
-            println("\nCompetência cadastrada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro no cadastro")
-        }
-
+        this.retornoDB = this.vagaDAO.inserirCompetenciaVaga(vaga_id, competencia_id)
+        return this.retornoDB
     }
 
-    static alterarVaga(Vaga vaga) {
+    boolean alterarVaga(Vaga vaga) {
 
-        boolean retornoDB
-
-        VagaDAO vagaDAO = new VagaDAO()
-        retornoDB = vagaDAO.alterar(vaga)
-
-        if (retornoDB){
-            println("\nVaga alterada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro na alteração")
-        }
-
+        this.retornoDB = this.vagaDAO.alterar(vaga)
+        return this.retornoDB
     }
 
-    static deletarVaga(Integer id) {
+    boolean deletarVaga(Integer id) {
 
-        boolean retornoDB
-
-        VagaDAO vagaDAO = new VagaDAO()
-        retornoDB = vagaDAO.remover(id)
-
-        if (retornoDB){
-            println("\nVaga deletada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro ao tentar deletar")
-        }
-
+        this.retornoDB = this.vagaDAO.remover(id)
+        return this.retornoDB
     }
 
 }
