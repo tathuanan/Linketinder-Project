@@ -7,28 +7,30 @@ import com.acelerazg.backend.utilities.Ferramentas
 
 class CompetenciaViewer {
 
-    ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
+    private ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
 
     private Competencia competencia = new Competencia()
-    private int opcao
-    private String nomeCompetencia
+
     boolean retornoDB
 
+    private int opcao
+    private String nomeCompetencia
+
     void listarCompetencias() {
-        controllerCompetencia.listarCompetencias()
+        this.controllerCompetencia.listarCompetencias()
     }
 
     void cadastrarCompetencia() {
 
         println("Digite a nova competência:")
-        nomeCompetencia = Ferramentas.ler.nextLine()
+        this.nomeCompetencia = Ferramentas.ler.nextLine()
 
-        nomeCompetencia.capitalize()
-        competencia.setCompetencia(nomeCompetencia)
+        this.nomeCompetencia.capitalize()
+        this.competencia.setCompetencia(this.nomeCompetencia)
 
-        retornoDB = controllerCompetencia.cadastrarCompetencia(competencia)
+        this.retornoDB = this.controllerCompetencia.cadastrarCompetencia(this.competencia)
 
-        if (retornoDB){
+        if (this.retornoDB){
             println("\nCompetência cadastrada com sucesso!!!")
         } else {
             println("\nOcorreu um erro no cadastro")
@@ -38,20 +40,20 @@ class CompetenciaViewer {
 
     void alterarCompetencia() {
 
-        controllerCompetencia.listarCompetencias()
+        this.controllerCompetencia.listarCompetencias()
 
         println("\nEscolha qual competência você deseja alterar:")
-        opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Digite a nova competência:")
-        nomeCompetencia = Ferramentas.ler.nextLine()
+        this.nomeCompetencia = Ferramentas.ler.nextLine()
 
-        competencia.setId(opcao)
-        competencia.setCompetencia(nomeCompetencia)
+        this.competencia.setId(this.opcao)
+        this.competencia.setCompetencia(this.nomeCompetencia)
 
-        retornoDB = controllerCompetencia.alterarCompetencia(competencia)
+        this.retornoDB = this.controllerCompetencia.alterarCompetencia(this.competencia)
 
-        if (retornoDB){
+        if (this.retornoDB){
             println("\nCompetência alterada com sucesso!!!")
         } else {
             println("\nOcorreu um erro na alteração")
@@ -61,14 +63,14 @@ class CompetenciaViewer {
 
     void deletarCompetencia() {
 
-        controllerCompetencia.listarCompetencias()
+        this.controllerCompetencia.listarCompetencias()
 
         println("\nEscolha qual competência você deseja deletar:")
-        opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
-        retornoDB = controllerCompetencia.deletarCompetencia(opcao)
+        this.retornoDB = this.controllerCompetencia.deletarCompetencia(this.opcao)
 
-        if (retornoDB){
+        if (this.retornoDB){
             println("\nCompetência deletada com sucesso!!!")
         } else {
             println("\nOcorreu um erro ao tentar deletar")

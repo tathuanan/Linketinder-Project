@@ -30,7 +30,7 @@ class CandidatoViewer {
     private int qtdCompetencias
 
     void listarCandidatos() {
-        controllerCandidato.listarCandidatos()
+        this.controllerCandidato.listarCandidatos()
     }
 
     void cadastrarCandidato() {
@@ -40,50 +40,50 @@ class CandidatoViewer {
         int idCompetencia
 
         println("Digite o nome do candidato:")
-        nomeCandidato = Ferramentas.ler.nextLine()
+        this.nomeCandidato = Ferramentas.ler.nextLine()
 
         println("Digite o sobrenome do candidato:")
-        sobreNomeCandidato = Ferramentas.ler.nextLine()
+        this.sobreNomeCandidato = Ferramentas.ler.nextLine()
 
         println("Digite o cpf do candidato:")
-        cpf = Ferramentas.ler.nextLine()
+        this.cpf = Ferramentas.ler.nextLine()
 
         println("Digite a data de nascimento do candidato no formato dd/mm/aaaa:")
-        dataNascimento = Ferramentas.ler.nextLine()
+        this.dataNascimento = Ferramentas.ler.nextLine()
 
         println("Digite o email do candidato:")
-        email = Ferramentas.ler.nextLine()
+        this.email = Ferramentas.ler.nextLine()
 
         println("Digite o cep do candidato:")
-        cep = Ferramentas.ler.nextLine()
+        this.cep = Ferramentas.ler.nextLine()
 
         println("Faça uma descrição do candidato:")
-        descricao = Ferramentas.ler.nextLine()
+        this.descricao = Ferramentas.ler.nextLine()
 
         println("Selecione o pais:\n1. Brasil")
-        pais = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.pais = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Selecione o estado:")
         println(Ferramentas.estados)
-        estado = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.estado = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Digite uma senha:")
-        senha = Ferramentas.ler.nextLine()
+        this.senha = Ferramentas.ler.nextLine()
 
-        novoCandidato.setNome(nomeCandidato)
-        novoCandidato.setSobrenome(sobreNomeCandidato)
-        novoCandidato.setCpf(cpf)
-        novoCandidato.setDataNascimento(dataNascimento)
-        novoCandidato.setEmail(email)
-        novoCandidato.setCep(cep)
-        novoCandidato.setDescricao(descricao)
-        novoCandidato.setPais(pais)
-        novoCandidato.setEstado(estado)
-        novoCandidato.setSenha(senha)
+        this.novoCandidato.setNome(this.nomeCandidato)
+        this.novoCandidato.setSobrenome(this.sobreNomeCandidato)
+        this.novoCandidato.setCpf(this.cpf)
+        this.novoCandidato.setDataNascimento(this.dataNascimento)
+        this.novoCandidato.setEmail(this.email)
+        this.novoCandidato.setCep(this.cep)
+        this.novoCandidato.setDescricao(this.descricao)
+        this.novoCandidato.setPais(this.pais)
+        this.novoCandidato.setEstado(this.estado)
+        this.novoCandidato.setSenha(this.senha)
 
-        retornoDB = controllerCandidato.cadastrarCandidato(novoCandidato)
+        this.retornoDB = this.controllerCandidato.cadastrarCandidato(this.novoCandidato)
 
-        if (retornoDB) {
+        if (this.retornoDB) {
             println("\nCandidato cadastrada com sucesso!!!")
         } else {
             println("\nOcorreu um erro no cadastro")
@@ -92,7 +92,7 @@ class CandidatoViewer {
         println "Digite quantas competências o candidato possuí:"
         this.qtdCompetencias = Integer.parseInt(Ferramentas.ler.nextLine())
 
-        List<Candidato> candidatos = controllerCandidato.candidatosCadastrados()
+        List<Candidato> candidatos = this.controllerCandidato.candidatosCadastrados()
 
         for (int i = 0; i < qtdCompetencias; i++) {
 
@@ -100,7 +100,7 @@ class CandidatoViewer {
                     "2. Cadastrar nova competência"
             this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
-            switch (opcao) {
+            switch (this.opcao) {
                 case 1:
                     controllerCompetencia.listarCompetencias()
                     println "Selecione o id da competência ${i + 1}:"
@@ -111,10 +111,10 @@ class CandidatoViewer {
                     println "Digite a competência:"
                     String competencia = Ferramentas.ler.nextLine()
                     competencia.capitalize()
-                    novaCompetencia.setCompetencia(competencia)
-                    controllerCompetencia.cadastrarCompetencia(novaCompetencia)
-                    competenciasDB = controllerCompetencia.competenciasCadastradas()
-                    controllerCandidato.cadastrarCompetenciaCandidato(candidatos[-1].getId(), competenciasDB[-1].getId())
+                    this.novaCompetencia.setCompetencia(competencia)
+                    this.controllerCompetencia.cadastrarCompetencia(this.novaCompetencia)
+                    competenciasDB = this.controllerCompetencia.competenciasCadastradas()
+                    this.controllerCandidato.cadastrarCompetenciaCandidato(candidatos[-1].getId(), competenciasDB[-1].getId())
                     break
                 default:
                     println "Opção inválida!!!"
@@ -126,57 +126,57 @@ class CandidatoViewer {
 
     void alterarCandidato() {
 
-        controllerCandidato.listarCandidatos()
+        this.controllerCandidato.listarCandidatos()
 
         println("\nEscolha qual candidato você deseja alterar:")
-        opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Altere o nome do candidato:")
-        nomeCandidato = Ferramentas.ler.nextLine()
+        this.nomeCandidato = Ferramentas.ler.nextLine()
 
         println("Altere o sobrenome do candidato:")
-        sobreNomeCandidato = Ferramentas.ler.nextLine()
+        this.sobreNomeCandidato = Ferramentas.ler.nextLine()
 
         println("Altere o cpf do candidato:")
-        cpf = Ferramentas.ler.nextLine()
+        this.cpf = Ferramentas.ler.nextLine()
 
         println("Altere a data de nascimento do candidato no formato dd/mm/aaaa:")
-        dataNascimento = Ferramentas.ler.nextLine()
+        this.dataNascimento = Ferramentas.ler.nextLine()
 
         println("Altere o email do candidato:")
-        email = Ferramentas.ler.nextLine()
+        this.email = Ferramentas.ler.nextLine()
 
         println("Altere o cep do candidato:")
-        cep = Ferramentas.ler.nextLine()
+        this.cep = Ferramentas.ler.nextLine()
 
         println("Altere a descrição do candidato:")
-        descricao = Ferramentas.ler.nextLine()
+        this.descricao = Ferramentas.ler.nextLine()
 
         println("Altere o pais:\n1. Brasil")
-        pais = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.pais = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Altere o estado:")
         println(Ferramentas.estados)
-        estado = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.estado = Integer.parseInt(Ferramentas.ler.nextLine())
 
         println("Altere a senha:")
-        senha = Ferramentas.ler.nextLine()
+        this.senha = Ferramentas.ler.nextLine()
 
-        novoCandidato.setId(opcao)
-        novoCandidato.setNome(nomeCandidato)
-        novoCandidato.setSobrenome(sobreNomeCandidato)
-        novoCandidato.setCpf(cpf)
-        novoCandidato.setDataNascimento(dataNascimento)
-        novoCandidato.setEmail(email)
-        novoCandidato.setCep(cep)
-        novoCandidato.setDescricao(descricao)
-        novoCandidato.setPais(pais)
-        novoCandidato.setEstado(estado)
-        novoCandidato.setSenha(senha)
+        this.novoCandidato.setId(this.opcao)
+        this.novoCandidato.setNome(this.nomeCandidato)
+        this.novoCandidato.setSobrenome(this.sobreNomeCandidato)
+        this.novoCandidato.setCpf(this.cpf)
+        this.novoCandidato.setDataNascimento(this.dataNascimento)
+        this.novoCandidato.setEmail(this.email)
+        this.novoCandidato.setCep(this.cep)
+        this.novoCandidato.setDescricao(this.descricao)
+        this.novoCandidato.setPais(this.pais)
+        this.novoCandidato.setEstado(this.estado)
+        this.novoCandidato.setSenha(this.senha)
 
-        retornoDB = controllerCandidato.alterarCandidato(novoCandidato)
+        this.retornoDB = this.controllerCandidato.alterarCandidato(this.novoCandidato)
 
-        if (retornoDB) {
+        if (this.retornoDB) {
             println("\nCandidato alterado com sucesso!!!")
         } else {
             println("\nOcorreu um erro na alteração")
@@ -186,14 +186,14 @@ class CandidatoViewer {
 
     void deletarCandidato() {
 
-        controllerCandidato.listarCandidatos()
+        this.controllerCandidato.listarCandidatos()
 
         println "\nEscolha qual candidato você deseja deletar:"
-        opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
-        retornoDB = controllerCandidato.deletarCandidato(opcao)
+        this.retornoDB = this.controllerCandidato.deletarCandidato(this.opcao)
 
-        if (retornoDB) {
+        if (this.retornoDB) {
             println("\nCandidato deletado com sucesso!!!")
         } else {
             println("\nOcorreu um erro ao tentar deletar")
