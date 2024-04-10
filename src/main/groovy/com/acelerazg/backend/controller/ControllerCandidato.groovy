@@ -1,65 +1,46 @@
 package com.acelerazg.backend.controller
 
-import com.acelerazg.backend.DAO.CandidatoDAO
 import com.acelerazg.backend.model.Candidato
+import com.acelerazg.backend.service.CandidatoService
 
 class ControllerCandidato {
 
+    CandidatoService candidatoService = new CandidatoService()
     private boolean retornoDB
 
     void listarCandidatos(){
 
-        CandidatoDAO candidatoDAO = new CandidatoDAO()
-
-        candidatoDAO.listar().each {candidato ->
-            println candidato
-        }
-
+        this.candidatoService.listarCandidatos()
     }
 
     List<Candidato> candidatosCadastrados (){
 
-        CandidatoDAO candidatoDAO = new CandidatoDAO()
-
-        List<Candidato> listaCandidatos = candidatoDAO.listar()
-
+        List<Candidato> listaCandidatos = this.candidatoService.candidatosCadastrados().listar()
         return listaCandidatos
     }
 
     boolean cadastrarCandidato(Candidato candidato) {
 
-        CandidatoDAO candidatoDAO = new CandidatoDAO()
-
-        retornoDB = candidatoDAO.inserir(candidato)
-
-        return retornoDB
+        this.retornoDB = this.candidatoService.cadastrarCandidato(candidato)
+        return this.retornoDB
     }
 
     boolean cadastrarCompetenciaCandidato(int candidato_id, int competencia_id) {
 
-        CandidatoDAO candidatoDAO = new CandidatoDAO()
-
-        retornoDB = candidatoDAO.inserirCompetenciaCandidato(candidato_id, competencia_id)
-
-        return retornoDB
+        this.retornoDB = this.candidatoService.cadastrarCompetenciaCandidato(candidato_id, competencia_id)
+        return this.retornoDB
     }
 
     boolean alterarCandidato(Candidato candidato) {
 
-        CandidatoDAO candidatoDAO = new CandidatoDAO()
-
-        retornoDB = candidatoDAO.alterar(candidato)
-
-        return retornoDB
+        this.retornoDB = this.candidatoService.alterarCandidato(candidato)
+        return this.retornoDB
     }
 
     boolean deletarCandidato(Integer id) {
 
-        CandidatoDAO candidatoDAO = new CandidatoDAO()
-
-        retornoDB = candidatoDAO.remover(id)
-
-        return retornoDB
+        this.retornoDB = this.candidatoService.deletarCandidato(id)
+        return this.retornoDB
     }
 
 }
