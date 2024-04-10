@@ -1,42 +1,20 @@
 package com.acelerazg.backend.DAO
 
+import com.acelerazg.backend.con.ConnectionDAO
 import com.acelerazg.backend.model.Competencia
 
-import java.sql.Connection
-import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
 class CompetenciaDAO {
 
-    private Connection connection
-
-    CompetenciaDAO() {
-
-        try {
-            Properties props = new Properties()
-            props.setProperty("user", "acelerazg")
-            props.setProperty("password", "acelerazg@")
-            props.setProperty("ssl", "false")
-            String URL_SERVIDOR = "jdbc:postgresql://localhost:5432/linketinder"
-
-            this.connection = DriverManager.getConnection(URL_SERVIDOR, props)
-
-        } catch (Exception e) {
-            e.printStackTrace()
-            if (e instanceof ClassNotFoundException) {
-                System.err.println("Verifique o driver de conexão.")
-            } else {
-                System.err.println("Verifique se o servidor está ativo.")
-            }
-        }
-    }
+    ConnectionDAO connectionDAO = new ConnectionDAO()
 
     List<Competencia> listar() {
         String sql = "SELECT * FROM competencias ORDER BY id"
         List<Competencia> retorno = new ArrayList<>()
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
             ResultSet resultado = stmt.executeQuery()
             while (resultado.next()) {
                 Competencia competencia = new Competencia()
@@ -47,7 +25,7 @@ class CompetenciaDAO {
         } catch (Exception e) {
             e.printStackTrace()
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
         return retorno
     }
@@ -55,7 +33,7 @@ class CompetenciaDAO {
     boolean inserir(Competencia competencia) {
         String sql = "INSERT INTO competencias(competencia) VALUES (?)"
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
             stmt.setString(1, competencia.getCompetencia())
             stmt.execute()
             return true
@@ -63,14 +41,14 @@ class CompetenciaDAO {
             e.printStackTrace()
             return false
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
     }
 
     boolean alterar(Competencia competencia) {
         String sql = "UPDATE competencias SET competencia=? WHERE id=?"
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
             stmt.setString(1, competencia.getCompetencia())
             stmt.setInt(2, competencia.getId())
             stmt.execute()
@@ -79,14 +57,14 @@ class CompetenciaDAO {
             e.printStackTrace()
             return false
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
     }
 
     boolean remover(Integer id) {
         String sql = "DELETE FROM competencias WHERE id=?"
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
             return true
@@ -94,7 +72,7 @@ class CompetenciaDAO {
             e.printStackTrace()
             return false
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
     }
 }
