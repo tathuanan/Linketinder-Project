@@ -1,54 +1,39 @@
 package com.acelerazg.backend.controller
 
-import com.acelerazg.backend.DAO.CompetenciaDAO
 import com.acelerazg.backend.model.Competencia
+import com.acelerazg.backend.service.CompetenciaService
 
 class ControllerCompetencia {
 
-    boolean retornoDB
+    CompetenciaService competenciaService = new CompetenciaService()
+    private boolean retornoDB
 
     void listarCompetencias() {
 
-        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-
-        competenciaDAO.listar().each { competencia ->
-            println competencia
-        }
+        this.competenciaService.listarCompetencias()
     }
 
     List<Competencia> competenciasCadastradas() {
 
-        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-
-        List<Competencia> listaCompetencias = competenciaDAO.listar()
-
+        List<Competencia> listaCompetencias = this.competenciaService.competenciasCadastradas()
         return listaCompetencias
     }
 
     boolean cadastrarCompetencia(Competencia competencia) {
 
-        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-
-        retornoDB = competenciaDAO.inserir(competencia)
-
-        return retornoDB
+        this.retornoDB = this.competenciaService.cadastrarCompetencia(competencia)
+        return this.retornoDB
     }
 
     boolean alterarCompetencia(Competencia competencia) {
 
-        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-
-        retornoDB = competenciaDAO.alterar(competencia)
-
-        return retornoDB
+        this.retornoDB = this.competenciaService.alterarCompetencia(competencia)
+        return this.retornoDB
     }
 
     boolean deletarCompetencia(Integer id) {
 
-        CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-
-        retornoDB = competenciaDAO.remover(id)
-
-        return retornoDB
+        this.retornoDB = this.competenciaService.deletarCompetencia(id)
+        return this.retornoDB
     }
 }
