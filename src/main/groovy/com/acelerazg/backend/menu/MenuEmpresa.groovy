@@ -2,13 +2,14 @@ package com.acelerazg.backend.menu
 
 import com.acelerazg.backend.controller.ControllerEmpresa
 import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.viewer.EmpresaViewer
 
 class MenuEmpresa {
 
     static menuEmpresa(){
 
         int opcao
-        ControllerEmpresa controllerEmpresa = new ControllerEmpresa()
+        EmpresaViewer empresaViewer = new EmpresaViewer()
         String menuEmpresa =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
@@ -27,16 +28,16 @@ class MenuEmpresa {
                     case 0:
                         break
                     case 1:
-                        controllerEmpresa.listarEmpresas()
+                        empresaViewer.listarEmpresas()
                         break
                     case 2:
-                        controllerEmpresa.cadastrarEmpresa()
+                        empresaViewer.cadastrarEmpresa()
                         break
                     case 3:
-                        controllerEmpresa.alterarEmpresa()
+                        empresaViewer.alterarEmpresa()
                         break
                     case 4:
-                        controllerEmpresa.deletarEmpresa()
+                        empresaViewer.deletarEmpresa()
                         break
                     default:
                         println("\nOpção inválida!!")
