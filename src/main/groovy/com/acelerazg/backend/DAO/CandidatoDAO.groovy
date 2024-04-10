@@ -1,45 +1,21 @@
 package com.acelerazg.backend.DAO
 
+import com.acelerazg.backend.con.ConnectionDAO
 import com.acelerazg.backend.model.Candidato
 
-import java.sql.Connection
-import java.sql.Date
-import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
-import java.text.SimpleDateFormat
 
 class CandidatoDAO {
 
-    private Connection connection
-
-    CandidatoDAO(){
-
-        try {
-            Properties props = new Properties()
-            props.setProperty("user", "acelerazg")
-            props.setProperty("password", "acelerazg@")
-            props.setProperty("ssl", "false")
-            String URL_SERVIDOR = "jdbc:postgresql://localhost:5432/linketinder"
-
-            this.connection = DriverManager.getConnection(URL_SERVIDOR, props)
-
-        } catch (Exception e) {
-            e.printStackTrace()
-            if(e instanceof ClassNotFoundException){
-                System.err.println("Verifique o driver de conexão.")
-            } else {
-                System.err.println("Verifique se o servidor está ativo.")
-            }
-        }
-    }
+    ConnectionDAO connectionDAO = new ConnectionDAO()
 
     List<Candidato> listar(){
         String sql = "SELECT * FROM candidatos ORDER BY id"
         List<Candidato> listaDeCandidatos = new ArrayList<>()
         try {
 
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
             ResultSet resultado = stmt.executeQuery()
 
             while(resultado.next()){
@@ -61,10 +37,13 @@ class CandidatoDAO {
                 String sqlCompetencias = "SELECT comp.competencia " +
                         "FROM competencias_candidatos AS comp_c " +
                         "JOIN competencias AS comp ON comp.id = comp_c.competencia_id " +
-                        "WHERE comp_c.candidato_id = ?";
-                PreparedStatement stmtCompetencias = connection.prepareStatement(sqlCompetencias)
+                        "WHERE comp_c.candidato_id = ?"
+
+                PreparedStatement stmtCompetencias = this.connectionDAO.connection().prepareStatement(sqlCompetencias)
+
                 stmtCompetencias.setInt(1, candidato.getId())
                 ResultSet resultadoCompetencias = stmtCompetencias.executeQuery()
+
                 while (resultadoCompetencias.next()) {
                     competencias.add(resultadoCompetencias.getString("competencia"))
                 }
@@ -76,7 +55,7 @@ class CandidatoDAO {
         } catch (Exception e) {
             e.printStackTrace()
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
         return listaDeCandidatos
     }
@@ -86,7 +65,7 @@ class CandidatoDAO {
                 "VALUES (?,?,?,?,?,?,?,?,?,?)"
         try {
 
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
             stmt.setString(1, candidato.getNome())
             stmt.setString(2, candidato.getSobrenome())
             stmt.setString(3, candidato.getCpf())
@@ -103,14 +82,14 @@ class CandidatoDAO {
             e.printStackTrace()
             return false
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
     }
 
     boolean inserirCompetenciaCandidato(int candidato_id, int competencia_id) {
         String sql = "INSERT INTO competencias_candidatos(candidato_id, competencia_id) VALUES (?,?)"
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
             stmt.setInt(1, candidato_id)
             stmt.setInt(2, competencia_id)
             stmt.execute()
@@ -119,7 +98,7 @@ class CandidatoDAO {
             e.printStackTrace()
             return false
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
     }
 
@@ -128,7 +107,7 @@ class CandidatoDAO {
                 "WHERE id=?"
         try {
 
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
             stmt.setString(1, candidato.getNome())
             stmt.setString(2, candidato.getSobrenome())
             stmt.setString(3, candidato.getCpf())
@@ -146,7 +125,7 @@ class CandidatoDAO {
             e.printStackTrace()
             return false
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
     }
 
@@ -154,11 +133,11 @@ class CandidatoDAO {
         String sqlCompetencias = "DELETE FROM competencias_candidatos WHERE candidato_id=?"
         String sql = "DELETE FROM candidatos WHERE id=?"
         try {
-            PreparedStatement stmt = connection.prepareStatement(sqlCompetencias)
+            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sqlCompetencias)
             stmt.setInt(1, id)
             stmt.execute()
 
-            stmt = connection.prepareStatement(sql)
+            stmt = this.connectionDAO.connection().prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
             return true
@@ -166,7 +145,7 @@ class CandidatoDAO {
             e.printStackTrace()
             return false
         } finally {
-            connection.close()
+            this.connectionDAO.connection().close()
         }
     }
 }
