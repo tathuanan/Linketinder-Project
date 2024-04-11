@@ -2,13 +2,14 @@ package com.acelerazg.backend.menu
 
 import com.acelerazg.backend.controller.ControllerVaga
 import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.viewer.VagaViewer
 
 class MenuVaga {
 
     static menuVaga(){
 
         int opcao
-        ControllerVaga controllerVaga = new ControllerVaga()
+        VagaViewer vagaViewer = new VagaViewer()
         String menuVaga =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
@@ -27,16 +28,16 @@ class MenuVaga {
                     case 0:
                         break
                     case 1:
-                        controllerVaga.listarVagas()
+                        vagaViewer.listarVagas()
                         break
                     case 2:
-                        controllerVaga.cadastrarVaga()
+                        vagaViewer.cadastrarVaga()
                         break
                     case 3:
-                        controllerVaga.alterarVaga()
+                        vagaViewer.alterarVaga()
                         break
                     case 4:
-                        controllerVaga.deletarVaga()
+                        vagaViewer.deletarVaga()
                     default:
                         println("\nOpção inválida!!")
                         break
