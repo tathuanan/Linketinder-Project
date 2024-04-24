@@ -3,7 +3,7 @@ package com.acelerazg.backend.controller
 import com.acelerazg.backend.model.Candidato
 import com.acelerazg.backend.service.CandidatoService
 
-class ControllerCandidato {
+class CandidatoController {
 
     CandidatoService candidatoService = new CandidatoService()
     private boolean retornoDB

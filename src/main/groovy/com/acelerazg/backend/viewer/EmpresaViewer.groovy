@@ -1,12 +1,12 @@
 package com.acelerazg.backend.viewer
 
-import com.acelerazg.backend.controller.ControllerEmpresa
+import com.acelerazg.backend.controller.EmpresaController
 import com.acelerazg.backend.model.Empresa
 import com.acelerazg.backend.utilities.Ferramentas
 
 class EmpresaViewer {
 
-    private ControllerEmpresa controllerEmpresa = new ControllerEmpresa()
+    private EmpresaController controllerEmpresa = new EmpresaController()
 
     private Empresa novaEmpresa = new Empresa()
 

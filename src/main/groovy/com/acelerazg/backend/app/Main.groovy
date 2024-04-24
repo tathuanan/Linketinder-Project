@@ -1,9 +1,9 @@
 package com.acelerazg.backend.app
 
-import com.acelerazg.backend.menu.Menu
+import com.acelerazg.backend.menu.AplicacaoMenu
 
 static void main(String[] args) {
 
-    Menu.menu()
+    AplicacaoMenu.menu()
 
 }

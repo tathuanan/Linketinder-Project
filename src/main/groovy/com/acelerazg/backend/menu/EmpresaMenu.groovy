@@ -1,10 +1,10 @@
 package com.acelerazg.backend.menu
 
-import com.acelerazg.backend.controller.ControllerEmpresa
+
 import com.acelerazg.backend.utilities.Ferramentas
 import com.acelerazg.backend.viewer.EmpresaViewer
 
-class MenuEmpresa {
+class EmpresaMenu {
 
     static menuEmpresa(){
 

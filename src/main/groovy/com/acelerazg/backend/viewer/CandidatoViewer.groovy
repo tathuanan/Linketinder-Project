@@ -1,15 +1,15 @@
 package com.acelerazg.backend.viewer
 
-import com.acelerazg.backend.controller.ControllerCandidato
-import com.acelerazg.backend.controller.ControllerCompetencia
+import com.acelerazg.backend.controller.CandidatoController
+import com.acelerazg.backend.controller.CompetenciaController
 import com.acelerazg.backend.model.Candidato
 import com.acelerazg.backend.model.Competencia
 import com.acelerazg.backend.utilities.Ferramentas
 
 class CandidatoViewer {
 
-    private ControllerCandidato controllerCandidato = new ControllerCandidato()
-    private ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
+    private CandidatoController controllerCandidato = new CandidatoController()
+    private CompetenciaController controllerCompetencia = new CompetenciaController()
 
     private Candidato novoCandidato = new Candidato()
     private Competencia novaCompetencia = new Competencia()
@@ -105,7 +105,7 @@ class CandidatoViewer {
                     controllerCompetencia.listarCompetencias()
                     println "Selecione o id da competência ${i + 1}:"
                     idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
-                    ControllerCandidato.cadastrarCompetenciaCandidato(candidatos[-1].getId(), idCompetencia)
+                    CandidatoController.cadastrarCompetenciaCandidato(candidatos[-1].getId(), idCompetencia)
                     break
                 case 2:
                     println "Digite a competência:"

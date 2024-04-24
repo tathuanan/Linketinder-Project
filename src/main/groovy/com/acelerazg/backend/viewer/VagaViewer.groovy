@@ -1,17 +1,17 @@
 package com.acelerazg.backend.viewer
 
-import com.acelerazg.backend.controller.ControllerCompetencia
-import com.acelerazg.backend.controller.ControllerEmpresa
-import com.acelerazg.backend.controller.ControllerVaga
+import com.acelerazg.backend.controller.CompetenciaController
+import com.acelerazg.backend.controller.EmpresaController
+import com.acelerazg.backend.controller.VagaController
 import com.acelerazg.backend.model.Competencia
 import com.acelerazg.backend.model.Vaga
 import com.acelerazg.backend.utilities.Ferramentas
 
 class VagaViewer {
 
-    private ControllerVaga controllerVaga = new ControllerVaga()
-    private ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
-    private ControllerEmpresa controllerEmpresa = new ControllerEmpresa()
+    private VagaController controllerVaga = new VagaController()
+    private CompetenciaController controllerCompetencia = new CompetenciaController()
+    private EmpresaController controllerEmpresa = new EmpresaController()
 
     private Vaga novaVaga = new Vaga()
     private Competencia novaCompetencia = new Competencia()

@@ -3,7 +3,7 @@ package com.acelerazg.backend.controller
 import com.acelerazg.backend.model.Vaga
 import com.acelerazg.backend.service.VagaService
 
-class ControllerVaga {
+class VagaController {
 
     private VagaService vagaService = new VagaService()
     private boolean retornoDB

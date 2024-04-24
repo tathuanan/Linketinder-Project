@@ -1,25 +1,25 @@
 package com.acelerazg.backend.menu
 
-import com.acelerazg.backend.controller.ControllerCompetencia
+
 import com.acelerazg.backend.utilities.Ferramentas
-import com.acelerazg.backend.viewer.CompetenciaViewer
+import com.acelerazg.backend.viewer.VagaViewer
 
-class MenuCompetencia {
+class VagaMenu {
 
-    static menuCompetencia() {
+    static menuVaga(){
 
         int opcao
-        CompetenciaViewer competenciaViewer = new CompetenciaViewer()
-        String menuCompetencia =
+        VagaViewer vagaViewer = new VagaViewer()
+        String menuVaga =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
-                        "1. Listar Competências.\n" +
-                        "2. Cadastrar Competência.\n" +
-                        "3. Alterar Competência.\n" +
-                        "4. Excluir Competência."
+                        "1. Listar Vagas.\n" +
+                        "2. Cadastrar Vaga.\n" +
+                        "3. Alterar Vaga.\n" +
+                        "4. Excluir Vaga."
 
         while (true) {
-            println menuCompetencia
+            println menuVaga
             opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
             try {
@@ -28,17 +28,16 @@ class MenuCompetencia {
                     case 0:
                         break
                     case 1:
-                        competenciaViewer.listarCompetencias()
+                        vagaViewer.listarVagas()
                         break
                     case 2:
-                        competenciaViewer.cadastrarCompetencia()
+                        vagaViewer.cadastrarVaga()
                         break
                     case 3:
-                        competenciaViewer.alterarCompetencia()
+                        vagaViewer.alterarVaga()
                         break
                     case 4:
-                        competenciaViewer.deletarCompetencia()
-                        break
+                        vagaViewer.deletarVaga()
                     default:
                         println("\nOpção inválida!!")
                         break
@@ -56,4 +55,5 @@ class MenuCompetencia {
         }
 
     }
+
 }

@@ -1,25 +1,25 @@
 package com.acelerazg.backend.menu
 
-import com.acelerazg.backend.controller.ControllerVaga
+
 import com.acelerazg.backend.utilities.Ferramentas
-import com.acelerazg.backend.viewer.VagaViewer
+import com.acelerazg.backend.viewer.CandidatoViewer
 
-class MenuVaga {
+class CandidatoMenu {
 
-    static menuVaga(){
+    static menuCandidato(){
 
         int opcao
-        VagaViewer vagaViewer = new VagaViewer()
-        String menuVaga =
+        CandidatoViewer candidatoViewer = new CandidatoViewer()
+        String menuCandidato =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
-                        "1. Listar Vagas.\n" +
-                        "2. Cadastrar Vaga.\n" +
-                        "3. Alterar Vaga.\n" +
-                        "4. Excluir Vaga."
+                        "1. Listar Candidatos.\n" +
+                        "2. Cadastrar Candidato.\n" +
+                        "3. Alterar Candidato.\n" +
+                        "4. Excluir Candidato."
 
         while (true) {
-            println menuVaga
+            println menuCandidato
             opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
             try {
@@ -28,16 +28,17 @@ class MenuVaga {
                     case 0:
                         break
                     case 1:
-                        vagaViewer.listarVagas()
+                        candidatoViewer.listarCandidatos()
                         break
                     case 2:
-                        vagaViewer.cadastrarVaga()
+                        candidatoViewer.cadastrarCandidato()
                         break
                     case 3:
-                        vagaViewer.alterarVaga()
+                        candidatoViewer.alterarCandidato()
                         break
                     case 4:
-                        vagaViewer.deletarVaga()
+                        candidatoViewer.deletarCandidato()
+                        break
                     default:
                         println("\nOpção inválida!!")
                         break
@@ -55,5 +56,5 @@ class MenuVaga {
         }
 
     }
-
+    
 }

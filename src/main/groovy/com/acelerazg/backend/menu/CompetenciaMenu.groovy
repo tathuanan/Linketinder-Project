@@ -1,25 +1,25 @@
 package com.acelerazg.backend.menu
 
-import com.acelerazg.backend.controller.ControllerCandidato
+
 import com.acelerazg.backend.utilities.Ferramentas
-import com.acelerazg.backend.viewer.CandidatoViewer
+import com.acelerazg.backend.viewer.CompetenciaViewer
 
-class MenuCandidato {
+class CompetenciaMenu {
 
-    static menuCandidato(){
+    static menuCompetencia() {
 
         int opcao
-        CandidatoViewer candidatoViewer = new CandidatoViewer()
-        String menuCandidato =
+        CompetenciaViewer competenciaViewer = new CompetenciaViewer()
+        String menuCompetencia =
                 "\nPor favor escolha uma opção:\n" +
                         "0. Voltar ao menu anterior\n" +
-                        "1. Listar Candidatos.\n" +
-                        "2. Cadastrar Candidato.\n" +
-                        "3. Alterar Candidato.\n" +
-                        "4. Excluir Candidato."
+                        "1. Listar Competências.\n" +
+                        "2. Cadastrar Competência.\n" +
+                        "3. Alterar Competência.\n" +
+                        "4. Excluir Competência."
 
         while (true) {
-            println menuCandidato
+            println menuCompetencia
             opcao = Integer.parseInt(Ferramentas.ler.nextLine())
 
             try {
@@ -28,16 +28,16 @@ class MenuCandidato {
                     case 0:
                         break
                     case 1:
-                        candidatoViewer.listarCandidatos()
+                        competenciaViewer.listarCompetencias()
                         break
                     case 2:
-                        candidatoViewer.cadastrarCandidato()
+                        competenciaViewer.cadastrarCompetencia()
                         break
                     case 3:
-                        candidatoViewer.alterarCandidato()
+                        competenciaViewer.alterarCompetencia()
                         break
                     case 4:
-                        candidatoViewer.deletarCandidato()
+                        competenciaViewer.deletarCompetencia()
                         break
                     default:
                         println("\nOpção inválida!!")
@@ -56,5 +56,4 @@ class MenuCandidato {
         }
 
     }
-    
 }

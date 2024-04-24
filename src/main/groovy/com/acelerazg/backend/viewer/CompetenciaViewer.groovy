@@ -1,13 +1,13 @@
 package com.acelerazg.backend.viewer
 
-import com.acelerazg.backend.controller.ControllerCompetencia
+import com.acelerazg.backend.controller.CompetenciaController
 import com.acelerazg.backend.model.Competencia
 
 import com.acelerazg.backend.utilities.Ferramentas
 
 class CompetenciaViewer {
 
-    private ControllerCompetencia controllerCompetencia = new ControllerCompetencia()
+    private CompetenciaController controllerCompetencia = new CompetenciaController()
 
     private Competencia competencia = new Competencia()
 

@@ -3,7 +3,7 @@ package com.acelerazg.backend.controller
 import com.acelerazg.backend.model.Competencia
 import com.acelerazg.backend.service.CompetenciaService
 
-class ControllerCompetencia {
+class CompetenciaController {
 
     CompetenciaService competenciaService = new CompetenciaService()
     private boolean retornoDB

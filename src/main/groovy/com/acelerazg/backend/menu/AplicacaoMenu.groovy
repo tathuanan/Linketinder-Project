@@ -3,7 +3,7 @@ package com.acelerazg.backend.menu
 
 import com.acelerazg.backend.utilities.Ferramentas
 
-class Menu {
+class AplicacaoMenu {
 
     static menu() {
 
@@ -29,16 +29,16 @@ class Menu {
                         println "\nEncerrando a aplicação"
                         break
                     case 1:
-                        MenuCandidato.menuCandidato()
+                        CandidatoMenu.menuCandidato()
                         break
                     case 2:
-                        MenuEmpresa.menuEmpresa()
+                        EmpresaMenu.menuEmpresa()
                         break
                     case 3:
-                        MenuVaga.menuVaga()
+                        VagaMenu.menuVaga()
                         break
                     case 4:
-                        MenuCompetencia.menuCompetencia()
+                        CompetenciaMenu.menuCompetencia()
                         break
                     default:
                         println("\nOpção inválida!!")

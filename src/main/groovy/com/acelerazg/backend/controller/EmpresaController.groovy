@@ -1,10 +1,10 @@
 package com.acelerazg.backend.controller
 
-import com.acelerazg.backend.utilities.Ferramentas
+
 import com.acelerazg.backend.model.Empresa
 import com.acelerazg.backend.service.EmpresaService
 
-class ControllerEmpresa {
+class EmpresaController {
 
     EmpresaService empresaService = new EmpresaService()
     private boolean retornoDB
