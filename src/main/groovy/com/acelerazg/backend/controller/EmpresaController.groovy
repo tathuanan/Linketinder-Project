@@ -26,9 +26,9 @@ class EmpresaController {
         return this.retornoDB
     }
 
-    boolean deletarEmpresa(Empresa empresa){
+    boolean deletarEmpresa(Integer id){
 
-        this.retornoDB = this.empresaService.deletarEmpresa(empresa)
+        this.retornoDB = this.empresaService.deletarEmpresa(id)
         return this.retornoDB
     }
 
