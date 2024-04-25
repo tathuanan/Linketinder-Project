@@ -1,6 +1,6 @@
 package com.acelerazg.backend.DAO
 
-import com.acelerazg.backend.con.ConnectionDAO
+import com.acelerazg.backend.conn.ConnectionDAO
 import com.acelerazg.backend.model.Vaga
 
 import java.sql.PreparedStatement
