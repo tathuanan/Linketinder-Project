@@ -24,7 +24,7 @@ Assim caso seja estabelecido um "Match" entre a empresa recrutadora e o candidat
 
 Seu computador deverá ter os ambientes 
 
-    Groovy.
+    Groovy
     PostgreSQL
 
 A aplicação inicia com a execução da classe "Main.groovy"
@@ -59,9 +59,9 @@ No seu navegador, digite a URL `http://localhost:9000/Inicio.html`
 
 ### Arquivos relacionados ao Banco de dados:
 
-Acesse o DER (Diagrama de Entidade-Relacionameto) [aqui](https://github.com/tathuanan/Linketinder-Project/blob/main/src/com/acelerazg/db/der_linketinder.png)
+Acesse o DER (Diagrama de Entidade-Relacionameto) [aqui](https://github.com/tathuanan/Linketinder-Project/blob/main/src/main/groovy/com/acelerazg/backend/db/der_linketinder.png)
 
-Acesse o arquivo SQL [aqui](https://github.com/tathuanan/Linketinder-Project/blob/main/src/com/acelerazg/db/linketinder.sql)
+Acesse o arquivo SQL [aqui](https://github.com/tathuanan/Linketinder-Project/blob/main/src/main/groovy/com/acelerazg/backend/db/linketinder.sql)
 
 SGDB escolhido para rodar a aplicação:
 
