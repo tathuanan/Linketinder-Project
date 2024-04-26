@@ -17,11 +17,11 @@ class ConnectionDAO {
             props.setProperty("ssl", "false")
             String URL_SERVIDOR = "jdbc:postgresql://localhost:5432/linketinder"
 
+            return this.connection = DriverManager.getConnection(URL_SERVIDOR, props)
+
         } catch (Exception e) {
             e.printStackTrace()
 
         }
-        return this.connection = DriverManager.getConnection(URL_SERVIDOR, props)
     }
-
 }

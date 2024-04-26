@@ -15,7 +15,7 @@ class CandidatoController {
 
     List<Candidato> candidatosCadastrados (){
 
-        List<Candidato> listaCandidatos = this.candidatoService.candidatosCadastrados().listar()
+        List<Candidato> listaCandidatos = this.candidatoService.candidatosCadastrados()
         return listaCandidatos
     }
 
