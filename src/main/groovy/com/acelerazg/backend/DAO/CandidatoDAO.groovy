@@ -8,7 +8,7 @@ import java.sql.ResultSet
 
 class CandidatoDAO {
 
-    private ConnectionDB connectionDAO = new ConnectionDB()
+    private ConnectionDB connectionDB = new ConnectionDB()
 
     List<Candidato> listar() {
 
@@ -16,7 +16,7 @@ class CandidatoDAO {
         List<Candidato> listaDeCandidatos = new ArrayList<>()
         try {
 
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             ResultSet resultado = stmt.executeQuery()
 
             while (resultado.next()) {
@@ -42,7 +42,7 @@ class CandidatoDAO {
         } catch (Exception e) {
             e.printStackTrace()
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
         return listaDeCandidatos
     }
@@ -57,7 +57,7 @@ class CandidatoDAO {
 
         try {
 
-            PreparedStatement stmtCompetenciasCandidato = this.connectionDAO.connection().prepareStatement(sqlCompetenciasCandidato)
+            PreparedStatement stmtCompetenciasCandidato = this.connectionDB.connection().prepareStatement(sqlCompetenciasCandidato)
 
             stmtCompetenciasCandidato.setInt(1, candidato.getId())
             ResultSet resultadoCompetencias = stmtCompetenciasCandidato.executeQuery()
@@ -79,7 +79,7 @@ class CandidatoDAO {
 
         try {
 
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setString(1, candidato.getNome())
             stmt.setString(2, candidato.getSobrenome())
             stmt.setString(3, candidato.getCpf())
@@ -97,7 +97,7 @@ class CandidatoDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
@@ -107,7 +107,7 @@ class CandidatoDAO {
 
         try {
 
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setInt(1, candidato_id)
             stmt.setInt(2, competencia_id)
             stmt.execute()
@@ -117,7 +117,7 @@ class CandidatoDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
@@ -128,7 +128,7 @@ class CandidatoDAO {
 
         try {
 
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setString(1, candidato.getNome())
             stmt.setString(2, candidato.getSobrenome())
             stmt.setString(3, candidato.getCpf())
@@ -147,7 +147,7 @@ class CandidatoDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
@@ -158,11 +158,11 @@ class CandidatoDAO {
 
         try {
 
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sqlCompetencias)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sqlCompetencias)
             stmt.setInt(1, id)
             stmt.execute()
 
-            stmt = this.connectionDAO.connection().prepareStatement(sql)
+            stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
             return true
@@ -171,7 +171,7 @@ class CandidatoDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 }

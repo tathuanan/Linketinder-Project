@@ -8,13 +8,13 @@ import java.sql.ResultSet
 
 class EmpresaDAO {
 
-    private ConnectionDB connectionDAO = new ConnectionDB()
+    private ConnectionDB connectionDB = new ConnectionDB()
 
     List<Empresa> listar(){
         String sql = "SELECT * FROM empresas ORDER BY id"
         List<Empresa> retorno = new ArrayList<>()
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             ResultSet resultado = stmt.executeQuery()
             while(resultado.next()){
                 Empresa empresa = new Empresa()
@@ -32,7 +32,7 @@ class EmpresaDAO {
         } catch (Exception e) {
             e.printStackTrace()
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
         return retorno
     }
@@ -41,7 +41,7 @@ class EmpresaDAO {
         String sql = "INSERT INTO empresas(nome, cnpj, email, descricao, senha, pais_id, cep, estado_id)" +
                 "VALUES (?,?,?,?,?,?,?,?)"
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setString(1, empresa.getNome())
             stmt.setString(2, empresa.getCnpj())
             stmt.setString(3, empresa.getEmail())
@@ -56,7 +56,7 @@ class EmpresaDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
@@ -64,7 +64,7 @@ class EmpresaDAO {
         String sql = "UPDATE empresas SET nome=?, cnpj=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=? "+
                 "WHERE id=?"
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setString(1, empresa.getNome())
             stmt.setString(2, empresa.getCnpj())
             stmt.setString(3, empresa.getEmail())
@@ -80,14 +80,14 @@ class EmpresaDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
     boolean deletar(Integer id){
         String sql = "DELETE FROM empresas WHERE id=?"
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
             return true
@@ -95,7 +95,7 @@ class EmpresaDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
     

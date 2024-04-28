@@ -8,13 +8,13 @@ import java.sql.ResultSet
 
 class VagaDAO {
 
-    private ConnectionDB connectionDAO = new ConnectionDB()
+    private ConnectionDB connectionDB = new ConnectionDB()
 
     List<Vaga> listar() {
         String sql = "SELECT * FROM vagas ORDER BY id"
         List<Vaga> retorno = new ArrayList<>()
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             ResultSet resultado = stmt.executeQuery()
 
             while (resultado.next()) {
@@ -31,7 +31,7 @@ class VagaDAO {
                         "FROM competencias_vaga AS comp_v " +
                         "JOIN competencias AS comp ON comp.id = comp_v.competencia_id " +
                         "WHERE comp_v.vaga_id = ?;"
-                PreparedStatement stmtCompetencias = this.connectionDAO.connection().prepareStatement(sqlCompetencias)
+                PreparedStatement stmtCompetencias = this.connectionDB.connection().prepareStatement(sqlCompetencias)
                 stmtCompetencias.setInt(1, vaga.getId())
                 ResultSet resultadoCompetencias = stmtCompetencias.executeQuery()
 
@@ -46,7 +46,7 @@ class VagaDAO {
         } catch (Exception e) {
             e.printStackTrace()
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
         return retorno
     }
@@ -54,7 +54,7 @@ class VagaDAO {
     boolean inserir(Vaga vaga) {
         String sql = "INSERT INTO vagas(nome, descricao, cidade, empresa_id) VALUES (?,?,?,?)"
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setString(1, vaga.getNome())
             stmt.setString(2, vaga.getDescricao())
             stmt.setString(3, (vaga.getCidade()))
@@ -65,14 +65,14 @@ class VagaDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
     boolean inserirCompetenciaVaga(int vaga_id, int competencia_id) {
         String sql = "INSERT INTO competencias_vaga(vaga_id, competencia_id) VALUES (?,?)"
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setInt(1, vaga_id)
             stmt.setInt(2, competencia_id)
             stmt.execute()
@@ -81,14 +81,14 @@ class VagaDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
     boolean alterar(Vaga vaga) {
         String sql = "UPDATE vagas SET nome=?, descricao=?, cidade=?, empresa_id=? WHERE id=?"
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setString(1, vaga.getNome())
             stmt.setString(2, vaga.getDescricao())
             stmt.setString(3, vaga.getCidade())
@@ -100,7 +100,7 @@ class VagaDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
@@ -108,11 +108,11 @@ class VagaDAO {
         String sqlCompetencias = "DELETE FROM competencias_vaga WHERE vaga_id=?"
         String sql = "DELETE FROM vagas WHERE id=?"
         try {
-            PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sqlCompetencias)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sqlCompetencias)
             stmt.setInt(1, id)
             stmt.execute()
 
-            stmt = this.connectionDAO.connection().prepareStatement(sql)
+            stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
             return true
@@ -120,7 +120,7 @@ class VagaDAO {
             e.printStackTrace()
             return false
         } finally {
-            this.connectionDAO.connection().close()
+            this.connectionDB.connection().close()
         }
     }
 
