@@ -1,6 +1,6 @@
 package com.acelerazg.backend.DAO
 
-import com.acelerazg.backend.conn.ConnectionDAO
+import com.acelerazg.backend.conn.ConnectionDB
 import com.acelerazg.backend.model.Empresa
 
 import java.sql.PreparedStatement
@@ -8,7 +8,7 @@ import java.sql.ResultSet
 
 class EmpresaDAO {
 
-    ConnectionDAO connectionDAO = new ConnectionDAO()
+    private ConnectionDB connectionDAO = new ConnectionDB()
 
     List<Empresa> listar(){
         String sql = "SELECT * FROM empresas ORDER BY id"
@@ -84,7 +84,7 @@ class EmpresaDAO {
         }
     }
 
-    boolean remover(Integer id){
+    boolean deletar(Integer id){
         String sql = "DELETE FROM empresas WHERE id=?"
         try {
             PreparedStatement stmt = this.connectionDAO.connection().prepareStatement(sql)

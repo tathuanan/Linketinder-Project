@@ -6,7 +6,7 @@ import com.acelerazg.backend.model.Empresa
 
 class EmpresaService {
 
-    EmpresaDAO empresaDAO = new EmpresaDAO()
+    private EmpresaDAO empresaDAO = new EmpresaDAO()
     boolean retornoDB
 
     void listarEmpresas(){
@@ -14,12 +14,6 @@ class EmpresaService {
         this.empresaDAO.listar().each { empresa ->
             println empresa.toString()
         }
-    }
-
-    List<Empresa> empresasCadastradas(){
-
-        List<Empresa> listaEmpresa = this.empresaDAO.listar()
-        return listaEmpresa
     }
 
     boolean cadastrarEmpresa(Empresa empresa) {
@@ -36,7 +30,7 @@ class EmpresaService {
 
     boolean deletarEmpresa(Integer id) {
 
-        this.retornoDB = this.empresaDAO.remover(id)
+        this.retornoDB = this.empresaDAO.deletar(id)
         return this.retornoDB
     }
     

@@ -5,7 +5,7 @@ import com.acelerazg.backend.model.Competencia
 
 class CompetenciaService {
 
-    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
+    private CompetenciaDAO competenciaDAO = new CompetenciaDAO()
     boolean retornoDB
 
     void listarCompetencias() {
@@ -35,7 +35,7 @@ class CompetenciaService {
 
     boolean deletarCompetencia(Integer id) {
 
-        this.retornoDB = this.competenciaDAO.remover(id)
+        this.retornoDB = this.competenciaDAO.deletar(id)
         return this.retornoDB
     }
 

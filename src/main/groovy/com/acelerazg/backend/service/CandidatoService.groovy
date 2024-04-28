@@ -5,7 +5,7 @@ import com.acelerazg.backend.model.Candidato
 
 class CandidatoService {
 
-    CandidatoDAO candidatoDAO = new CandidatoDAO()
+    private CandidatoDAO candidatoDAO = new CandidatoDAO()
     boolean retornoDB
 
     void listarCandidatos(){
@@ -41,7 +41,7 @@ class CandidatoService {
 
     boolean deletarCandidato(Integer id) {
 
-        this.retornoDB = this.candidatoDAO.remover(id)
+        this.retornoDB = this.candidatoDAO.deletar(id)
         return this.retornoDB
     }
     

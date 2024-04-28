@@ -9,12 +9,12 @@ import java.text.SimpleDateFormat
 
 class Candidato extends Pessoa{
 
-    String sobrenome
-    String dataNascimento
-    String cpf
-    String pais
-    List<String> competencias
-    String senha
+    private String sobrenome
+    private String dataNascimento
+    private String cpf
+    private String pais
+    private List<String> competencias
+    private String senha
 
     Candidato(){
 
@@ -48,26 +48,70 @@ class Candidato extends Pessoa{
         this.senha = senha
     }
 
+    String getSobrenome() {
+        return sobrenome
+    }
+
+    void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome
+    }
+
+    void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento
+    }
+
     Date getDataNascimento() {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy")
         java.util.Date dataString = formatador.parse(this.dataNascimento)
         this.dataNascimento = new Date(dataString.getTime())
     }
 
+    String getCpf() {
+        return cpf
+    }
+
+    void setCpf(String cpf) {
+        this.cpf = cpf
+    }
+
+    String getPais() {
+        return pais
+    }
+
+    void setPais(String pais) {
+        this.pais = pais
+    }
+
+    List<String> getCompetencias() {
+        return competencias
+    }
+
+    void setCompetencias(List<String> competencias) {
+        this.competencias = competencias
+    }
+
+    String getSenha() {
+        return senha
+    }
+
+    void setSenha(String senha) {
+        this.senha = senha
+    }
+
     @Override
     String toString() {
         "Candidato(" +
-                " id=${id}," +
-                " nome=${nome}," +
-                " sobrenome=${sobrenome},"+
-                " cpf=${cpf}," +
-                " dt_nascimento=${dataNascimento},"+
-                " email=${email}," +
-                " competencias=${competencias}," +
-                " senha=${senha}," +
-                " pais=${pais}," +
-                " estado=${estado}," +
-                " cep=${cep}," +
-                " descricao=${descricao} )"
+                " id=${this.id}," +
+                " nome=${this.nome}," +
+                " sobrenome=${this.sobrenome},"+
+                " cpf=${this.cpf}," +
+                " dt_nascimento=${this.dataNascimento},"+
+                " email=${this.email}," +
+                " competencias=${this.competencias}," +
+                " senha=${this.senha}," +
+                " pais=${this.pais}," +
+                " estado=${this.estado}," +
+                " cep=${this.cep}," +
+                " descricao=${this.descricao} )"
     }
 }

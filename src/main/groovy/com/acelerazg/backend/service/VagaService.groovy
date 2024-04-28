@@ -5,7 +5,7 @@ import com.acelerazg.backend.model.Vaga
 
 class VagaService {
 
-    VagaDAO vagaDAO = new VagaDAO()
+    private VagaDAO vagaDAO = new VagaDAO()
     boolean retornoDB
 
     void listarVagas(){
@@ -41,7 +41,7 @@ class VagaService {
 
     boolean deletarVaga(Integer id) {
 
-        this.retornoDB = this.vagaDAO.remover(id)
+        this.retornoDB = this.vagaDAO.deletar(id)
         return this.retornoDB
     }
 

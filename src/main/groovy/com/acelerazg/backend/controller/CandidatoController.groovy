@@ -5,7 +5,7 @@ import com.acelerazg.backend.service.CandidatoService
 
 class CandidatoController {
 
-    CandidatoService candidatoService = new CandidatoService()
+    private CandidatoService candidatoService = new CandidatoService()
     private boolean retornoDB
 
     void listarCandidatos(){

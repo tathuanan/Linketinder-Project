@@ -9,7 +9,7 @@ import java.sql.Date
 
 class CandidatoTeste extends GroovyTestCase {
 
-    static Candidato candidato
+    private static Candidato candidato
 
     @BeforeAll
     static void instanciaCandidato() {

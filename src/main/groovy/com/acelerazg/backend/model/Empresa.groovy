@@ -5,21 +5,45 @@ import groovy.transform.ToString
 
 class Empresa extends Pessoa {
 
-    String pais
-    String cnpj
-    String senha
+    private String pais
+    private String cnpj
+    private String senha
+
+    String getPais() {
+        return pais
+    }
+
+    void setPais(String pais) {
+        this.pais = pais
+    }
+
+    String getCnpj() {
+        return cnpj
+    }
+
+    void setCnpj(String cnpj) {
+        this.cnpj = cnpj
+    }
+
+    String getSenha() {
+        return senha
+    }
+
+    void setSenha(String senha) {
+        this.senha = senha
+    }
 
     String toString() {
         "Empresa(" +
-                " id=${id},"+
-                " nome=${nome}," +
-                " cnpj=${cnpj}," +
-                " email=${email}," +
-                " senha=${senha}," +
-                " pais=${pais}," +
-                " estado=${estado}," +
-                " cep=${cep}," +
-                " descricao=${descricao} )"
+                " id=${this.id},"+
+                " nome=${this.nome}," +
+                " cnpj=${this.cnpj}," +
+                " email=${this.email}," +
+                " senha=${this.senha}," +
+                " pais=${this.pais}," +
+                " estado=${this.estado}," +
+                " cep=${this.cep}," +
+                " descricao=${this.descricao} )"
 
     }
 

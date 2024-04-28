@@ -5,7 +5,7 @@ import com.acelerazg.backend.service.CompetenciaService
 
 class CompetenciaController {
 
-    CompetenciaService competenciaService = new CompetenciaService()
+    private CompetenciaService competenciaService = new CompetenciaService()
     private boolean retornoDB
 
     void listarCompetencias() {

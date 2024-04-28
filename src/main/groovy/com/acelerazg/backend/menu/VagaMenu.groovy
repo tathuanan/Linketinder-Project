@@ -38,6 +38,7 @@ class VagaMenu {
                         break
                     case 4:
                         vagaViewer.deletarVaga()
+                        break
                     default:
                         println("\nOpção inválida!!")
                         break

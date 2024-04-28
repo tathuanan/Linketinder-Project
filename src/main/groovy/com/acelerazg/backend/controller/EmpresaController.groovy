@@ -6,7 +6,7 @@ import com.acelerazg.backend.service.EmpresaService
 
 class EmpresaController {
 
-    EmpresaService empresaService = new EmpresaService()
+    private EmpresaService empresaService = new EmpresaService()
     private boolean retornoDB
 
     void listarEmpresas(){
