@@ -53,45 +53,52 @@ class VagaViewer {
         this.novaVaga.setCidade(this.cidade)
         this.novaVaga.setEmpresa(this.empresa)
 
-        this.retornoDB = this.controllerVaga.cadastrarVaga(this.novaVaga)
+        try {
+            this.retornoDB = this.controllerVaga.cadastrarVaga(this.novaVaga)
 
-        if (this.retornoDB) {
-            println("\nVaga cadastrada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro no cadastro")
-        }
+            switch (retornoDB){
 
-        println "Digite a quantidade de competências a vaga exigirá:"
-        this.qtdCompetencias = Integer.parseInt(Ferramentas.ler.nextLine())
-
-        List<Vaga> vagas = this.controllerVaga.vagasCadastradas()
-
-        for (int i = 0; i < qtdCompetencias; i++){
-
-            println "1. Utilizar competências cadastradas.\n"+
-                    "2. Cadastrar nova competência"
-            this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
-
-            switch (this.opcao){
-                case 1:
-                    this.controllerCompetencia.listarCompetencias()
-                    println "Selecione o id da competência ${i+1}:"
-                    idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
-                    this.controllerVaga.cadastrarCompetenciaVaga(vagas[-1].getId(), idCompetencia)
+                case false:
+                    println("\nOcorreu um erro no cadastro")
                     break
-                case 2:
-                    println "Digite a competência:"
-                    String competencia = Ferramentas.ler.nextLine()
-                    competencia.capitalize()
-                    novaCompetencia.setCompetencia(competencia)
-                    controllerCompetencia.cadastrarCompetencia(novaCompetencia)
-                    competenciasDB = controllerCompetencia.competenciasCadastradas()
-                    this.controllerVaga.cadastrarCompetenciaVaga(vagas[-1].getId(), competenciasDB[-1].getId())
-                    break
+
                 default:
-                    println "Opção inválida!!!"
+                    println "Digite a quantidade de competências a vaga exigirá:"
+                    this.qtdCompetencias = Integer.parseInt(Ferramentas.ler.nextLine())
 
+                    List<Vaga> vagas = this.controllerVaga.vagasCadastradas()
+
+                    for (int i = 0; i < qtdCompetencias; i++){
+
+                        println "1. Utilizar competências cadastradas.\n"+
+                                "2. Cadastrar nova competência"
+                        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+
+                        switch (this.opcao){
+                            case 1:
+                                this.controllerCompetencia.listarCompetencias()
+                                println "Selecione o id da competência ${i+1}:"
+                                idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
+                                this.controllerVaga.cadastrarCompetenciaVaga(vagas[-1].getId(), idCompetencia)
+                                break
+                            case 2:
+                                println "Digite a competência:"
+                                String competencia = Ferramentas.ler.nextLine()
+                                competencia.capitalize()
+                                novaCompetencia.setCompetencia(competencia)
+                                controllerCompetencia.cadastrarCompetencia(novaCompetencia)
+                                competenciasDB = controllerCompetencia.competenciasCadastradas()
+                                this.controllerVaga.cadastrarCompetenciaVaga(vagas[-1].getId(), competenciasDB[-1].getId())
+                                break
+                            default:
+                                println "Opção inválida!!!"
+                        }
+                    }
+                    println("\nVaga cadastrada com sucesso!!!")
             }
+
+        } catch (Exception e){
+            e.printStackTrace()
         }
     }
 

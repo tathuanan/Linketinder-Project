@@ -81,47 +81,54 @@ class CandidatoViewer {
         this.novoCandidato.setEstado(this.estado)
         this.novoCandidato.setSenha(this.senha)
 
-        this.retornoDB = this.controllerCandidato.cadastrarCandidato(this.novoCandidato)
+        try {
 
-        if (this.retornoDB) {
-            println("\nCandidato cadastrada com sucesso!!!")
-        } else {
-            println("\nOcorreu um erro no cadastro")
-        }
+            this.retornoDB = this.controllerCandidato.cadastrarCandidato(this.novoCandidato)
 
-        println "Digite quantas competências o candidato possuí:"
-        this.qtdCompetencias = Integer.parseInt(Ferramentas.ler.nextLine())
+            switch (retornoDB){
 
-        List<Candidato> candidatos = this.controllerCandidato.candidatosCadastrados()
-
-        for (int i = 0; i < qtdCompetencias; i++) {
-
-            println "1. Utilizar competências cadastradas.\n" +
-                    "2. Cadastrar nova competência"
-            this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
-
-            switch (this.opcao) {
-                case 1:
-                    controllerCompetencia.listarCompetencias()
-                    println "Selecione o id da competência ${i + 1}:"
-                    idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
-                    CandidatoController.cadastrarCompetenciaCandidato(candidatos[-1].getId(), idCompetencia)
+                case false:
+                    println("\nOcorreu um erro no cadastro")
                     break
-                case 2:
-                    println "Digite a competência:"
-                    String competencia = Ferramentas.ler.nextLine()
-                    competencia.capitalize()
-                    this.novaCompetencia.setCompetencia(competencia)
-                    this.controllerCompetencia.cadastrarCompetencia(this.novaCompetencia)
-                    competenciasDB = this.controllerCompetencia.competenciasCadastradas()
-                    this.controllerCandidato.cadastrarCompetenciaCandidato(candidatos[-1].getId(), competenciasDB[-1].getId())
-                    break
+
                 default:
-                    println "Opção inválida!!!"
 
+                    println "Digite quantas competências o candidato possuí:"
+                    this.qtdCompetencias = Integer.parseInt(Ferramentas.ler.nextLine())
+
+                    List<Candidato> candidatos = this.controllerCandidato.candidatosCadastrados()
+
+                    for (int i = 0; i < qtdCompetencias; i++) {
+
+                        println "1. Utilizar competências cadastradas.\n" +
+                                "2. Cadastrar nova competência"
+                        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+
+                        switch (this.opcao) {
+                            case 1:
+                                controllerCompetencia.listarCompetencias()
+                                println "Selecione o id da competência ${i + 1}:"
+                                idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
+                                CandidatoController.cadastrarCompetenciaCandidato(candidatos[-1].getId(), idCompetencia)
+                                break
+                            case 2:
+                                println "Digite a competência:"
+                                String competencia = Ferramentas.ler.nextLine()
+                                competencia.capitalize()
+                                this.novaCompetencia.setCompetencia(competencia)
+                                this.controllerCompetencia.cadastrarCompetencia(this.novaCompetencia)
+                                competenciasDB = this.controllerCompetencia.competenciasCadastradas()
+                                this.controllerCandidato.cadastrarCompetenciaCandidato(candidatos[-1].getId(), competenciasDB[-1].getId())
+                                break
+                            default:
+                                println "Opção inválida!!!"
+                        }
+                    }
+                    println("\nCandidato cadastrado com sucesso!!!")
             }
+        }catch (Exception e){
+            e.printStackTrace()
         }
-
     }
 
     void alterarCandidato() {
