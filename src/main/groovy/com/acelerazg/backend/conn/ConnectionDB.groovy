@@ -3,9 +3,9 @@ package com.acelerazg.backend.conn
 import java.sql.Connection
 import java.sql.DriverManager
 
-class ConnectionDAO {
+class ConnectionDB {
 
-    Connection connection
+    private Connection connection
 
     Connection connection() {
 
