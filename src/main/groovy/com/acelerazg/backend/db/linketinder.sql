@@ -72,7 +72,7 @@ ALTER TABLE "empresas" ADD FOREIGN KEY ("pais_id") REFERENCES "pais" ("id");
 
 ALTER TABLE "empresas" ADD FOREIGN KEY ("estado_id") REFERENCES "estados" ("id");
 
-ALTER TABLE "competencias_candidatos" ADD FOREIGN KEY ("candidato_id") REFERENCES "candidatos" ("id");
+ALTER TABLE "competencias_candidatos" ADD FOREIGN KEY ("candidato_id") REFERENCES "candidatos" ("id") ON DELETE CASCADE;
 
 ALTER TABLE "competencias_candidatos" ADD FOREIGN KEY ("competencia_id") REFERENCES "competencias" ("id");
 
@@ -80,7 +80,7 @@ ALTER TABLE "vagas" ADD FOREIGN KEY ("empresa_id") REFERENCES "empresas" ("id");
 
 ALTER TABLE "competencias_vaga" ADD FOREIGN KEY ("competencia_id") REFERENCES "competencias" ("id");
 
-ALTER TABLE "competencias_vaga" ADD FOREIGN KEY ("vaga_id") REFERENCES "vagas" ("id");
+ALTER TABLE "competencias_vaga" ADD FOREIGN KEY ("vaga_id") REFERENCES "vagas" ("id") ON DELETE CASCADE;
 
 ALTER TABLE "match" ADD FOREIGN KEY ("candidato_id") REFERENCES "candidatos" ("id");
 

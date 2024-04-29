@@ -105,17 +105,17 @@ class VagaDAO {
     }
 
     boolean deletar(Integer id) {
-        String sqlCompetencias = "DELETE FROM competencias_vaga WHERE vaga_id=?"
+
         String sql = "DELETE FROM vagas WHERE id=?"
+
         try {
-            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sqlCompetencias)
+
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
 
-            stmt = this.connectionDB.connection().prepareStatement(sql)
-            stmt.setInt(1, id)
-            stmt.execute()
             return true
+
         } catch (Exception e) {
             e.printStackTrace()
             return false

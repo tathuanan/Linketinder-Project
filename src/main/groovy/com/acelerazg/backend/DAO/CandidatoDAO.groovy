@@ -153,16 +153,11 @@ class CandidatoDAO {
 
     boolean deletar(Integer id) {
 
-        String sqlCompetencias = "DELETE FROM competencias_candidatos WHERE candidato_id=?"
         String sql = "DELETE FROM candidatos WHERE id=?"
 
         try {
 
-            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sqlCompetencias)
-            stmt.setInt(1, id)
-            stmt.execute()
-
-            stmt = this.connectionDB.connection().prepareStatement(sql)
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             stmt.setInt(1, id)
             stmt.execute()
             return true
