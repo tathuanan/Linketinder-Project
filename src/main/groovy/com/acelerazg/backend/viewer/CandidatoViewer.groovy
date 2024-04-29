@@ -4,7 +4,8 @@ import com.acelerazg.backend.controller.CandidatoController
 import com.acelerazg.backend.controller.CompetenciaController
 import com.acelerazg.backend.model.Candidato
 import com.acelerazg.backend.model.Competencia
-import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.utilities.Estados
+import com.acelerazg.backend.utilities.LeitorTerminal
 
 class CandidatoViewer {
 
@@ -40,35 +41,35 @@ class CandidatoViewer {
         int idCompetencia
 
         println("Digite o nome do candidato:")
-        this.nomeCandidato = Ferramentas.ler.nextLine()
+        this.nomeCandidato = LeitorTerminal.ler.nextLine()
 
         println("Digite o sobrenome do candidato:")
-        this.sobreNomeCandidato = Ferramentas.ler.nextLine()
+        this.sobreNomeCandidato = LeitorTerminal.ler.nextLine()
 
         println("Digite o cpf do candidato:")
-        this.cpf = Ferramentas.ler.nextLine()
+        this.cpf = LeitorTerminal.ler.nextLine()
 
         println("Digite a data de nascimento do candidato no formato dd/mm/aaaa:")
-        this.dataNascimento = Ferramentas.ler.nextLine()
+        this.dataNascimento = LeitorTerminal.ler.nextLine()
 
         println("Digite o email do candidato:")
-        this.email = Ferramentas.ler.nextLine()
+        this.email = LeitorTerminal.ler.nextLine()
 
         println("Digite o cep do candidato:")
-        this.cep = Ferramentas.ler.nextLine()
+        this.cep = LeitorTerminal.ler.nextLine()
 
         println("Faça uma descrição do candidato:")
-        this.descricao = Ferramentas.ler.nextLine()
+        this.descricao = LeitorTerminal.ler.nextLine()
 
         println("Selecione o pais:\n1. Brasil")
-        this.pais = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.pais = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         println("Selecione o estado:")
-        println(Ferramentas.estados)
-        this.estado = Integer.parseInt(Ferramentas.ler.nextLine())
+        println(Estados.estados)
+        this.estado = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         println("Digite uma senha:")
-        this.senha = Ferramentas.ler.nextLine()
+        this.senha = LeitorTerminal.ler.nextLine()
 
         this.novoCandidato.setNome(this.nomeCandidato)
         this.novoCandidato.setSobrenome(this.sobreNomeCandidato)
@@ -94,7 +95,7 @@ class CandidatoViewer {
                 default:
 
                     println "Digite quantas competências o candidato possuí:"
-                    this.qtdCompetencias = Integer.parseInt(Ferramentas.ler.nextLine())
+                    this.qtdCompetencias = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
                     List<Candidato> candidatos = this.controllerCandidato.candidatosCadastrados()
 
@@ -102,18 +103,18 @@ class CandidatoViewer {
 
                         println "1. Utilizar competências cadastradas.\n" +
                                 "2. Cadastrar nova competência"
-                        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+                        this.opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
                         switch (this.opcao) {
                             case 1:
                                 controllerCompetencia.listarCompetencias()
                                 println "Selecione o id da competência ${i + 1}:"
-                                idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
+                                idCompetencia = Integer.parseInt(LeitorTerminal.ler.nextLine())
                                 CandidatoController.cadastrarCompetenciaCandidato(candidatos[-1].getId(), idCompetencia)
                                 break
                             case 2:
                                 println "Digite a competência:"
-                                String competencia = Ferramentas.ler.nextLine()
+                                String competencia = LeitorTerminal.ler.nextLine()
                                 competencia.capitalize()
                                 this.novaCompetencia.setCompetencia(competencia)
                                 this.controllerCompetencia.cadastrarCompetencia(this.novaCompetencia)
@@ -136,38 +137,38 @@ class CandidatoViewer {
         this.controllerCandidato.listarCandidatos()
 
         println("\nEscolha qual candidato você deseja alterar:")
-        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         println("Altere o nome do candidato:")
-        this.nomeCandidato = Ferramentas.ler.nextLine()
+        this.nomeCandidato = LeitorTerminal.ler.nextLine()
 
         println("Altere o sobrenome do candidato:")
-        this.sobreNomeCandidato = Ferramentas.ler.nextLine()
+        this.sobreNomeCandidato = LeitorTerminal.ler.nextLine()
 
         println("Altere o cpf do candidato:")
-        this.cpf = Ferramentas.ler.nextLine()
+        this.cpf = LeitorTerminal.ler.nextLine()
 
         println("Altere a data de nascimento do candidato no formato dd/mm/aaaa:")
-        this.dataNascimento = Ferramentas.ler.nextLine()
+        this.dataNascimento = LeitorTerminal.ler.nextLine()
 
         println("Altere o email do candidato:")
-        this.email = Ferramentas.ler.nextLine()
+        this.email = LeitorTerminal.ler.nextLine()
 
         println("Altere o cep do candidato:")
-        this.cep = Ferramentas.ler.nextLine()
+        this.cep = LeitorTerminal.ler.nextLine()
 
         println("Altere a descrição do candidato:")
-        this.descricao = Ferramentas.ler.nextLine()
+        this.descricao = LeitorTerminal.ler.nextLine()
 
         println("Altere o pais:\n1. Brasil")
-        this.pais = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.pais = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         println("Altere o estado:")
-        println(Ferramentas.estados)
-        this.estado = Integer.parseInt(Ferramentas.ler.nextLine())
+        println(Estados.estados)
+        this.estado = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         println("Altere a senha:")
-        this.senha = Ferramentas.ler.nextLine()
+        this.senha = LeitorTerminal.ler.nextLine()
 
         this.novoCandidato.setId(this.opcao)
         this.novoCandidato.setNome(this.nomeCandidato)
@@ -196,7 +197,7 @@ class CandidatoViewer {
         this.controllerCandidato.listarCandidatos()
 
         println "\nEscolha qual candidato você deseja deletar:"
-        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         this.retornoDB = this.controllerCandidato.deletarCandidato(this.opcao)
 

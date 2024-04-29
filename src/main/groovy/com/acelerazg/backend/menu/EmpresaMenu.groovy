@@ -1,7 +1,7 @@
 package com.acelerazg.backend.menu
 
 
-import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.utilities.LeitorTerminal
 import com.acelerazg.backend.viewer.EmpresaViewer
 
 class EmpresaMenu {
@@ -20,7 +20,7 @@ class EmpresaMenu {
 
         while (true) {
             println menuEmpresa
-            opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+            opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
             try {
 

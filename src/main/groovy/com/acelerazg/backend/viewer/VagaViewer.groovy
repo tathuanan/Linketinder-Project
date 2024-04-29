@@ -5,7 +5,7 @@ import com.acelerazg.backend.controller.EmpresaController
 import com.acelerazg.backend.controller.VagaController
 import com.acelerazg.backend.model.Competencia
 import com.acelerazg.backend.model.Vaga
-import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.utilities.LeitorTerminal
 
 class VagaViewer {
 
@@ -36,17 +36,17 @@ class VagaViewer {
         int idCompetencia
 
         println "Digite o nome da vaga:"
-        this.nomeVaga = Ferramentas.ler.nextLine()
+        this.nomeVaga = LeitorTerminal.ler.nextLine()
 
         println "Faça a descrição da vaga:"
-        this.descricao = Ferramentas.ler.nextLine()
+        this.descricao = LeitorTerminal.ler.nextLine()
 
         println "Digite a cidade da vaga:"
-        this.cidade = Ferramentas.ler.nextLine()
+        this.cidade = LeitorTerminal.ler.nextLine()
 
         this.controllerEmpresa.listarEmpresas()
         println("\nSelecione a empresa que ofertou a vaga:")
-        this.empresa = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.empresa = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         this.novaVaga.setNome(this.nomeVaga)
         this.novaVaga.setDescricao(this.descricao)
@@ -64,7 +64,7 @@ class VagaViewer {
 
                 default:
                     println "Digite a quantidade de competências a vaga exigirá:"
-                    this.qtdCompetencias = Integer.parseInt(Ferramentas.ler.nextLine())
+                    this.qtdCompetencias = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
                     List<Vaga> vagas = this.controllerVaga.vagasCadastradas()
 
@@ -72,18 +72,18 @@ class VagaViewer {
 
                         println "1. Utilizar competências cadastradas.\n"+
                                 "2. Cadastrar nova competência"
-                        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+                        this.opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
                         switch (this.opcao){
                             case 1:
                                 this.controllerCompetencia.listarCompetencias()
                                 println "Selecione o id da competência ${i+1}:"
-                                idCompetencia = Integer.parseInt(Ferramentas.ler.nextLine())
+                                idCompetencia = Integer.parseInt(LeitorTerminal.ler.nextLine())
                                 this.controllerVaga.cadastrarCompetenciaVaga(vagas[-1].getId(), idCompetencia)
                                 break
                             case 2:
                                 println "Digite a competência:"
-                                String competencia = Ferramentas.ler.nextLine()
+                                String competencia = LeitorTerminal.ler.nextLine()
                                 competencia.capitalize()
                                 novaCompetencia.setCompetencia(competencia)
                                 controllerCompetencia.cadastrarCompetencia(novaCompetencia)
@@ -107,20 +107,20 @@ class VagaViewer {
         this.controllerVaga.listarVagas()
 
         println("\nEscolha qual vaga você deseja alterar:")
-        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         println "Altere o nome da vaga:"
-        this.nomeVaga = Ferramentas.ler.nextLine()
+        this.nomeVaga = LeitorTerminal.ler.nextLine()
 
         println "Altere a descrição da vaga:"
-        this.descricao = Ferramentas.ler.nextLine()
+        this.descricao = LeitorTerminal.ler.nextLine()
 
         println "Altere a cidade da vaga:"
-        this.cidade = Ferramentas.ler.nextLine()
+        this.cidade = LeitorTerminal.ler.nextLine()
 
         this.controllerEmpresa.listarEmpresas()
         println("\nAltere a empresa que ofertou a vaga:")
-        this.empresa = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.empresa = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         this.novaVaga.setId(opcao)
         this.novaVaga.setNome(this.nomeVaga)
@@ -143,7 +143,7 @@ class VagaViewer {
         this.controllerVaga.listarVagas()
 
         println("\nEscolha qual competência você deseja deletar:")
-        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         this.retornoDB = this.controllerVaga.deletarVaga(this.opcao)
 

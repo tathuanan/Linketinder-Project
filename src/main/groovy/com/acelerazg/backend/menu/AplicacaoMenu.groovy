@@ -1,7 +1,7 @@
 package com.acelerazg.backend.menu
 
 
-import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.utilities.LeitorTerminal
 
 class AplicacaoMenu {
 
@@ -20,7 +20,7 @@ class AplicacaoMenu {
 
         while (true) {
             println menuPrincipal
-            opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+            opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
             try {
 

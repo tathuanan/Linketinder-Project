@@ -3,7 +3,7 @@ package com.acelerazg.backend.viewer
 import com.acelerazg.backend.controller.CompetenciaController
 import com.acelerazg.backend.model.Competencia
 
-import com.acelerazg.backend.utilities.Ferramentas
+import com.acelerazg.backend.utilities.LeitorTerminal
 
 class CompetenciaViewer {
 
@@ -23,7 +23,7 @@ class CompetenciaViewer {
     void cadastrarCompetencia() {
 
         println("Digite a nova competência:")
-        this.nomeCompetencia = Ferramentas.ler.nextLine()
+        this.nomeCompetencia = LeitorTerminal.ler.nextLine()
 
         this.nomeCompetencia.capitalize()
         this.competencia.setCompetencia(this.nomeCompetencia)
@@ -43,10 +43,10 @@ class CompetenciaViewer {
         this.controllerCompetencia.listarCompetencias()
 
         println("\nEscolha qual competência você deseja alterar:")
-        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         println("Digite a nova competência:")
-        this.nomeCompetencia = Ferramentas.ler.nextLine()
+        this.nomeCompetencia = LeitorTerminal.ler.nextLine()
 
         this.competencia.setId(this.opcao)
         this.competencia.setCompetencia(this.nomeCompetencia)
@@ -66,7 +66,7 @@ class CompetenciaViewer {
         this.controllerCompetencia.listarCompetencias()
 
         println("\nEscolha qual competência você deseja deletar:")
-        this.opcao = Integer.parseInt(Ferramentas.ler.nextLine())
+        this.opcao = Integer.parseInt(LeitorTerminal.ler.nextLine())
 
         this.retornoDB = this.controllerCompetencia.deletarCompetencia(this.opcao)
 
