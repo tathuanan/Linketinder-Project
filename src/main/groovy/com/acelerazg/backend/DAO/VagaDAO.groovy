@@ -1,6 +1,7 @@
 package com.acelerazg.backend.DAO
 
-import com.acelerazg.backend.conn.ConnectionDB
+import com.acelerazg.backend.conn.ConnectionDBFactory
+import com.acelerazg.backend.conn.IConnectionDB
 import com.acelerazg.backend.model.Vaga
 
 import java.sql.PreparedStatement
@@ -8,7 +9,7 @@ import java.sql.ResultSet
 
 class VagaDAO {
 
-    private ConnectionDB connectionDB = new ConnectionDB()
+    private IConnectionDB connectionDB = ConnectionDBFactory.getConnection("postgres")
 
     List<Vaga> listar() {
         String sql = "SELECT * FROM vagas ORDER BY id"
