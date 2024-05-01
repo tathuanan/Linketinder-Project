@@ -1,8 +1,8 @@
 package controller
 
-import com.acelerazg.backend.controller.EmpresaController
-import com.acelerazg.backend.model.Empresa
-import com.acelerazg.backend.service.EmpresaService
+import com.acelerazg.backend.app.controller.EmpresaController
+import com.acelerazg.backend.app.model.user.Empresa
+import com.acelerazg.backend.app.service.EmpresaService
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

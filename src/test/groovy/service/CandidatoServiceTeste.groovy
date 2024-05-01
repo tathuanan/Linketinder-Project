@@ -1,8 +1,8 @@
 package service
 
-import com.acelerazg.backend.DAO.CandidatoDAO
-import com.acelerazg.backend.model.Candidato
-import com.acelerazg.backend.service.CandidatoService
+import com.acelerazg.backend.app.model.DAO.CandidatoDAO
+import com.acelerazg.backend.app.model.user.Candidato
+import com.acelerazg.backend.app.service.CandidatoService
 import groovy.test.GroovyTestCase
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

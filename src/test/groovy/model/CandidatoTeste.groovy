@@ -1,6 +1,6 @@
 package model;
 
-import com.acelerazg.backend.model.Candidato
+import com.acelerazg.backend.app.model.user.Candidato
 import groovy.test.GroovyTestCase
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
