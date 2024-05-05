@@ -1,17 +1,20 @@
 package com.acelerazg.backend.app.model.DAO
 
+import com.acelerazg.backend.app.model.conn.ConnectionDBFactory
+import com.acelerazg.backend.app.model.conn.IConnectionDB
+import com.acelerazg.backend.app.model.user.Candidato
 
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
 class CandidatoDAO {
 
-    private com.acelerazg.backend.app.model.conn.IConnectionDB connectionDB = com.acelerazg.backend.app.model.conn.ConnectionDBFactory.getConnection("postgres")
+    private IConnectionDB connectionDB = ConnectionDBFactory.getConnection("postgres")
 
-    List<com.acelerazg.backend.app.model.user.Candidato> listar() {
+    List<Candidato> listar() {
 
         String sql = "SELECT * FROM candidatos ORDER BY id"
-        List<com.acelerazg.backend.app.model.user.Candidato> listaDeCandidatos = new ArrayList<>()
+        List<Candidato> listaDeCandidatos = new ArrayList<>()
         try {
 
             PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
@@ -19,7 +22,7 @@ class CandidatoDAO {
 
             while (resultado.next()) {
 
-                com.acelerazg.backend.app.model.user.Candidato candidato = new com.acelerazg.backend.app.model.user.Candidato()
+                Candidato candidato = new Candidato()
                 candidato.setId(resultado.getInt("id"))
                 candidato.setNome(resultado.getString("nome"))
                 candidato.setSobrenome(resultado.getString("sobrenome"))
@@ -45,7 +48,7 @@ class CandidatoDAO {
         return listaDeCandidatos
     }
 
-    List<String> listarCompetenciasCandidato(com.acelerazg.backend.app.model.user.Candidato candidato) {
+    List<String> listarCompetenciasCandidato(Candidato candidato) {
 
         List<String> competenciasCandidato = new ArrayList<>()
         String sqlCompetenciasCandidato = "SELECT competencias.competencia " +
@@ -70,7 +73,7 @@ class CandidatoDAO {
         return competenciasCandidato
     }
 
-    boolean inserir(com.acelerazg.backend.app.model.user.Candidato candidato) {
+    boolean inserir(Candidato candidato) {
 
         String sql = "INSERT INTO candidatos(nome, sobrenome, cpf, dt_nascimento, email, descricao, senha, pais_id, cep, estado_id)" +
                 "VALUES (?,?,?,?,?,?,?,?,?,?)"
@@ -119,7 +122,7 @@ class CandidatoDAO {
         }
     }
 
-    boolean alterar(com.acelerazg.backend.app.model.user.Candidato candidato) {
+    boolean alterar(Candidato candidato) {
 
         String sql = "UPDATE candidatos SET nome=?, sobrenome=?, cpf=?, dt_nascimento=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=? " +
                 "WHERE id=?"

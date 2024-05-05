@@ -1,13 +1,15 @@
 package com.acelerazg.backend.app.model.DAO
 
 import com.acelerazg.backend.app.model.business.Vaga
+import com.acelerazg.backend.app.model.conn.ConnectionDBFactory
+import com.acelerazg.backend.app.model.conn.IConnectionDB
 
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
 class VagaDAO {
 
-    private com.acelerazg.backend.app.model.conn.IConnectionDB connectionDB = com.acelerazg.backend.app.model.conn.ConnectionDBFactory.getConnection("postgres")
+    private IConnectionDB connectionDB = ConnectionDBFactory.getConnection("postgres")
 
     List<Vaga> listar() {
         String sql = "SELECT * FROM vagas ORDER BY id"

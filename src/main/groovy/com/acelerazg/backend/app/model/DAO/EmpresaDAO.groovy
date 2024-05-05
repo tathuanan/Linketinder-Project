@@ -1,21 +1,24 @@
 package com.acelerazg.backend.app.model.DAO
 
+import com.acelerazg.backend.app.model.conn.ConnectionDBFactory
+import com.acelerazg.backend.app.model.conn.IConnectionDB
+import com.acelerazg.backend.app.model.user.Empresa
 
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
 class EmpresaDAO {
 
-    private com.acelerazg.backend.app.model.conn.IConnectionDB connectionDB = com.acelerazg.backend.app.model.conn.ConnectionDBFactory.getConnection("postgres")
+    private IConnectionDB connectionDB = ConnectionDBFactory.getConnection("postgres")
 
-    List<com.acelerazg.backend.app.model.user.Empresa> listar(){
+    List<Empresa> listar(){
         String sql = "SELECT * FROM empresas ORDER BY id"
-        List<com.acelerazg.backend.app.model.user.Empresa> retorno = new ArrayList<>()
+        List<Empresa> retorno = new ArrayList<>()
         try {
             PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
             ResultSet resultado = stmt.executeQuery()
             while(resultado.next()){
-                com.acelerazg.backend.app.model.user.Empresa empresa = new com.acelerazg.backend.app.model.user.Empresa()
+                Empresa empresa = new Empresa()
                 empresa.setId(resultado.getInt("id"))
                 empresa.setNome(resultado.getString("nome"))
                 empresa.setCnpj(resultado.getString("cnpj"))
@@ -35,7 +38,7 @@ class EmpresaDAO {
         return retorno
     }
 
-    boolean inserir(com.acelerazg.backend.app.model.user.Empresa empresa){
+    boolean inserir(Empresa empresa){
         String sql = "INSERT INTO empresas(nome, cnpj, email, descricao, senha, pais_id, cep, estado_id)" +
                 "VALUES (?,?,?,?,?,?,?,?)"
         try {
@@ -58,7 +61,7 @@ class EmpresaDAO {
         }
     }
 
-    boolean alterar(com.acelerazg.backend.app.model.user.Empresa empresa){
+    boolean alterar(Empresa empresa){
         String sql = "UPDATE empresas SET nome=?, cnpj=?, email=?, descricao=?, senha=?, pais_id=?, cep=?, estado_id=? "+
                 "WHERE id=?"
         try {
