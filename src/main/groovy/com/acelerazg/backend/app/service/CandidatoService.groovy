@@ -2,6 +2,7 @@ package com.acelerazg.backend.app.service
 
 
 import com.acelerazg.backend.app.model.DAO.CandidatoDAO
+import com.acelerazg.backend.app.model.user.Candidato
 
 class CandidatoService {
 
@@ -15,13 +16,13 @@ class CandidatoService {
         }
     }
 
-    List<com.acelerazg.backend.app.model.user.Candidato> candidatosCadastrados (){
+    List<Candidato> candidatosCadastrados (){
 
-        List<com.acelerazg.backend.app.model.user.Candidato> listaCandidatos = this.candidatoDAO.listar()
+        List<Candidato> listaCandidatos = this.candidatoDAO.listar()
         return listaCandidatos
     }
 
-    boolean cadastrarCandidato(com.acelerazg.backend.app.model.user.Candidato candidato) {
+    boolean cadastrarCandidato(Candidato candidato) {
 
         this.retornoDB = this.candidatoDAO.inserir(candidato)
         return this.retornoDB
@@ -33,7 +34,7 @@ class CandidatoService {
         return this.retornoDB
     }
 
-    boolean alterarCandidato(com.acelerazg.backend.app.model.user.Candidato candidato) {
+    boolean alterarCandidato(Candidato candidato) {
 
         this.retornoDB = this.candidatoDAO.alterar(candidato)
         return this.retornoDB
