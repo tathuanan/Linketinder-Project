@@ -125,4 +125,23 @@ class VagaDAO {
         }
     }
 
+    Integer obterVagaId(){
+
+        String sql = "SELECT id FROM vagas ORDER BY id DESC LIMIT 1"
+        try {
+
+            PreparedStatement stmt = this.connectionDB.connection().prepareStatement(sql)
+            ResultSet resultado = stmt.executeQuery()
+            if (resultado.next()) {
+                return resultado.getInt("id")
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace()
+            return null
+        } finally {
+            this.connectionDB.connection().close()
+        }
+    }
+
 }
