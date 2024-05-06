@@ -5,9 +5,9 @@ import java.sql.DriverManager
 
 class ConnectionDBPostgres implements IConnectionDB {
 
-    private static final String URL_SERVIDOR = "jdbc:postgresql://localhost:5432/linketinder"
-    private static final String USER = "acelerazg"
-    private static final String PASSWORD = "acelerazg@"
+    private String URL_SERVIDOR = "jdbc:postgresql://localhost:5432/linketinder"
+    private String USER = "acelerazg"
+    private String PASSWORD = "acelerazg@"
     private Connection connection
 
     private static ConnectionDBPostgres connectionDBPostgre = new ConnectionDBPostgres()
@@ -27,6 +27,7 @@ class ConnectionDBPostgres implements IConnectionDB {
             props.setProperty("user", USER)
             props.setProperty("password", PASSWORD)
             props.setProperty("ssl", "false")
+            Class.forName("org.postgresql.Driver")
             return this.connection = DriverManager.getConnection(URL_SERVIDOR, props)
         } catch (Exception e){
             e.printStackTrace()
