@@ -67,4 +67,22 @@ SGDB escolhido para rodar a aplicação:
 
 * PostgreSQL
 
+### API:
+
+Baixe o arquivo da documentação [aqui](https://github.com/tathuanan/Linketinder-Project/blob/main/src/main/webapp/Documenta%C3%A7%C3%A3o%20Endpoints.odt)
+
+Tecnologia utilizada:
+
+* Javax Servlet
+
+Como rodar a API:
+
+Seu computador deverá ter o seguinte ambiente:
+
+* Tomcat
+
+Caso necessário, deverá ser concedido a permissão para qualquer usuário executar os arquivos .sh da pasta bin to Tomcat
+
+
+
 Por [Murillo Santos](https://br.linkedin.com/in/murillo-santos-6a179a1b8)
